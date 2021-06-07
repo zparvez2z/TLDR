@@ -25,3 +25,27 @@ Strong software skills | Strong analytical skills
 <p> A data pipeline is the series of steps required to make data from one system useful in another. The steps might include ingesting, transforming, processing, publishing or moving data. </p>
 
 ![data_pipelines](images/data_pipelines.png)
+
+Things that must be considered:
+**Automate:**
+* Extracting
+* Transforming
+* Combining
+* Validating
+* Loading
+
+**Reduce**
+* Human intervention
+* Errors
+* The time it takes to flow
+
+**ELT**
+* Extract
+* Transform
+* Load
+
+**some points about piplines:**
+* Move data from one system to another
+* May or may not follow ETL
+* Data may not be transformed
+* May be directly loaded
