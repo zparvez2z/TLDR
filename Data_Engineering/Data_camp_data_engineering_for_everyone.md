@@ -70,7 +70,7 @@ Big Data, real time analytics | Ad-hoc, read-only queries
 * Source of data
 * where data is being/has been used
 * Owner of the data
-* Frequecny of data update
+* Frequency of data update
 * data governance
 * Ensure reproducibility
 * No catalog -> data swamp
