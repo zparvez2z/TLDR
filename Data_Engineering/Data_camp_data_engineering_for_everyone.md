@@ -12,3 +12,11 @@
 * Velocity (how fast the data is generated and processed)
 * Veracity (how trustworthy the sources are)
 * Value (how actionable the data is)
+
+**Data Engineer VS Data Scientist:**
+Data Engineer | Data Scientist
+------------ | -------------
+Ingest and Store Data | Exploit Data
+Setup databases | Access databases
+Build data pipelines | Use pipelines outputs
+Strong software skills | Strong analytical skills
