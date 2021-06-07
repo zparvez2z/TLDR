@@ -44,8 +44,26 @@ Things that must be considered:
 * Transform
 * Load
 
-**some points about piplines:**
+**some points about pipelines:**
 * Move data from one system to another
 * May or may not follow ETL
 * Data may not be transformed
 * May be directly loaded
+
+**Data Structure**
+* Structured ( Relational DB)
+* Semi-Structured(json, xml, yaml)
+* Unstructured (usually Data Lakes)
+
+**Data Lakes VS Data WareHouse**
+Data Lakes | Data WareHouse
+------------ | -------------
+Store all raw data | Specific data for specific use
+Unstructured | Structured
+Cost effective | More costly to update
+Difficult to analyze | Optimized for data analysis
+Requires up-to-date data catalog | - 
+Mainly analyzed by Data Scientists | also by Data Analyst and Business Analyst
+Big Data, real time analytics | Ad-hoc, read-only queries
+
+
