@@ -1,6 +1,6 @@
-### Data Engineering and Big data
+### Data Engineering and Big Data
 
-**Data Engineers deliver:**
+**Data Engineers Deliver:**
 * The correct data
 * In the right form
 * To the right people
