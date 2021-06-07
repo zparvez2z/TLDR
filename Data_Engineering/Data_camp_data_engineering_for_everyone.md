@@ -66,4 +66,37 @@ Requires up-to-date data catalog | -
 Mainly analyzed by Data Scientists | also by Data Analyst and Business Analyst
 Big Data, real time analytics | Ad-hoc, read-only queries
 
+**Data Catalog for Data Lakes**
+* Source of data
+* where data is being/has been used
+* Owner of the data
+* Frequecny of data update
+* data governance
+* Ensure reproducibility
+* No catalog -> data swamp
 
+**Data Processing**
+<p> Converting data into useful information </p>
+
+**Value of Data Processing:**
+* Remove unwanted data
+* To save memory
+* Convert data to another type
+* Organize data
+* To fit into schema / Structure
+* Increase productivity
+
+**Scheduling data**
+* Manual Scheduling
+* time Scheduling
+* Sensor Scheduling
+
+**Batch and Stream data**
+* Batches
+    * Group records at intervals
+    * often cheaper
+
+* Stream
+    * Send individual record
+
+**Parallel Processing**
