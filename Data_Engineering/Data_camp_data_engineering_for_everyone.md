@@ -20,3 +20,8 @@ Ingest and Store Data | Exploit Data
 Setup databases | Access databases
 Build data pipelines | Use pipelines outputs
 Strong software skills | Strong analytical skills
+
+**Data Pipelines:**
+<p> A data pipeline is the series of steps required to make data from one system useful in another. The steps might include ingesting, transforming, processing, publishing or moving data. </p>
+
+![data_pipelines](images/data_pipelines.png)
