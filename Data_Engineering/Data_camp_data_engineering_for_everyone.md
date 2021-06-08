@@ -86,7 +86,7 @@ Big Data, real time analytics | Ad-hoc, read-only queries
 * To fit into schema / Structure
 * Increase productivity
 
-**Scheduling data**
+**Scheduling data:**
 * Manual Scheduling
 * time Scheduling
 * Sensor Scheduling
@@ -99,4 +99,15 @@ Big Data, real time analytics | Ad-hoc, read-only queries
 * Stream
     * Send individual record
 
-**Parallel Processing**
+**Parallel Processing:**
+<p>Parallel processing can be described as a class of techniques which enables the system to achieve simultaneous data-processing tasks to increase the computational speed of a computer system.</p>
+
+* Benefit
+    * Processing power (distributing task)
+    * Memory (partitioning data)
+* Risk
+    * Communication overhead
+    * Task need to be large
+    * need several processing unit
+
+[My certificate of accomplishment](certificates/certificate_Data_Engineering_for_Everyone.pdf)
