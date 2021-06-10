@@ -31,4 +31,22 @@
  * Apache AirFlow
  * Term: DAG( Directed acyclic graph)
 
- 
+ **Extract**
+
+ Extract from:
+* Unstructured data(eg: plain text(pragraph), flat files(tsv,csv))
+* Semi-Structured(eg: json)
+* Structured( databases)
+
+**Databases**
+Application Database | Analytical Databases
+---------------------|---------------------
+OLTP                 | OLAP
+Row oriented         | Column oriented
+
+*Excercises*
+* Fetch from API
+* Read from DB(Postgres)
+
+**Transform**
+
