@@ -1,23 +1,34 @@
 ### Introduction to Data Engineering
 
-**Tools or the Data Egineer**
+**Tools or the Data Engineer**
 * Database(eg: MySql, Postgres)
-* Proessing(eg: Spark, Hive)
+* Processing(eg: Spark, Hive)
 * Scheduling(eg: Airflow, cron)
 
 **Parallel Computation Framework**
-Old framework
+*Old framework*
 * Apache Hadoop
     * HDFS
     * Map reduce
 * Hive(Sits on top of hadoop)
     * HiveSQL
 
-new framework
+*new framework*
 * Apache Spark
     * In memory processing
     * RDD
 **Resilient distributed dataset**
     * Don't have named column
-    * Tranformation (eg: .map() or .filter() )
+    * Transformation (eg: .map() or .filter() )
     * Action( eg: .count() or .first() )
+
+**PySpqrk**
+* Python interface to spark
+* Dataframe abstraction
+* Very similar to pandas
+
+**Workflow Scheduling FrameWork**
+ * Apache AirFlow
+ * Term: DAG( Directed acyclic graph)
+
+ 
