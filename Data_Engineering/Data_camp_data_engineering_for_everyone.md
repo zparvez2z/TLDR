@@ -1,4 +1,4 @@
-### Data Engineering and Big Data
+### Data Engineering for everyone
 
 **Data Engineers Deliver:**
 * The correct data
