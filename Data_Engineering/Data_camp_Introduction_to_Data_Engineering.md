@@ -50,3 +50,35 @@ Row oriented         | Column oriented
 
 **Transform**
 
+*Excercises*
+* Splitting the rental rate
+* Prepare for transformation
+* Joining with rating
+
+**Load**
+
+Column VS row oriented DB
+
+Column(Analytics) | Row(Application)
+------------------| ----------------
+Store per column  | Stored per second
+Parallization     | Added per transaction
+
+*term: MPP DB (Massively Parallel Processing)*
+
+Example:
+* Amazon Redshift
+* Azure SQL Data Warehouse
+* Google bigQuery
+
+*Redshift example:*
+* write files to s3 -> Send copy query to Redshift
+* csv -> paraquet
+* Load to postgres (code example)
+
+*Excercise*
+* OLAP or OLTP
+* write to file
+* Load into postgres
+
+*Encapsulate everything into functions*
