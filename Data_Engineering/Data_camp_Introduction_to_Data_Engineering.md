@@ -82,3 +82,16 @@ Example:
 * Load into postgres
 
 *Encapsulate everything into functions*
+
+**Putting is all together**
+*The ELT funtion*
+* extract_table_to_df()
+* split_columns_transform()
+* load_df_into_db()
+
+**Airflow**
+
+*excercise*
+* defining a DAG
+* setting up Airflow
+* interpreting the DAG
