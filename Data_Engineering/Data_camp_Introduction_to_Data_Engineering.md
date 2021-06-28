@@ -95,3 +95,9 @@ Example:
 * defining a DAG
 * setting up Airflow
 * interpreting the DAG
+
+**Case Study - Data camp course recommendation**
+
+*Recommendation Technique*
+* Matrix factorization
+* Common sense transformation
