@@ -6,21 +6,23 @@
 * Scheduling(eg: Airflow, cron)
 
 **Parallel Computation Framework**
-*Old framework*
-* Apache Hadoop
-    * HDFS
-    * Map reduce
-* Hive(Sits on top of hadoop)
-    * HiveSQL
 
-*new framework*
-* Apache Spark
-    * In memory processing
-    * RDD
+* *Old framework*
+    * Apache Hadoop
+        * HDFS
+        * Map reduce
+    * Hive(Sits on top of hadoop)
+        * HiveSQL
+
+* *new framework*
+    * Apache Spark
+        * In memory processing
+        * RDD
+
 **Resilient distributed dataset**
-    * Don't have named column
-    * Transformation (eg: .map() or .filter() )
-    * Action( eg: .count() or .first() )
+* Don't have named column
+* Transformation (eg: .map() or .filter() )
+* Action( eg: .count() or .first() )
 
 **PySpqrk**
 * Python interface to spark
@@ -84,10 +86,11 @@ Example:
 *Encapsulate everything into functions*
 
 **Putting is all together**
-*The ELT funtion*
-* extract_table_to_df()
-* split_columns_transform()
-* load_df_into_db()
+
+* *The ELT funtion*
+    * extract_table_to_df()
+    * split_columns_transform()
+    * load_df_into_db()
 
 **Airflow**
 
