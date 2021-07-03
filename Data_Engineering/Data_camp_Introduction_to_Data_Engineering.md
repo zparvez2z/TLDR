@@ -24,7 +24,7 @@
 * Transformation (eg: .map() or .filter() )
 * Action( eg: .count() or .first() )
 
-**PySpqrk**
+**PySpark**
 * Python interface to spark
 * Dataframe abstraction
 * Very similar to pandas
@@ -36,7 +36,7 @@
  **Extract**
 
  Extract from:
-* Unstructured data(eg: plain text(pragraph), flat files(tsv,csv))
+* Unstructured data(eg: plain text(paragraph), flat files(tsv,csv))
 * Semi-Structured(eg: json)
 * Structured( databases)
 
@@ -46,13 +46,13 @@ Application Database | Analytical Databases
 OLTP                 | OLAP
 Row oriented         | Column oriented
 
-*Excercises*
+*Exercises*
 * Fetch from API
 * Read from DB(Postgres)
 
 **Transform**
 
-*Excercises*
+*Exercises*
 * Splitting the rental rate
 * Prepare for transformation
 * Joining with rating
@@ -64,7 +64,7 @@ Column VS row oriented DB
 Column(Analytics) | Row(Application)
 ------------------| ----------------
 Store per column  | Stored per second
-Parallization     | Added per transaction
+Parallelization     | Added per transaction
 
 *term: MPP DB (Massively Parallel Processing)*
 
@@ -78,7 +78,7 @@ Example:
 * csv -> paraquet
 * Load to postgres (code example)
 
-*Excercise*
+*Exercise*
 * OLAP or OLTP
 * write to file
 * Load into postgres
@@ -87,14 +87,14 @@ Example:
 
 **Putting is all together**
 
-* *The ELT funtion*
+* *The ELT function*
     * extract_table_to_df()
     * split_columns_transform()
     * load_df_into_db()
 
 **Airflow**
 
-*excercise*
+*exercise*
 * defining a DAG
 * setting up Airflow
 * interpreting the DAG
@@ -105,13 +105,12 @@ Example:
     * Matrix factorization
     * Common sense transformation
 
-* *Recommendation Stratagy*
-    * Use technology that user hase rated most
+* *Recommendation Strategy*
+    * Use technology that user has rated most
     * Don't recommend what's already rated
-    * Recommend the highest rated comes from the remaining.
+    * Recommend the highest rated courses from the remaining.
 
-* *Excercise*
+* *Exercise*
     * filter corrupt data
     * using the recommendation transformation
-
 
