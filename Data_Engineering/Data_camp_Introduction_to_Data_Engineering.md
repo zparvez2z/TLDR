@@ -114,3 +114,10 @@ Example:
     * filter corrupt data
     * using the recommendation transformation
 
+**Scheduling Daily Job**
+
+* *Exercise*
+    * The target table
+    * Defining the DAG
+    * Enable the DAG
+    * Query recommendation
