@@ -101,6 +101,17 @@ Example:
 
 **Case Study - Data camp course recommendation**
 
-*Recommendation Technique*
-* Matrix factorization
-* Common sense transformation
+* *Recommendation Technique*
+    * Matrix factorization
+    * Common sense transformation
+
+* *Recommendation Stratagy*
+    * Use technology that user hase rated most
+    * Don't recommend what's already rated
+    * Recommend the highest rated comes from the remaining.
+
+* *Excercise*
+    * filter corrupt data
+    * using the recommendation transformation
+
+
