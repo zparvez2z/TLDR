@@ -1,0 +1,29 @@
+name: Summarize and Categorize Knowledge Links
+
+on:
+  push:
+    paths:
+      - 'input/links-to-summarize.md'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      - name: Install dependencies
+        run: pip install google-generativeai
+      - name: Run processing script
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: python scripts/process_links.py
+      - name: Commit and push changes
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add knowledge/ input/links-to-summarize.md README.md || true
+          git diff --staged --quiet || (git commit -m "docs: Auto-generate knowledge base" && git push)

@@ -1,0 +1,3 @@
+# Ignore prompts and docs directories
+.github/prompts/
+docs/
