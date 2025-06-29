@@ -17,11 +17,9 @@ class SummaryOutput(BaseModel):
 
 def call_gemini_api(prompt, api_key):
     genai.configure(api_key=api_key)
-    model = genai.GenerativeModel('gemini-2.5-flash')
+    model = genai.GenerativeModel('gemini-2.5-pro')  # Using gemini-2.5-pro for more reliable structured output
     response = model.generate_content(
         prompt,
-        response_schema=SummaryOutput,
-        response_mime_type="application/json",
         safety_settings=[
             {
                 "category": "HARM_CATEGORY_HARASSMENT",
@@ -34,20 +32,65 @@ def call_gemini_api(prompt, api_key):
             "top_k": 40
         }
     )
-    return response.parsed
+    
+    # Parse the response text as JSON with better error handling
+    try:
+        json_str = response.text.strip()
+        # Handle various JSON formatting cases
+        if '```json' in json_str:
+            # Extract JSON from code block
+            start = json_str.find('```json') + 7
+            end = json_str.find('```', start)
+            if end == -1:  # No closing code block found
+                json_str = json_str[start:]
+            else:
+                json_str = json_str[start:end]
+        elif '{' in json_str:
+            # Extract JSON between first { and last }
+            start = json_str.find('{')
+            end = json_str.rfind('}') + 1
+            json_str = json_str[start:end]
+            
+        json_str = json_str.strip()
+        if not json_str:
+            raise ValueError("Empty JSON string")
+            
+        data = json.loads(json_str)
+        
+        # Ensure all required fields are present with defaults
+        data.setdefault('author', 'Unknown')
+        if not data.get('date'):
+            data['date'] = datetime.now().strftime('%Y-%m-%d')
+            
+        # Convert category to kebab-case for consistency
+        if 'category' in data:
+            data['category'] = data['category'].replace(' ', '-')
+            
+        # Ensure filename ends with .md and is in kebab-case
+        if 'filename' in data and not data['filename'].endswith('.md'):
+            data['filename'] = data['filename'].strip().replace(' ', '-').lower()
+            if not data['filename'].endswith('.md'):
+                data['filename'] += '.md'
+                
+        return SummaryOutput(**data)
+    except Exception as e:
+        print(f"Error parsing JSON response: {e}")
+        print(f"Raw response: {response.text}")
+        return None
 
 def build_prompt(url):
     return f'''
-You are an expert summarizer and classifier. Visit and analyze this webpage: {url}
+Analyze the webpage at {url} and return a JSON object with these fields:
+{{
+    "title": "a clear, concise title for the content",
+    "summary": "a 3-5 sentence summary of the key points",
+    "category": "a single category like Software-Engineering, Machine-Learning, Data-Science, etc.",
+    "filename": "a descriptive kebab-case filename ending in .md (e.g. understanding-async-python.md)",
+    "author": "the author's name if found, otherwise Unknown",
+    "date": "the publication date in YYYY-MM-DD format if found, otherwise leave blank"
+}}
 
-Return a JSON object with these fields:
-- title: a concise title for the content.
-- summary: a 3-5 sentence summary.
-- category: a single, appropriate category for the content (e.g., "Software-Engineering", "Machine-Learning").
-- filename: a descriptive, kebab-case filename ending in .md (e.g., "understanding-async-python.md").
-- author: the author, if found, otherwise "Unknown".
-- date: the publication date, if found, otherwise use the current date.
-
+Format your response as valid JSON that can be parsed. Do not include any other text or markdown formatting.
 URL: {url}
 '''
 
