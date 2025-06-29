@@ -2,21 +2,37 @@ import os
 import pathlib
 import json
 import google.generativeai as genai
-from google.generativeai.types import Tool
 
 def call_gemini_api(prompt, api_key):
     genai.configure(api_key=api_key)
-    model = genai.GenerativeModel('gemini-pro')
-    url_context_tool = Tool(url_context={}) # Enable URL context tool
+    # List available models to debug
+    print("Available models:", genai.list_models())
+    
+    # Use gemini-2.5-pro as specified in the documentation
+    model = genai.GenerativeModel('gemini-2.5-pro')
+    
+    # Configure the model
     response = model.generate_content(
         prompt,
-        tools=[url_context_tool]
+        safety_settings=[
+            {
+                "category": "HARM_CATEGORY_HARASSMENT",
+                "threshold": "BLOCK_MEDIUM_AND_ABOVE"
+            }
+        ],
+        generation_config={
+            "temperature": 0.3,  # Lower temperature for more focused outputs
+            "top_p": 0.8,
+            "top_k": 40
+        }
     )
     return response.text
 
 def build_prompt(url):
     return f'''
-You are an expert summarizer and classifier. Analyze the content at the URL {url} and return a clean JSON object with these fields:
+You are an expert summarizer and classifier. Visit and analyze this webpage: {url}
+
+Return a clean, parseable JSON object with these fields:
 - "title": a concise title for the content.
 - "summary": a 3-5 sentence summary.
 - "category": a single, appropriate category for the content (e.g., "Software-Engineering", "Machine-Learning").
@@ -51,8 +67,13 @@ def process_links():
     for url in urls:
         print(f"Processing {url}...")
         prompt = build_prompt(url)
+        result_text = None
         try:
             result_text = call_gemini_api(prompt, api_key)
+            if not result_text:
+                print(f"Error: Empty response from API for {url}")
+                continue
+                
             # Clean the result to be valid JSON
             clean_json_str = result_text.strip().replace('```json', '').replace('```', '')
             data = json.loads(clean_json_str)
