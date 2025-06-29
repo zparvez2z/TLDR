@@ -3,16 +3,16 @@
 ## Knowledge Graph
 ```mermaid
 graph TD
-    Data-Engineering(( Data-Engineering ))
-    Data-Engineering --> wrenai_the_semantic_layer_for_data
     Machine-Learning(( Machine-Learning ))
     Machine-Learning --> neural_architecture_search
+    Software-Engineering(( Software-Engineering ))
+    Software-Engineering --> system_design_primer
 ```
 
 ## All Knowledge
-### Data-Engineering
-- [Wrenai The Semantic Layer For Data](knowledge/Data-Engineering/wrenai-the-semantic-layer-for-data.md)
-
 ### Machine-Learning
 - [Neural Architecture Search](knowledge/Machine-Learning/neural-architecture-search.md)
+
+### Software-Engineering
+- [System Design Primer](knowledge/Software-Engineering/system-design-primer.md)
 
