@@ -2,18 +2,26 @@ import os
 import pathlib
 import json
 import google.generativeai as genai
+from pydantic import BaseModel
+from typing import Optional
+from datetime import datetime
+
+class SummaryOutput(BaseModel):
+    title: str
+    summary: str
+    category: str
+    filename: str
+    author: Optional[str] = "Unknown"
+    date: Optional[str] = None
+
 
 def call_gemini_api(prompt, api_key):
     genai.configure(api_key=api_key)
-    # List available models to debug
-    print("Available models:", genai.list_models())
-    
-    # Use gemini-2.5-pro as specified in the documentation
-    model = genai.GenerativeModel('gemini-2.5-pro')
-    
-    # Configure the model
+    model = genai.GenerativeModel('gemini-2.5-flash')
     response = model.generate_content(
         prompt,
+        response_schema=SummaryOutput,
+        response_mime_type="application/json",
         safety_settings=[
             {
                 "category": "HARM_CATEGORY_HARASSMENT",
@@ -21,34 +29,36 @@ def call_gemini_api(prompt, api_key):
             }
         ],
         generation_config={
-            "temperature": 0.3,  # Lower temperature for more focused outputs
+            "temperature": 0.3,
             "top_p": 0.8,
             "top_k": 40
         }
     )
-    return response.text
+    return response.parsed
 
 def build_prompt(url):
     return f'''
 You are an expert summarizer and classifier. Visit and analyze this webpage: {url}
 
-Return a clean, parseable JSON object with these fields:
-- "title": a concise title for the content.
-- "summary": a 3-5 sentence summary.
-- "category": a single, appropriate category for the content (e.g., "Software-Engineering", "Machine-Learning").
-- "filename": a descriptive, kebab-case filename ending in .md (e.g., "understanding-async-python.md").
-- "author": the author, if found, otherwise "Unknown".
-- "date": the publication date, if found, otherwise "Unknown".
+Return a JSON object with these fields:
+- title: a concise title for the content.
+- summary: a 3-5 sentence summary.
+- category: a single, appropriate category for the content (e.g., "Software-Engineering", "Machine-Learning").
+- filename: a descriptive, kebab-case filename ending in .md (e.g., "understanding-async-python.md").
+- author: the author, if found, otherwise "Unknown".
+- date: the publication date, if found, otherwise use the current date.
 
 URL: {url}
 '''
 
 def save_markdown(data, category_dir, url):
     category_dir.mkdir(parents=True, exist_ok=True)
-    filename = data.get('filename', 'default-filename.md')
+    filename = data.filename if hasattr(data, 'filename') else data.get('filename', 'default-filename.md')
+    # Use current date if date is None or empty
+    date_val = getattr(data, 'date', None) or datetime.now().strftime('%Y-%m-%d')
     md_path = category_dir / filename
     with open(md_path, 'w') as f:
-        f.write(f"---\nsource_url: {url}\nauthor: {data.get('author','Unknown')}\ndate: {data.get('date','Unknown')}\n---\n\n# {data.get('title','No Title')}\n\n{data.get('summary','No summary available.')}")
+        f.write(f"---\nsource_url: {url}\nauthor: {getattr(data, 'author', 'Unknown')}\ndate: {date_val}\n---\n\n# {getattr(data, 'title', 'No Title')}\n\n{getattr(data, 'summary', 'No summary available.')}")
 
 def process_links():
     api_key = os.environ.get('GEMINI_API_KEY')
@@ -67,23 +77,19 @@ def process_links():
     for url in urls:
         print(f"Processing {url}...")
         prompt = build_prompt(url)
-        result_text = None
+        result = None
         try:
-            result_text = call_gemini_api(prompt, api_key)
-            if not result_text:
+            result = call_gemini_api(prompt, api_key)
+            if not result:
                 print(f"Error: Empty response from API for {url}")
                 continue
-                
-            # Clean the result to be valid JSON
-            clean_json_str = result_text.strip().replace('```json', '').replace('```', '')
-            data = json.loads(clean_json_str)
-            category = data.get('category', 'Uncategorized')
+            category = getattr(result, 'category', 'Uncategorized')
             category_dir = pathlib.Path('knowledge') / category
-            save_markdown(data, category_dir, url)
+            save_markdown(result, category_dir, url)
             print(f"Successfully processed and saved {url}")
         except Exception as e:
             print(f"Error processing {url}: {e}")
-            print(f"Received from API: {result_text}")
+            print(f"Received from API: {result}")
 
     # Clear input file after processing all URLs
     open(input_path, 'w').close()
