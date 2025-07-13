@@ -10,7 +10,9 @@ graph TD
     Machine-Learning --> neural_architecture_search
     Machine-Learning --> unreasonable_effectiveness_of_llms_in_historical_text_annotation
     Information-Science(( Information-Science ))
+    Information-Science --> rdf_1_1_concepts_and_abstract_syntax
     Information-Science --> ontology_in_information_science
+    Information-Science --> what_is_an_ontology
 ```
 
 ## All Knowledge
@@ -23,5 +25,7 @@ graph TD
 - [Unreasonable Effectiveness Of Llms In Historical Text Annotation](knowledge/Machine-Learning/unreasonable-effectiveness-of-llms-in-historical-text-annotation.md)
 
 ### Information-Science
+- [Rdf 1 1 Concepts And Abstract Syntax](knowledge/Information-Science/rdf-1-1-concepts-and-abstract-syntax.md)
 - [Ontology In Information Science](knowledge/Information-Science/ontology-in-information-science.md)
+- [What Is An Ontology](knowledge/Information-Science/what-is-an-ontology.md)
 
