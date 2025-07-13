@@ -13,6 +13,7 @@ graph TD
     Information-Science --> rdf_1_1_concepts_and_abstract_syntax
     Information-Science --> ontology_in_information_science
     Information-Science --> what_is_an_ontology
+    Information-Science --> what_is_rdf
 ```
 
 ## All Knowledge
@@ -28,4 +29,5 @@ graph TD
 - [Rdf 1 1 Concepts And Abstract Syntax](knowledge/Information-Science/rdf-1-1-concepts-and-abstract-syntax.md)
 - [Ontology In Information Science](knowledge/Information-Science/ontology-in-information-science.md)
 - [What Is An Ontology](knowledge/Information-Science/what-is-an-ontology.md)
+- [What Is Rdf](knowledge/Information-Science/what-is-rdf.md)
 
