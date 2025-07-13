@@ -60,7 +60,7 @@ def call_gemini_api(prompt, api_key):
         # Ensure all required fields are present with defaults
         data.setdefault('author', 'Unknown')
         if not data.get('date'):
-            data['date'] = datetime.now().strftime('%Y-%m-%d')
+            data['date'] = datetime.now().strftime('%d-%m-%Y')
             
         # Convert category to kebab-case for consistency
         if 'category' in data:
@@ -78,19 +78,29 @@ def call_gemini_api(prompt, api_key):
         print(f"Raw response: {response.text}")
         return None
 
-def build_prompt(url):
+def build_prompt(url, existing_categories=None):
+    if existing_categories is None:
+        existing_categories = []
+
+    category_prompt = "a single category that best fits the content (e.g., Software-Engineering, Machine-Learning, etc.)."
+    if existing_categories:
+        category_prompt = f"a single category from this list if a good fit exists, otherwise create a new relevant one: {', '.join(existing_categories)}"
+
     return f'''
-Analyze the webpage at {url} and return a JSON object with these fields:
+You are an intelligent assistant that analyzes web content and returns structured data.
+Analyze the webpage at the given URL and return ONLY a single, valid JSON object with the following fields:
+
 {{
-    "title": "a clear, concise title for the content",
-    "summary": "a 3-5 sentence summary of the key points",
-    "category": "a single category like Software-Engineering, Machine-Learning, Data-Science, etc.",
-    "filename": "a descriptive kebab-case filename ending in .md (e.g. understanding-async-python.md)",
-    "author": "the author's name if found, otherwise Unknown",
-    "date": "the publication date in YYYY-MM-DD format if found, otherwise leave blank"
+    "title": "A clear, concise title for the content.",
+    "summary": "A concise summary (3-5 sentences) followed by a bulleted list of the most important key points and takeaways.",
+    "category": "{category_prompt}",
+    "filename": "A descriptive kebab-case filename ending in .md (e.g., understanding-async-python.md).",
+    "author": "The author's name if found, otherwise 'Unknown'.",
+    "date": "The publication date in DD-MM-YYYY format if found, otherwise leave blank."
 }}
 
-Format your response as valid JSON that can be parsed. Do not include any other text or markdown formatting.
+Do not include any explanatory text, markdown formatting like ```json, or anything outside of the JSON object itself.
+
 URL: {url}
 '''
 
@@ -98,7 +108,7 @@ def save_markdown(data, category_dir, url):
     category_dir.mkdir(parents=True, exist_ok=True)
     filename = data.filename if hasattr(data, 'filename') else data.get('filename', 'default-filename.md')
     # Use current date if date is None or empty
-    date_val = getattr(data, 'date', None) or datetime.now().strftime('%Y-%m-%d')
+    date_val = getattr(data, 'date', None) or datetime.now().strftime('%d-%m-%Y')
     md_path = category_dir / filename
     with open(md_path, 'w') as f:
         f.write(f"---\nsource_url: {url}\nauthor: {getattr(data, 'author', 'Unknown')}\ndate: {date_val}\n---\n\n# {getattr(data, 'title', 'No Title')}\n\n{getattr(data, 'summary', 'No summary available.')}")
@@ -112,6 +122,11 @@ def process_links():
     if not input_path.exists():
         print("Input file not found at input/links-to-summarize.md")
         return
+
+    # Get existing categories to guide the model
+    knowledge_dir = pathlib.Path('knowledge')
+    existing_categories = [d.name for d in knowledge_dir.iterdir() if d.is_dir()] if knowledge_dir.exists() else []
+
     with open(input_path) as f:
         urls = [line.strip() for line in f if line.strip() and line.startswith('http')]
     if not urls:
@@ -119,7 +134,7 @@ def process_links():
         return
     for url in urls:
         print(f"Processing {url}...")
-        prompt = build_prompt(url)
+        prompt = build_prompt(url, existing_categories)
         result = None
         try:
             result = call_gemini_api(prompt, api_key)
