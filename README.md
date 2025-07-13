@@ -9,6 +9,8 @@ graph TD
     Machine-Learning(( Machine-Learning ))
     Machine-Learning --> neural_architecture_search
     Machine-Learning --> unreasonable_effectiveness_of_llms_in_historical_text_annotation
+    Information-Science(( Information-Science ))
+    Information-Science --> ontology_in_information_science
 ```
 
 ## All Knowledge
@@ -19,4 +21,7 @@ graph TD
 ### Machine-Learning
 - [Neural Architecture Search](knowledge/Machine-Learning/neural-architecture-search.md)
 - [Unreasonable Effectiveness Of Llms In Historical Text Annotation](knowledge/Machine-Learning/unreasonable-effectiveness-of-llms-in-historical-text-annotation.md)
+
+### Information-Science
+- [Ontology In Information Science](knowledge/Information-Science/ontology-in-information-science.md)
 
