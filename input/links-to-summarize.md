@@ -1,0 +1,1 @@
+https://www.ontotext.com/knowledgehub/fundamentals/what-is-rdf/
