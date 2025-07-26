@@ -1,8 +1,6 @@
-# TLDR
+# TLDR Knowledge Base
 
-Sharing back what I'm learning with the community — curated insights, practical knowledge, and key resources from my ongoing journey in tech, data, and beyond.
-
-## Overview
+## Knowledge Graph
 ```mermaid
 graph TD
     Software-Engineering(( Software-Engineering ))
@@ -10,6 +8,7 @@ graph TD
     Software-Engineering --> what_is_rdf
     Machine-Learning(( Machine-Learning ))
     Machine-Learning --> neural_architecture_search
+    Machine-Learning --> tracing_thoughts_language_model
     Machine-Learning --> unreasonable_effectiveness_of_llms_in_historical_text_annotation
     Information-Science(( Information-Science ))
     Information-Science --> rdf_1_1_concepts_and_abstract_syntax
@@ -25,6 +24,7 @@ graph TD
 
 ### Machine-Learning
 - [Neural Architecture Search](knowledge/Machine-Learning/neural-architecture-search.md)
+- [Tracing Thoughts Language Model](knowledge/Machine-Learning/tracing-thoughts-language-model.md)
 - [Unreasonable Effectiveness Of Llms In Historical Text Annotation](knowledge/Machine-Learning/unreasonable-effectiveness-of-llms-in-historical-text-annotation.md)
 
 ### Information-Science
