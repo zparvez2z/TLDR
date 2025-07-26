@@ -1,4 +1,6 @@
-# TLDR Knowledge Base
+# TLDR
+
+Sharing back what I'm learning with the community — curated insights, practical knowledge, and key resources from my ongoing journey in tech, data, and beyond.
 
 ## Overview
 ```mermaid
