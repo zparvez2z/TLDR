@@ -174,7 +174,7 @@ def update_readme():
         for f in files:
             node = f.stem.replace('-', '_')
             auto_lines.append(f"    {cat} --> {node}\n")
-    auto_lines.append("```\n\n## All Knowledge\n")
+    auto_lines.append("```\n\n## Read the summaries\n")
     for cat, files in categories.items():
         auto_lines.append(f"### {cat}\n")
         for f in files:

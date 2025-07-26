@@ -3,7 +3,7 @@
 Sharing back what I'm learning with the community—curated insights, practical knowledge, and key resources from my ongoing journey in tech, data, and beyond.
 
 <!-- TLDR-AUTO-START -->
-## Knowledge Graph
+## Overview
 ```mermaid
 graph TD
     Software-Engineering(( Software-Engineering ))
@@ -20,7 +20,7 @@ graph TD
     Information-Science --> what_is_rdf
 ```
 
-## All Knowledge
+## Read the summaries
 ### Software-Engineering
 - [System Design Primer](knowledge/Software-Engineering/system-design-primer.md)
 - [What Is Rdf](knowledge/Software-Engineering/what-is-rdf.md)
