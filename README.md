@@ -1,5 +1,8 @@
-# TLDR Knowledge Base
+# TLDR
 
+Sharing back what I'm learning with the community—curated insights, practical knowledge, and key resources from my ongoing journey in tech, data, and beyond.
+
+<!-- TLDR-AUTO-START -->
 ## Knowledge Graph
 ```mermaid
 graph TD
@@ -32,4 +35,5 @@ graph TD
 - [Ontology In Information Science](knowledge/Information-Science/ontology-in-information-science.md)
 - [What Is An Ontology](knowledge/Information-Science/what-is-an-ontology.md)
 - [What Is Rdf](knowledge/Information-Science/what-is-rdf.md)
+<!-- TLDR-AUTO-END -->
 

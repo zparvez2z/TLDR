@@ -163,21 +163,54 @@ def update_readme():
     for cat_dir in knowledge_dir.iterdir():
         if cat_dir.is_dir():
             categories[cat_dir.name] = [f for f in cat_dir.glob('*.md')]
-    lines = ["# TLDR Knowledge Base\n", "\n## Knowledge Graph\n", "```mermaid\ngraph TD\n"]
+
+    auto_lines = [
+        '<!-- TLDR-AUTO-START -->\n',
+        '## Overview\n',
+        '```mermaid\ngraph TD\n'
+    ]
     for cat, files in categories.items():
-        lines.append(f"    {cat}(( {cat} ))\n")
+        auto_lines.append(f"    {cat}(( {cat} ))\n")
         for f in files:
             node = f.stem.replace('-', '_')
-            lines.append(f"    {cat} --> {node}\n")
-    lines.append("```\n\n## All Knowledge\n")
+            auto_lines.append(f"    {cat} --> {node}\n")
+    auto_lines.append("```\n\n## All Knowledge\n")
     for cat, files in categories.items():
-        lines.append(f"### {cat}\n")
+        auto_lines.append(f"### {cat}\n")
         for f in files:
             rel_path = f.relative_to('.')
-            lines.append(f"- [{f.stem.replace('-', ' ').title()}]({rel_path})\n")
-        lines.append("\n")
+            auto_lines.append(f"- [{f.stem.replace('-', ' ').title()}]({rel_path})\n")
+        auto_lines.append("\n")
+    auto_lines.append('<!-- TLDR-AUTO-END -->\n')
+
+    # Read the current README
+    readme_path = pathlib.Path('README.md')
+    if readme_path.exists():
+        with open(readme_path, 'r') as f:
+            content = f.read()
+    else:
+        content = ''
+
+    start_marker = '<!-- TLDR-AUTO-START -->'
+    end_marker = '<!-- TLDR-AUTO-END -->'
+    start_idx = content.find(start_marker)
+    end_idx = content.find(end_marker)
+
+    auto_content = ''.join(auto_lines)
+
+    if start_idx != -1 and end_idx != -1:
+        # Replace only the auto section
+        before = content[:start_idx]
+        after = content[end_idx + len(end_marker):]
+        new_content = before + auto_content + after
+    else:
+        # Markers not found, append auto section at end
+        if content and not content.endswith('\n'):
+            content += '\n'
+        new_content = content + auto_content
+
     with open('README.md', 'w') as f:
-        f.writelines(lines)
+        f.write(new_content)
 
 if __name__ == "__main__":
     process_links()
