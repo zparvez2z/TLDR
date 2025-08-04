@@ -9,6 +9,7 @@ graph TD
     Software-Engineering(( Software-Engineering ))
     Software-Engineering --> system_design_primer
     Software-Engineering --> what_is_rdf
+    Software-Engineering --> llm_assisted_code_generation_slr
     Machine-Learning(( Machine-Learning ))
     Machine-Learning --> neural_architecture_search
     Machine-Learning --> tracing_thoughts_language_model
@@ -25,6 +26,7 @@ graph TD
 ### Software-Engineering
 - [System Design Primer](knowledge/Software-Engineering/system-design-primer.md)
 - [What Is Rdf](knowledge/Software-Engineering/what-is-rdf.md)
+- [Llm Assisted Code Generation Slr](knowledge/Software-Engineering/llm-assisted-code-generation-slr.md)
 
 ### Machine-Learning
 - [Neural Architecture Search](knowledge/Machine-Learning/neural-architecture-search.md)
@@ -39,6 +41,7 @@ graph TD
 - [What Is Rdf](knowledge/Information-Science/what-is-rdf.md)
 
 <!-- TLDR-AUTO-END -->
+
 
 
 
