@@ -141,6 +141,8 @@ def process_links():
     if not urls:
         print("No valid URLs to process.")
         return
+
+    import time
     for url in urls:
         print(f"Processing {url}...")
         prompt = build_prompt(url, existing_categories)
@@ -157,6 +159,7 @@ def process_links():
         except Exception as e:
             print(f"Error processing {url}: {e}")
             print(f"Received from API: {result}")
+        time.sleep(3)  # Add delay between processing links
 
     # Clear input file after processing all URLs
     open(input_path, 'w').close()
