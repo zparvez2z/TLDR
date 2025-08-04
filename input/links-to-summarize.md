@@ -1,1 +1,0 @@
-https://refactoring.guru/refactoring/technical-debt
