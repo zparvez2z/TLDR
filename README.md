@@ -7,6 +7,7 @@ Sharing back what I'm learning with the community—curated insights, practical 
 ```mermaid
 graph TD
     Software-Engineering(( Software-Engineering ))
+    Software-Engineering --> when_to_refactor
     Software-Engineering --> system_design_primer
     Software-Engineering --> how_to_refactor
     Software-Engineering --> what_is_rdf
@@ -25,6 +26,7 @@ graph TD
 
 ## Read the summaries
 ### Software-Engineering
+- [When To Refactor](knowledge/Software-Engineering/when-to-refactor.md)
 - [System Design Primer](knowledge/Software-Engineering/system-design-primer.md)
 - [How To Refactor](knowledge/Software-Engineering/how-to-refactor.md)
 - [What Is Rdf](knowledge/Software-Engineering/what-is-rdf.md)
@@ -43,6 +45,7 @@ graph TD
 - [What Is Rdf](knowledge/Information-Science/what-is-rdf.md)
 
 <!-- TLDR-AUTO-END -->
+
 
 
 
