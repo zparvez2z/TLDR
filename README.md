@@ -10,6 +10,7 @@ graph TD
     Software-Engineering --> when_to_refactor
     Software-Engineering --> system_design_primer
     Software-Engineering --> how_to_refactor
+    Software-Engineering --> technical_debt
     Software-Engineering --> what_is_rdf
     Machine-Learning(( Machine-Learning ))
     Machine-Learning --> neurosym_biocat_biomedical_document_categorization
@@ -29,6 +30,7 @@ graph TD
 - [When To Refactor](knowledge/Software-Engineering/when-to-refactor.md)
 - [System Design Primer](knowledge/Software-Engineering/system-design-primer.md)
 - [How To Refactor](knowledge/Software-Engineering/how-to-refactor.md)
+- [Technical Debt](knowledge/Software-Engineering/technical-debt.md)
 - [What Is Rdf](knowledge/Software-Engineering/what-is-rdf.md)
 
 ### Machine-Learning
@@ -45,6 +47,7 @@ graph TD
 - [What Is Rdf](knowledge/Information-Science/what-is-rdf.md)
 
 <!-- TLDR-AUTO-END -->
+
 
 
 
