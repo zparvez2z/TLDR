@@ -8,6 +8,7 @@ Sharing back what I'm learning with the community—curated insights, practical 
 graph TD
     Software-Engineering(( Software-Engineering ))
     Software-Engineering --> system_design_primer
+    Software-Engineering --> how_to_refactor
     Software-Engineering --> what_is_rdf
     Machine-Learning(( Machine-Learning ))
     Machine-Learning --> neurosym_biocat_biomedical_document_categorization
@@ -25,6 +26,7 @@ graph TD
 ## Read the summaries
 ### Software-Engineering
 - [System Design Primer](knowledge/Software-Engineering/system-design-primer.md)
+- [How To Refactor](knowledge/Software-Engineering/how-to-refactor.md)
 - [What Is Rdf](knowledge/Software-Engineering/what-is-rdf.md)
 
 ### Machine-Learning
@@ -41,6 +43,7 @@ graph TD
 - [What Is Rdf](knowledge/Information-Science/what-is-rdf.md)
 
 <!-- TLDR-AUTO-END -->
+
 
 
 
