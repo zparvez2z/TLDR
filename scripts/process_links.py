@@ -15,9 +15,20 @@ class SummaryOutput(BaseModel):
     date: Optional[str] = None
 
 
-def call_gemini_api(prompt, api_key):
+def call_gemini_api(prompt, url, api_key):
     genai.configure(api_key=api_key)
-    model = genai.GenerativeModel('gemini-2.5-pro')  # Using gemini-2.5-pro for more reliable structured output
+    model = genai.GenerativeModel('gemini-2.5-pro')
+
+    # Set up url_context tool if URL is provided
+    tools = None
+    if url:
+        try:
+            from google.generativeai.types import Tool, UrlContext
+            tools = [Tool(url_context=UrlContext(urls=[url]))]
+        except Exception:
+            # Fallback if types are not available
+            pass
+
     response = model.generate_content(
         prompt,
         safety_settings=[
@@ -30,7 +41,8 @@ def call_gemini_api(prompt, api_key):
             "temperature": 0.3,
             "top_p": 0.8,
             "top_k": 40
-        }
+        },
+        tools=tools if tools else None
     )
     
     # Parse the response text as JSON with better error handling
@@ -137,7 +149,7 @@ def process_links():
         prompt = build_prompt(url, existing_categories)
         result = None
         try:
-            result = call_gemini_api(prompt, api_key)
+            result = call_gemini_api(prompt, url, api_key)
             if not result:
                 print(f"Error: Empty response from API for {url}")
                 continue
