@@ -1,7 +1,8 @@
 import os
 import pathlib
 import json
-import google.generativeai as genai
+from google import genai
+from google.genai import types
 from pydantic import BaseModel
 from typing import Optional
 from datetime import datetime
@@ -16,35 +17,31 @@ class SummaryOutput(BaseModel):
 
 
 def call_gemini_api(prompt, url, api_key):
-    genai.configure(api_key=api_key)
-    model = genai.GenerativeModel('gemini-2.5-pro')
 
-    # Set up url_context tool if URL is provided
-    tools = None
-    if url:
-        try:
-            from google.generativeai.types import Tool, UrlContext
-            tools = [Tool(url_context=UrlContext(urls=[url]))]
-        except Exception:
-            # Fallback if types are not available
-            pass
-
-    response = model.generate_content(
-        prompt,
-        safety_settings=[
-            {
-                "category": "HARM_CATEGORY_HARASSMENT",
-                "threshold": "BLOCK_MEDIUM_AND_ABOVE"
-            }
-        ],
-        generation_config={
-            "temperature": 0.3,
-            "top_p": 0.8,
-            "top_k": 40
-        },
-        tools=tools if tools else None
+    client = genai.Client(api_key=api_key)
+    model = "gemini-2.5-pro"
+    tools = [types.Tool(url_context=types.UrlContext())]
+    generate_content_config = types.GenerateContentConfig(
+        tools=tools,
     )
-    
+    # Always include the URL in the prompt text
+    contents = [
+        types.Content(role="user", parts=[types.Part.from_text(text=prompt)])
+    ]
+    response = client.models.generate_content(
+        model=model,
+        contents=contents,
+        config=generate_content_config,
+    )
+
+    # Log the full Gemini API response for debugging
+    print("\n[DEBUG] Gemini API raw response:")
+    try:
+        import pprint
+        pprint.pprint(response.__dict__)
+    except Exception:
+        print(response)
+
     # Parse the response text as JSON with better error handling
     try:
         json_str = response.text.strip()
