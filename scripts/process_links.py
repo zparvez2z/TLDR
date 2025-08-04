@@ -110,7 +110,7 @@ Analyze the webpage at the given URL and return ONLY a single, valid JSON object
 
 Do not include any explanatory text, markdown formatting like ```json, or anything outside of the JSON object itself.
 
-URL: {url}
+URL: "{url}"
 '''
 
 def save_markdown(data, category_dir, url):
