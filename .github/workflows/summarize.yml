@@ -16,7 +16,7 @@ jobs:
         with:
           python-version: '3.11'
       - name: Install dependencies
-        run: pip install google-generativeai
+        run: pip install google-genai
       - name: Run processing script
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
