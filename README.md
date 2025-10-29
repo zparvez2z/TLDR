@@ -15,7 +15,6 @@ graph TD
     Software-Engineering --> levels_of_testing_quality_assurance
     Software-Engineering --> system_design_primer
     Software-Engineering --> when_to_refactor
-    Software-Engineering --> llm_assisted_code_generation_slr
     Machine-Learning(( Machine-Learning ))
     Machine-Learning --> tracing_thoughts_language_model
     Machine-Learning --> survey_of_context_engineering_for_llms
@@ -43,7 +42,6 @@ graph TD
 - [Levels Of Testing Quality Assurance](knowledge/Software-Engineering/levels-of-testing-quality-assurance.md)
 - [System Design Primer](knowledge/Software-Engineering/system-design-primer.md)
 - [When To Refactor](knowledge/Software-Engineering/when-to-refactor.md)
-- [Llm Assisted Code Generation Slr](knowledge/Software-Engineering/llm-assisted-code-generation-slr.md)
 
 ### Machine-Learning
 - [Tracing Thoughts Language Model](knowledge/Machine-Learning/tracing-thoughts-language-model.md)
@@ -64,6 +62,7 @@ graph TD
 - [Seven Security Considerations Cloud Laboratory Analytics](knowledge/IT-Security/seven-security-considerations-cloud-laboratory-analytics.md)
 
 <!-- TLDR-AUTO-END -->
+
 
 
 
