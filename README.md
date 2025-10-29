@@ -26,6 +26,7 @@ graph TD
     Information-Science(( Information-Science ))
     Information-Science --> what_is_an_ontology
     Information-Science --> ontology_in_information_science
+    Information-Science --> seven_security_considerations_cloud_laboratory_analytics
     Information-Science --> what_is_rdf
     Information-Science --> rdf_1_1_concepts_and_abstract_syntax
 ```
@@ -53,10 +54,12 @@ graph TD
 ### Information-Science
 - [What Is An Ontology](knowledge/Information-Science/what-is-an-ontology.md)
 - [Ontology In Information Science](knowledge/Information-Science/ontology-in-information-science.md)
+- [Seven Security Considerations Cloud Laboratory Analytics](knowledge/Information-Science/seven-security-considerations-cloud-laboratory-analytics.md)
 - [What Is Rdf](knowledge/Information-Science/what-is-rdf.md)
 - [Rdf 1 1 Concepts And Abstract Syntax](knowledge/Information-Science/rdf-1-1-concepts-and-abstract-syntax.md)
 
 <!-- TLDR-AUTO-END -->
+
 
 
 
