@@ -1,0 +1,1 @@
+https://www.tecan.com/blog/seven-security-considerations-when-implementing-cloud-based-laboratory-analytics
