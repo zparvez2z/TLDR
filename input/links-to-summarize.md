@@ -1,0 +1,1 @@
+https://www.testdevlab.com/blog/software-testing-process-methods-and-stages
