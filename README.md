@@ -22,6 +22,7 @@ graph TD
     Software-Engineering --> system_design_primer
     Software-Engineering --> what_is_rdf
     Software-Engineering --> software_testing_life_cycle_stlc
+    Software-Engineering --> software_testing_process_methods_and_stages
     Information-Science(( Information-Science ))
     Information-Science --> what_is_an_ontology
     Information-Science --> ontology_in_information_science
@@ -47,6 +48,7 @@ graph TD
 - [System Design Primer](knowledge/Software-Engineering/system-design-primer.md)
 - [What Is Rdf](knowledge/Software-Engineering/what-is-rdf.md)
 - [Software Testing Life Cycle Stlc](knowledge/Software-Engineering/software-testing-life-cycle-stlc.md)
+- [Software Testing Process Methods And Stages](knowledge/Software-Engineering/software-testing-process-methods-and-stages.md)
 
 ### Information-Science
 - [What Is An Ontology](knowledge/Information-Science/what-is-an-ontology.md)
@@ -55,6 +57,7 @@ graph TD
 - [Rdf 1 1 Concepts And Abstract Syntax](knowledge/Information-Science/rdf-1-1-concepts-and-abstract-syntax.md)
 
 <!-- TLDR-AUTO-END -->
+
 
 
 
