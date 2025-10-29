@@ -15,11 +15,13 @@ graph TD
     Machine-Learning --> inside_nvidia_gpus_high_performance_matmul_kernels
     Machine-Learning --> survey_of_context_engineering_for_llms
     Software-Engineering(( Software-Engineering ))
+    Software-Engineering --> levels_of_testing_quality_assurance
     Software-Engineering --> technical_debt
     Software-Engineering --> how_to_refactor
     Software-Engineering --> when_to_refactor
     Software-Engineering --> system_design_primer
     Software-Engineering --> what_is_rdf
+    Software-Engineering --> software_testing_life_cycle_stlc
     Information-Science(( Information-Science ))
     Information-Science --> what_is_an_ontology
     Information-Science --> ontology_in_information_science
@@ -38,11 +40,13 @@ graph TD
 - [Survey Of Context Engineering For Llms](knowledge/Machine-Learning/survey-of-context-engineering-for-llms.md)
 
 ### Software-Engineering
+- [Levels Of Testing Quality Assurance](knowledge/Software-Engineering/levels-of-testing-quality-assurance.md)
 - [Technical Debt](knowledge/Software-Engineering/technical-debt.md)
 - [How To Refactor](knowledge/Software-Engineering/how-to-refactor.md)
 - [When To Refactor](knowledge/Software-Engineering/when-to-refactor.md)
 - [System Design Primer](knowledge/Software-Engineering/system-design-primer.md)
 - [What Is Rdf](knowledge/Software-Engineering/what-is-rdf.md)
+- [Software Testing Life Cycle Stlc](knowledge/Software-Engineering/software-testing-life-cycle-stlc.md)
 
 ### Information-Science
 - [What Is An Ontology](knowledge/Information-Science/what-is-an-ontology.md)
@@ -51,6 +55,7 @@ graph TD
 - [Rdf 1 1 Concepts And Abstract Syntax](knowledge/Information-Science/rdf-1-1-concepts-and-abstract-syntax.md)
 
 <!-- TLDR-AUTO-END -->
+
 
 
 
