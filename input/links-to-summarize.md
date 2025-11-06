@@ -1,0 +1,1 @@
+https://www.linkedin.com/posts/hoang-van-hao_ai-mlengineering-llm-activity-7390884852142825472-ijTM
