@@ -13,6 +13,7 @@ graph TD
     Machine-Learning --> llm_evaluation_metrics_everything_you_need
     Machine-Learning --> neural_architecture_search
     Machine-Learning --> inside_nvidia_gpus_high_performance_matmul_kernels
+    Machine-Learning --> reasoning_language_models_a_blueprint
     Machine-Learning --> survey_of_context_engineering_for_llms
     IT-Security(( IT-Security ))
     IT-Security --> seven_security_considerations_cloud_laboratory_analytics
@@ -40,6 +41,7 @@ graph TD
 - [Llm Evaluation Metrics Everything You Need](knowledge/Machine-Learning/llm-evaluation-metrics-everything-you-need.md)
 - [Neural Architecture Search](knowledge/Machine-Learning/neural-architecture-search.md)
 - [Inside Nvidia Gpus High Performance Matmul Kernels](knowledge/Machine-Learning/inside-nvidia-gpus-high-performance-matmul-kernels.md)
+- [Reasoning Language Models A Blueprint](knowledge/Machine-Learning/reasoning-language-models-a-blueprint.md)
 - [Survey Of Context Engineering For Llms](knowledge/Machine-Learning/survey-of-context-engineering-for-llms.md)
 
 ### IT-Security
@@ -62,6 +64,7 @@ graph TD
 - [Rdf 1 1 Concepts And Abstract Syntax](knowledge/Information-Science/rdf-1-1-concepts-and-abstract-syntax.md)
 
 <!-- TLDR-AUTO-END -->
+
 
 
 
