@@ -3,14 +3,13 @@
 Sharing back what I'm learning with the community—curated insights, practical knowledge, and key resources from my ongoing journey in tech, data, and beyond.
 
 <!-- TLDR-AUTO-START -->
-## Overview
-```mermaid
-graph TD
-    IT_Security["IT-Security (1)"]
-    Information_Science["Information-Science (4)"]
-    Machine_Learning["Machine-Learning (8)"]
-    Software_Engineering["Software-Engineering (8)"]
-```
+## Category dashboard
+| Category | Count | Latest | Browse |
+| --- | ---: | --- | --- |
+| IT-Security | 1 | [Seven Security Considerations Cloud Laboratory Analytics](knowledge/IT-Security/seven-security-considerations-cloud-laboratory-analytics.md) | [IT-Security](#browse-by-category) |
+| Information-Science | 4 | [What Is Rdf](knowledge/Information-Science/what-is-rdf.md) | [Information-Science](#browse-by-category) |
+| Machine-Learning | 8 | [Inside Nvidia Gpus High Performance Matmul Kernels](knowledge/Machine-Learning/inside-nvidia-gpus-high-performance-matmul-kernels.md) | [Machine-Learning](#browse-by-category) |
+| Software-Engineering | 8 | [When To Refactor](knowledge/Software-Engineering/when-to-refactor.md) | [Software-Engineering](#browse-by-category) |
 
 ## Recent additions
 - [Seven Security Considerations Cloud Laboratory Analytics](knowledge/IT-Security/seven-security-considerations-cloud-laboratory-analytics.md) · IT-Security — 29-10-2025
@@ -69,6 +68,7 @@ graph TD
 </details>
 
 <!-- TLDR-AUTO-END -->
+
 
 
 

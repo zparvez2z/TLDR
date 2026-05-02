@@ -233,14 +233,18 @@ def update_readme():
 
     auto_lines = [
         '<!-- TLDR-AUTO-START -->\n',
-        '## Overview\n',
-        '```mermaid\ngraph TD\n'
+        '## Category dashboard\n',
+        '| Category | Count | Latest | Browse |\n',
+        '| --- | ---: | --- | --- |\n',
     ]
     for cat in category_names:
-        count = len(categories[cat])
-        node_name = cat.replace('-', '_')
-        auto_lines.append(f"    {node_name}[\"{cat} ({count})\"]\n")
-    auto_lines.append("```\n\n")
+        entries = categories[cat]
+        count = len(entries)
+        latest = entries[0] if entries else None
+        latest_text = f"[{latest['title']}]({latest['path']})" if latest else '—'
+        browse_text = f"[{cat}](#browse-by-category)"
+        auto_lines.append(f"| {cat} | {count} | {latest_text} | {browse_text} |\n")
+    auto_lines.append("\n")
 
     if recent_entries:
         auto_lines.append('## Recent additions\n')
