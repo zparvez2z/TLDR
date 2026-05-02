@@ -165,14 +165,32 @@ def _extract_arxiv_page_data(response_text, max_chars=10000):
     return generic
 
 
-def is_extraction_quality_poor(page_info, threshold_text_chars=100):
+def is_extraction_quality_poor(page_info, url=None, threshold_text_chars=100):
     """Detect if page extraction quality is poor (e.g., mostly LaTeX artifacts, no useful content)."""
-    # Poor if: no title, unknown author, and minimal text
-    has_title = page_info.get('title') and page_info['title'].lower() != 'unknown title'
-    has_author = page_info.get('authors') and page_info['authors'][0] != 'Unknown'
-    has_content = len(page_info.get('context', '')) > threshold_text_chars
-    
-    # Quality is poor if we're missing at least 2 of these signals
+    domain = urlparse(url).netloc.lower() if url else ''
+    authors = page_info.get('authors') or []
+    context = page_info.get('context', '')
+
+    # Basic signal checks
+    has_title = bool(page_info.get('title')) and page_info['title'].lower() != 'unknown title'
+    has_author = bool(authors) and authors[0] != 'Unknown'
+    has_content = len(context) > threshold_text_chars
+
+    # Suspicious author artifacts (LaTeX/math fragments, numeric garbage)
+    suspicious_author = False
+    for author in authors:
+        if re.search(r'\\|\{|\}|\$|\^|_|boldsymbol|footnotemark|footnote', author, re.I):
+            suspicious_author = True
+            break
+        if re.match(r'^[\d.]+$', author):
+            suspicious_author = True
+            break
+
+    # arXiv pages should fall back if author extraction is missing or looks broken.
+    if 'arxiv.org' in domain and (not has_author or suspicious_author):
+        return True
+
+    # Quality is poor if we're missing at least 2 of the 3 generic signals.
     signals = [has_title, has_author, has_content]
     return sum(signals) <= 1
 
@@ -346,14 +364,14 @@ def process_links():
             print(f"Preserved remaining links in {input_path}")
             stop_and_preserve_queue = True
             break
-        
-            # Check extraction quality and fallback to raw HTML if poor
-            if is_extraction_quality_poor(page_info):
-                print(f"  → Extraction quality poor, using fallback (raw HTML chunk)")
-                raw_html = get_raw_html_chunk(url)
-                page_info['context'] = f"[FALLBACK MODE] Raw HTML excerpt:\n{raw_html}"
 
-            prompt = build_prompt(url, page_info.get('context'), existing_categories)
+        # Check extraction quality and fallback to raw HTML if poor
+        if is_extraction_quality_poor(page_info, url=url):
+            print(f"  → Extraction quality poor, using fallback (raw HTML chunk)")
+            raw_html = get_raw_html_chunk(url)
+            page_info['context'] = f"[FALLBACK MODE] Raw HTML excerpt:\n{raw_html}"
+
+        prompt = build_prompt(url, page_info.get('context'), existing_categories)
         result = None
         try:
             result = adapter.generate_summary(prompt, url)

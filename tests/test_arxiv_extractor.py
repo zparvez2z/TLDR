@@ -57,6 +57,15 @@ def test_extraction_quality_detection():
     }
     assert is_extraction_quality_poor(very_poor), "Very poor extraction should trigger fallback"
 
+    # arXiv pages with unknown authors should trigger fallback even if content is long
+    arxiv_poor = {
+        'title': 'Step-level Optimization for Efficient Computer-use Agents',
+        'authors': ['Unknown'],
+        'context': 'A' * 1000,
+    }
+    assert is_extraction_quality_poor(arxiv_poor, url='https://arxiv.org/html/2604.27151v1'), \
+        "arXiv pages with unknown authors should trigger fallback"
+
 
 if __name__ == '__main__':
     test_arxiv_extraction_from_fixture()
