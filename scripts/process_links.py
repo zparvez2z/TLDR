@@ -1,91 +1,21 @@
 import os
 import pathlib
 import json
-from google import genai
-from google.genai import types
-from pydantic import BaseModel
-from typing import Optional
 from datetime import datetime
+from typing import Optional
 
-class SummaryOutput(BaseModel):
-    title: str
-    summary: str
-    category: str
-    filename: str
-    author: Optional[str] = "Unknown"
-    date: Optional[str] = None
+try:
+    from .model_adapter import ModelAdapter, TransientAPIError
+    from .summary_model import SummaryOutput
+except ImportError:
+    from model_adapter import ModelAdapter, TransientAPIError
+    from summary_model import SummaryOutput
 
 
-def call_gemini_api(prompt, url, api_key):
-
-    client = genai.Client(api_key=api_key)
-    model = "gemini-2.5-pro"
-    tools = [types.Tool(url_context=types.UrlContext())]
-    generate_content_config = types.GenerateContentConfig(
-        tools=tools,
-    )
-    # Always include the URL in the prompt text
-    contents = [
-        types.Content(role="user", parts=[types.Part.from_text(text=prompt)])
-    ]
-    response = client.models.generate_content(
-        model=model,
-        contents=contents,
-        config=generate_content_config,
-    )
-
-    # Log the full Gemini API response for debugging
-    print("\n[DEBUG] Gemini API raw response:")
-    try:
-        import pprint
-        pprint.pprint(response.__dict__)
-    except Exception:
-        print(response)
-
-    # Parse the response text as JSON with better error handling
-    try:
-        json_str = response.text.strip()
-        # Handle various JSON formatting cases
-        if '```json' in json_str:
-            # Extract JSON from code block
-            start = json_str.find('```json') + 7
-            end = json_str.find('```', start)
-            if end == -1:  # No closing code block found
-                json_str = json_str[start:]
-            else:
-                json_str = json_str[start:end]
-        elif '{' in json_str:
-            # Extract JSON between first { and last }
-            start = json_str.find('{')
-            end = json_str.rfind('}') + 1
-            json_str = json_str[start:end]
-            
-        json_str = json_str.strip()
-        if not json_str:
-            raise ValueError("Empty JSON string")
-            
-        data = json.loads(json_str)
-        
-        # Ensure all required fields are present with defaults
-        data.setdefault('author', 'Unknown')
-        if not data.get('date'):
-            data['date'] = datetime.now().strftime('%d-%m-%Y')
-            
-        # Convert category to kebab-case for consistency
-        if 'category' in data:
-            data['category'] = data['category'].replace(' ', '-')
-            
-        # Ensure filename ends with .md and is in kebab-case
-        if 'filename' in data and not data['filename'].endswith('.md'):
-            data['filename'] = data['filename'].strip().replace(' ', '-').lower()
-            if not data['filename'].endswith('.md'):
-                data['filename'] += '.md'
-                
-        return SummaryOutput(**data)
-    except Exception as e:
-        print(f"Error parsing JSON response: {e}")
-        print(f"Raw response: {response.text}")
-        return None
+def write_remaining_queue(input_path, remaining_urls):
+    with open(input_path, 'w') as f:
+        if remaining_urls:
+            f.write('\n'.join(remaining_urls) + '\n')
 
 def build_prompt(url, existing_categories=None):
     if existing_categories is None:
@@ -175,10 +105,7 @@ def collect_entries(knowledge_dir):
     return categories, all_entries
 
 def process_links():
-    api_key = os.environ.get('GEMINI_API_KEY')
-    if not api_key:
-        print("Error: GEMINI_API_KEY environment variable not set.")
-        return
+    adapter = ModelAdapter()
     input_path = pathlib.Path('input/links-to-summarize.md')
     if not input_path.exists():
         print("Input file not found at input/links-to-summarize.md")
@@ -195,12 +122,13 @@ def process_links():
         return
 
     import time
-    for url in urls:
+    stop_and_preserve_queue = False
+    for idx, url in enumerate(urls):
         print(f"Processing {url}...")
         prompt = build_prompt(url, existing_categories)
         result = None
         try:
-            result = call_gemini_api(prompt, url, api_key)
+            result = adapter.generate_summary(prompt, url)
             if not result:
                 print(f"Error: Empty response from API for {url}")
                 continue
@@ -208,14 +136,34 @@ def process_links():
             category_dir = pathlib.Path('knowledge') / category
             save_markdown(result, category_dir, url)
             print(f"Successfully processed and saved {url}")
+        except NotImplementedError as ne:
+            print(f"Adapter not implemented: {ne}")
+            print("Skipping further processing until adapter is configured.")
+            write_remaining_queue(input_path, urls[idx:])
+            print(f"Preserved remaining links in {input_path}")
+            stop_and_preserve_queue = True
+            break
+        except TransientAPIError as e:
+            print(f"Transient API error: {e}")
+            write_remaining_queue(input_path, urls[idx:])
+            print(f"Preserved remaining links in {input_path}")
+            stop_and_preserve_queue = True
+            break
         except Exception as e:
+            if "RESOURCE_EXHAUSTED" in str(e) or "quota" in str(e).lower():
+                print(f"API quota exceeded. Stopping processing.")
+                write_remaining_queue(input_path, urls[idx:])
+                print(f"Remaining unprocessed links saved in {input_path}")
+                stop_and_preserve_queue = True
+                break
             print(f"Error processing {url}: {e}")
             print(f"Received from API: {result}")
         time.sleep(3)  # Add delay between processing links
 
-    # Clear input file after processing all URLs
-    open(input_path, 'w').close()
-    print("Cleared input file.")
+    if not stop_and_preserve_queue:
+        # Clear input file after processing all URLs
+        open(input_path, 'w').close()
+        print("Cleared input file.")
     update_readme()
     print("README updated.")
 

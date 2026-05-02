@@ -1,0 +1,11 @@
+# Core runtime dependencies
+google-genai==1.74.0
+pydantic==2.11.7
+requests==2.32.4
+
+# Environment loading helper used in local test harnesses
+python-dotenv==1.0.0
+
+# Demo script dependencies (demo_github_models.py)
+azure-ai-inference==1.0.0b9
+azure-core==1.40.0

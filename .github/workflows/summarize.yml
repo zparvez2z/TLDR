@@ -16,10 +16,31 @@ jobs:
         with:
           python-version: '3.11'
       - name: Install dependencies
-        run: pip install google-genai
+        run: pip install -r requirements.txt
+      - name: Validate environment
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: |
+          echo "Provider selection:"
+          if [ -z "$GITHUB_TOKEN" ]; then
+            echo "  → Using Gemini API (GITHUB_TOKEN not set)"
+          else
+            echo "  → Using GitHub Models (GITHUB_TOKEN available)"
+          fi
+          if [ -z "$GEMINI_API_KEY" ]; then
+            echo "  → No Gemini fallback (GEMINI_API_KEY not set)"
+          else
+            echo "  → Gemini fallback available"
+          fi
       - name: Run processing script
         env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GITHUB_MODEL: openai/gpt-4.1-mini
+          GITHUB_RETRY_ATTEMPTS: '4'
+          GITHUB_RETRY_BASE_DELAY_SEC: '1.5'
+          GITHUB_RETRY_MAX_DELAY_SEC: '20'
         run: python scripts/process_links.py
       - name: Commit and push changes
         run: |
