@@ -77,6 +77,27 @@ Output:
 
 ## Troubleshooting
 
+### Extraction Fallback Strategy
+
+The system automatically detects when HTML extraction quality is poor (e.g., when a page has:
+- Missing or "Unknown" title AND
+- Missing or "Unknown" authors AND/OR minimal visible text
+
+When poor extraction is detected, the system:
+1. **Logs a fallback warning**: "Extraction quality poor, using fallback (raw HTML chunk)"
+2. **Fetches raw HTML** (5KB by default) after stripping script/style tags
+3. **Augments the prompt** with `[FALLBACK MODE]` prefix and the raw HTML excerpt
+4. **Lets the LLM process** the raw HTML to recover metadata and content
+
+This fallback helps with:
+- Mathematical/research papers with unusual HTML (e.g., LaTeX rendering artifacts)
+- JavaScript-heavy pages where the text extraction misses content
+- Pages with metadata in non-standard locations
+
+**Trade-off**: Fallback uses ~5x more tokens (raw HTML is ~5KB vs ~500 chars clean text). Use the fallback only when extraction genuinely fails; for normal pages, clean extraction is more efficient.
+
+### Troubleshooting
+
 ### Rate Limit Errors (429 / RESOURCE_EXHAUSTED)
 
 **What happens:**
