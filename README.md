@@ -17,7 +17,7 @@ Sharing back what I'm learning with the community—curated insights, practical 
 | --- | ---: | --- | --- |
 | IT-Security | 1 | [Seven Security Considerations Cloud Laboratory Analytics](knowledge/IT-Security/seven-security-considerations-cloud-laboratory-analytics.md) | [IT-Security](#browse-by-category) |
 | Information-Science | 4 | [What Is Rdf](knowledge/Information-Science/what-is-rdf.md) | [Information-Science](#browse-by-category) |
-| Machine-Learning | 8 | [Inside Nvidia Gpus High Performance Matmul Kernels](knowledge/Machine-Learning/inside-nvidia-gpus-high-performance-matmul-kernels.md) | [Machine-Learning](#browse-by-category) |
+| Machine-Learning | 9 | [Inside Nvidia Gpus High Performance Matmul Kernels](knowledge/Machine-Learning/inside-nvidia-gpus-high-performance-matmul-kernels.md) | [Machine-Learning](#browse-by-category) |
 | Software-Engineering | 11 | [Uala Agent Simple Http Agent Web Scraping](knowledge/Software-Engineering/uala-agent-simple-http-agent-web-scraping.md) | [Software-Engineering](#browse-by-category) |
 
 ## Recent additions
@@ -49,7 +49,7 @@ Sharing back what I'm learning with the community—curated insights, practical 
 </details>
 
 <details>
-<summary>Machine-Learning (8)</summary>
+<summary>Machine-Learning (9)</summary>
 
 - [Inside Nvidia Gpus High Performance Matmul Kernels](knowledge/Machine-Learning/inside-nvidia-gpus-high-performance-matmul-kernels.md) — 29-09-2025
 - [Neurosym Biocat Biomedical Document Categorization](knowledge/Machine-Learning/neurosym-biocat-biomedical-document-categorization.md) — 04-08-2025
@@ -59,6 +59,7 @@ Sharing back what I'm learning with the community—curated insights, practical 
 - [Evaluation Is All You Need Strategic Overclaiming Llm Capabilities](knowledge/Machine-Learning/evaluation-is-all-you-need-strategic-overclaiming-llm-capabilities.md) — 10-06-2025
 - [Tracing Thoughts Language Model](knowledge/Machine-Learning/tracing-thoughts-language-model.md) — 21-05-2024
 - [Llm Evaluation Metrics Everything You Need](knowledge/Machine-Learning/llm-evaluation-metrics-everything-you-need.md) — 15-05-2024
+- [Multi Agent Spatial Transformer Informed Map Construction](knowledge/Machine-Learning/multi-agent-spatial-transformer-informed-map-construction.md) — 26-01-2024
 
 </details>
 
@@ -80,6 +81,7 @@ Sharing back what I'm learning with the community—curated insights, practical 
 </details>
 
 <!-- TLDR-AUTO-END -->
+
 
 
 
