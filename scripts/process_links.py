@@ -122,6 +122,58 @@ def save_markdown(data, category_dir, url):
     with open(md_path, 'w') as f:
         f.write(f"---\nsource_url: {url}\nauthor: {getattr(data, 'author', 'Unknown')}\ndate: {date_val}\n---\n\n# {getattr(data, 'title', 'No Title')}\n\n{getattr(data, 'summary', 'No summary available.')}")
 
+
+def parse_date(value):
+    if not value:
+        return None
+    try:
+        return datetime.strptime(value.strip(), '%d-%m-%Y')
+    except Exception:
+        try:
+            return datetime.strptime(value.strip(), '%Y-%m-%d')
+        except Exception:
+            return None
+
+
+def title_from_stem(stem):
+    return stem.replace('-', ' ').title()
+
+
+def collect_entries(knowledge_dir):
+    categories = {}
+    all_entries = []
+
+    for cat_dir in knowledge_dir.iterdir():
+        if not cat_dir.is_dir():
+            continue
+
+        entries = []
+        for f in sorted(cat_dir.glob('*.md')):
+            rel_path = f.relative_to('.')
+            date_value = ''
+            try:
+                for line in f.read_text().splitlines():
+                    if line.startswith('date:'):
+                        date_value = line.split(':', 1)[1].strip()
+                        break
+            except Exception:
+                pass
+
+            entry = {
+                'category': cat_dir.name,
+                'title': title_from_stem(f.stem),
+                'path': rel_path,
+                'date': date_value,
+                'parsed_date': parse_date(date_value),
+            }
+            entries.append(entry)
+            all_entries.append(entry)
+
+        entries.sort(key=lambda item: (item['parsed_date'] is not None, item['parsed_date'] or datetime.min, item['title']), reverse=True)
+        categories[cat_dir.name] = entries
+
+    return categories, all_entries
+
 def process_links():
     api_key = os.environ.get('GEMINI_API_KEY')
     if not api_key:
@@ -171,28 +223,40 @@ def update_readme():
     knowledge_dir = pathlib.Path('knowledge')
     if not knowledge_dir.exists():
         return
-    categories = {}
-    for cat_dir in knowledge_dir.iterdir():
-        if cat_dir.is_dir():
-            categories[cat_dir.name] = [f for f in cat_dir.glob('*.md')]
+    categories, all_entries = collect_entries(knowledge_dir)
+    category_names = sorted(categories.keys())
+    recent_entries = sorted(
+        all_entries,
+        key=lambda item: (item['parsed_date'] is not None, item['parsed_date'] or datetime.min, item['title']),
+        reverse=True,
+    )[:8]
 
     auto_lines = [
         '<!-- TLDR-AUTO-START -->\n',
         '## Overview\n',
         '```mermaid\ngraph TD\n'
     ]
-    for cat, files in categories.items():
-        auto_lines.append(f"    {cat}(( {cat} ))\n")
-        for f in files:
-            node = f.stem.replace('-', '_')
-            auto_lines.append(f"    {cat} --> {node}\n")
-    auto_lines.append("```\n\n## Read the summaries\n")
-    for cat, files in categories.items():
-        auto_lines.append(f"### {cat}\n")
-        for f in files:
-            rel_path = f.relative_to('.')
-            auto_lines.append(f"- [{f.stem.replace('-', ' ').title()}]({rel_path})\n")
+    for cat in category_names:
+        count = len(categories[cat])
+        node_name = cat.replace('-', '_')
+        auto_lines.append(f"    {node_name}[\"{cat} ({count})\"]\n")
+    auto_lines.append("```\n\n")
+
+    if recent_entries:
+        auto_lines.append('## Recent additions\n')
+        for entry in recent_entries:
+            date_suffix = f" — {entry['date']}" if entry['date'] else ''
+            auto_lines.append(f"- [{entry['title']}]({entry['path']}) · {entry['category']}{date_suffix}\n")
         auto_lines.append("\n")
+
+    auto_lines.append('## Browse by category\n')
+    for cat in category_names:
+        entries = categories[cat]
+        auto_lines.append(f"<details>\n<summary>{cat} ({len(entries)})</summary>\n\n")
+        for entry in entries:
+            date_suffix = f" — {entry['date']}" if entry['date'] else ''
+            auto_lines.append(f"- [{entry['title']}]({entry['path']}){date_suffix}\n")
+        auto_lines.append("\n</details>\n\n")
     auto_lines.append('<!-- TLDR-AUTO-END -->\n')
 
     # Read the current README
