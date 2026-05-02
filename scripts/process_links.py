@@ -120,20 +120,25 @@ def _extract_generic_page_data(response_text, max_chars=10000):
 
 def _extract_arxiv_page_data(response_text, max_chars=10000):
     generic = _extract_generic_page_data(response_text, max_chars=max_chars)
-
-    authors_block = re.search(r'<div class="ltx_authors">(.*?)<br class="ltx_break"/>', response_text, re.S)
+    # Be permissive: match the ltx_authors div content until the closing </div>
+    # (some arXiv HTML uses <br class="ltx_break"> without a trailing slash).
+    authors_block = re.search(r'<div[^>]*class=["\'][^"\']*ltx_authors[^"\']*["\'][^>]*>(.*?)</div>', response_text, re.S)
     if authors_block:
         author_line = authors_block.group(1)
+        # remove footnote superscripts and any remaining tags
         author_line = re.sub(r'<sup.*?</sup>', '', author_line, flags=re.S)
         author_line = re.sub(r'<[^>]+>', '', author_line)
         author_line = author_line.replace('\xa0', ' ')
-        visible_authors = [part.strip() for part in re.split(r'\s{3,}|\s{2,}', author_line) if part.strip()]
+        # authors are often separated by larger whitespace or repeated spacing
+        raw_parts = [part.strip() for part in re.split(r'\s{2,}|\u2003|\u00A0|,\s*', author_line) if part.strip()]
+        # Filter out non-name tokens (links, institutional lines, labels)
+        visible_authors = [p for p in raw_parts if not re.search(r'http|code:|project page|university|affiliat|\[|\]|mailto:|@', p, re.I)]
+        # Heuristic: limit to reasonable name lengths
+        visible_authors = [p for p in visible_authors if 1 <= len(p.split()) <= 6]
         if visible_authors:
             generic['authors'] = visible_authors
-            generic['context'] = generic['context'].replace(
-                f"Authors: {', '.join(generic['authors'])}",
-                f"Authors: {', '.join(visible_authors)}",
-            )
+            # update the PAGE CONTEXT authors line if present
+            generic['context'] = re.sub(r'Authors: .*', f"Authors: {', '.join(visible_authors)}", generic['context'])
 
     return generic
 
