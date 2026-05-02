@@ -1,8 +1,13 @@
 import os
 import pathlib
 import json
+import re
 from datetime import datetime
+from html.parser import HTMLParser
+from urllib.parse import urlparse
 from typing import Optional
+
+import requests
 
 try:
     from .model_adapter import ModelAdapter, TransientAPIError
@@ -17,7 +22,136 @@ def write_remaining_queue(input_path, remaining_urls):
         if remaining_urls:
             f.write('\n'.join(remaining_urls) + '\n')
 
-def build_prompt(url, existing_categories=None):
+
+class PageTextExtractor(HTMLParser):
+    def __init__(self):
+        super().__init__()
+        self.in_text_block = False
+        self.in_title = False
+        self.in_author_block = False
+        self.in_personname = False
+        self.text_parts = []
+        self.title_parts = []
+        self.author_parts = []
+        self.meta = {}
+
+    def handle_starttag(self, tag, attrs):
+        attr_map = dict(attrs)
+        if tag == 'title':
+            self.in_title = True
+        if tag == 'div' and any(name == 'class' and 'ltx_authors' in value for name, value in attrs):
+            self.in_author_block = True
+        if tag == 'span' and any(name == 'class' and 'ltx_personname' in value for name, value in attrs):
+            self.in_personname = True
+        if tag in {'p', 'li', 'blockquote', 'h1', 'h2', 'h3'}:
+            self.in_text_block = True
+        if tag == 'meta':
+            key = attr_map.get('name') or attr_map.get('property')
+            content = attr_map.get('content')
+            if key and content:
+                key = key.lower()
+                if key == 'citation_author':
+                    self.meta.setdefault(key, []).append(content.strip())
+                else:
+                    self.meta[key] = content.strip()
+
+    def handle_endtag(self, tag):
+        if tag == 'title':
+            self.in_title = False
+        if tag == 'div' and self.in_author_block:
+            self.in_author_block = False
+        if tag == 'span' and self.in_personname:
+            self.in_personname = False
+        if tag in {'p', 'li', 'blockquote', 'h1', 'h2', 'h3'}:
+            self.in_text_block = False
+
+    def handle_data(self, data):
+        text = data.strip()
+        if not text:
+            return
+        if self.in_title:
+            self.title_parts.append(text)
+        elif self.in_personname or self.in_author_block:
+            self.author_parts.append(text)
+        elif self.in_text_block:
+            self.text_parts.append(text)
+
+
+def _clean_whitespace(value):
+    return re.sub(r'\s+', ' ', value or '').strip()
+
+
+def _extract_generic_page_data(response_text, max_chars=10000):
+    extractor = PageTextExtractor()
+    extractor.feed(response_text)
+
+    title = _clean_whitespace(' '.join(extractor.title_parts))
+    meta = extractor.meta
+    authors = meta.get('citation_author') or meta.get('author') or ['Unknown']
+    if isinstance(authors, str):
+        authors = [authors]
+
+    title = title or meta.get('citation_title') or meta.get('og:title') or 'Unknown title'
+    date = meta.get('citation_publication_date') or meta.get('article:published_time') or meta.get('pubdate') or ''
+    abstract = meta.get('description') or meta.get('og:description') or ''
+
+    text_body = _clean_whitespace(' '.join(extractor.text_parts))
+    if len(text_body) > max_chars:
+        text_body = text_body[:max_chars].rsplit(' ', 1)[0] + '...'
+
+    context_lines = [
+        f'Page title: {title}',
+        f'Authors: {", ".join(authors)}',
+    ]
+    if date:
+        context_lines.append(f'Date: {date}')
+    if abstract:
+        context_lines.append(f'Abstract: {abstract}')
+    if text_body:
+        context_lines.append(f'Visible text excerpt: {text_body}')
+
+    return {
+        'context': '\n'.join(context_lines),
+        'title': title,
+        'authors': authors,
+        'date': date,
+    }
+
+
+def _extract_arxiv_page_data(response_text, max_chars=10000):
+    generic = _extract_generic_page_data(response_text, max_chars=max_chars)
+
+    authors_block = re.search(r'<div class="ltx_authors">(.*?)<br class="ltx_break"/>', response_text, re.S)
+    if authors_block:
+        author_line = authors_block.group(1)
+        author_line = re.sub(r'<sup.*?</sup>', '', author_line, flags=re.S)
+        author_line = re.sub(r'<[^>]+>', '', author_line)
+        author_line = author_line.replace('\xa0', ' ')
+        visible_authors = [part.strip() for part in re.split(r'\s{3,}|\s{2,}', author_line) if part.strip()]
+        if visible_authors:
+            generic['authors'] = visible_authors
+            generic['context'] = generic['context'].replace(
+                f"Authors: {', '.join(generic['authors'])}",
+                f"Authors: {', '.join(visible_authors)}",
+            )
+
+    return generic
+
+
+def fetch_page_context(url, max_chars=10000):
+    headers = {
+        'User-Agent': 'tldr-link-summarizer/1.0 (+https://github.com/zparvez2z/TLDR)',
+        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+    }
+    response = requests.get(url, headers=headers, timeout=45)
+    response.raise_for_status()
+
+    domain = urlparse(url).netloc.lower()
+    if 'arxiv.org' in domain:
+        return _extract_arxiv_page_data(response.text, max_chars=max_chars)
+    return _extract_generic_page_data(response.text, max_chars=max_chars)
+
+def build_prompt(url, page_context=None, existing_categories=None):
     if existing_categories is None:
         existing_categories = []
 
@@ -41,16 +175,30 @@ Analyze the webpage at the given URL and return ONLY a single, valid JSON object
 Do not include any explanatory text, markdown formatting like ```json, or anything outside of the JSON object itself.
 
 URL: "{url}"
+
+PAGE CONTEXT:
+{page_context or 'No extracted page context available.'}
 '''
 
-def save_markdown(data, category_dir, url):
+def save_markdown(data, category_dir, url, source_metadata=None):
     category_dir.mkdir(parents=True, exist_ok=True)
     filename = data.filename if hasattr(data, 'filename') else data.get('filename', 'default-filename.md')
-    # Use current date if date is None or empty
-    date_val = getattr(data, 'date', None) or datetime.now().strftime('%d-%m-%Y')
+    source_authors = (source_metadata or {}).get('authors') or []
+    source_title = (source_metadata or {}).get('title')
+    source_date = (source_metadata or {}).get('date') or ''
+
+    author = getattr(data, 'author', 'Unknown')
+    if (not author or author == 'Unknown') and source_authors:
+        author = ', '.join(source_authors)
+
+    date_val = getattr(data, 'date', None) or source_date or datetime.now().strftime('%d-%m-%Y')
+    title = getattr(data, 'title', 'No Title')
+    if source_title and title.strip().lower() != source_title.strip().lower():
+        title = source_title
+
     md_path = category_dir / filename
     with open(md_path, 'w') as f:
-        f.write(f"---\nsource_url: {url}\nauthor: {getattr(data, 'author', 'Unknown')}\ndate: {date_val}\n---\n\n# {getattr(data, 'title', 'No Title')}\n\n{getattr(data, 'summary', 'No summary available.')}")
+        f.write(f"---\nsource_url: {url}\nauthor: {author}\ndate: {date_val}\n---\n\n# {title}\n\n{getattr(data, 'summary', 'No summary available.')}")
 
 
 def parse_date(value):
@@ -125,7 +273,16 @@ def process_links():
     stop_and_preserve_queue = False
     for idx, url in enumerate(urls):
         print(f"Processing {url}...")
-        prompt = build_prompt(url, existing_categories)
+        try:
+            page_info = fetch_page_context(url)
+        except Exception as e:
+            print(f"Error fetching page context for {url}: {e}")
+            write_remaining_queue(input_path, urls[idx:])
+            print(f"Preserved remaining links in {input_path}")
+            stop_and_preserve_queue = True
+            break
+
+        prompt = build_prompt(url, page_info['context'], existing_categories)
         result = None
         try:
             result = adapter.generate_summary(prompt, url)
@@ -134,7 +291,7 @@ def process_links():
                 continue
             category = getattr(result, 'category', 'Uncategorized')
             category_dir = pathlib.Path('knowledge') / category
-            save_markdown(result, category_dir, url)
+            save_markdown(result, category_dir, url, page_info)
             print(f"Successfully processed and saved {url}")
         except NotImplementedError as ne:
             print(f"Adapter not implemented: {ne}")
