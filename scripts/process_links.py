@@ -131,10 +131,32 @@ def _extract_arxiv_page_data(response_text, max_chars=10000):
         author_line = author_line.replace('\xa0', ' ')
         # authors are often separated by larger whitespace or repeated spacing
         raw_parts = [part.strip() for part in re.split(r'\s{2,}|\u2003|\u00A0|,\s*', author_line) if part.strip()]
-        # Filter out non-name tokens (links, institutional lines, labels)
-        visible_authors = [p for p in raw_parts if not re.search(r'http|code:|project page|university|affiliat|\[|\]|mailto:|@', p, re.I)]
-        # Heuristic: limit to reasonable name lengths
-        visible_authors = [p for p in visible_authors if 1 <= len(p.split()) <= 6]
+        
+        # Filter: check if token is likely an author name
+        def is_likely_author_name(token):
+            # Reject if contains URLs, code labels, institutions, HTML-like tags
+            if re.search(r'http|code:|project page|university|affiliat|\[|\]|mailto:|@|<|>', token, re.I):
+                return False
+            # Reject if contains LaTeX symbols, math mode, or excessive punctuation
+            if re.search(r'\\|\{|\}|\$|\^|_|boldsymbol|footnotemark|footnote', token):
+                return False
+            # Reject if purely numeric or decimal
+            if re.match(r'^[\d.]+$', token):
+                return False
+            # Reject if too short (< 2 chars) or too long (> 100 chars)
+            if len(token) < 2 or len(token) > 100:
+                return False
+            # Heuristic: reasonable name has 1-6 words, each mostly letters/hyphens/apostrophes
+            words = token.split()
+            if len(words) > 6:
+                return False
+            for word in words:
+                # Each word should be mostly letters (allow hyphens, apostrophes, dots)
+                if not re.match(r"^[a-z\'\-\.]+$", word, re.I):
+                    return False
+            return True
+        
+        visible_authors = [p for p in raw_parts if is_likely_author_name(p)]
         if visible_authors:
             generic['authors'] = visible_authors
             # update the PAGE CONTEXT authors line if present
