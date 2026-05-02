@@ -165,6 +165,39 @@ def _extract_arxiv_page_data(response_text, max_chars=10000):
     return generic
 
 
+def is_extraction_quality_poor(page_info, threshold_text_chars=100):
+    """Detect if page extraction quality is poor (e.g., mostly LaTeX artifacts, no useful content)."""
+    # Poor if: no title, unknown author, and minimal text
+    has_title = page_info.get('title') and page_info['title'].lower() != 'unknown title'
+    has_author = page_info.get('authors') and page_info['authors'][0] != 'Unknown'
+    has_content = len(page_info.get('context', '')) > threshold_text_chars
+    
+    # Quality is poor if we're missing at least 2 of these signals
+    signals = [has_title, has_author, has_content]
+    return sum(signals) <= 1
+
+
+def get_raw_html_chunk(url, max_chars=5000):
+    """Fetch raw HTML and return a sanitized chunk for fallback use."""
+    try:
+        headers = {
+            'User-Agent': 'tldr-link-summarizer/1.0 (+https://github.com/zparvez2z/TLDR)',
+        }
+        response = requests.get(url, headers=headers, timeout=30)
+        response.raise_for_status()
+        html = response.text
+        # Remove script/style tags to reduce noise
+        html = re.sub(r'<script[^>]*>.*?</script>', '', html, flags=re.S | re.I)
+        html = re.sub(r'<style[^>]*>.*?</style>', '', html, flags=re.S | re.I)
+        # Truncate
+        if len(html) > max_chars:
+            html = html[:max_chars] + '\n... [truncated]'
+        return html
+    except Exception as e:
+        return f'(Could not fetch raw HTML: {e})'
+
+
+
 def fetch_page_context(url, max_chars=10000):
     headers = {
         'User-Agent': 'tldr-link-summarizer/1.0 (+https://github.com/zparvez2z/TLDR)',
@@ -183,10 +216,15 @@ def build_prompt(url, page_context=None, existing_categories=None):
         existing_categories = []
 
     category_prompt = "a single category that best fits the content (e.g., Software-Engineering, Machine-Learning, etc.)."
+    is_fallback = "[FALLBACK MODE] " in (page_context or "")
+    
     if existing_categories:
         category_prompt = f"a single category from this list if a good fit exists, otherwise create a new relevant one: {', '.join(existing_categories)}"
 
+    prompt_prefix = "⚠️ [Note: Using fallback raw HTML due to extraction difficulties]\n" if is_fallback else ""
+    
     return f'''
+{prompt_prefix}
 You are an intelligent assistant that analyzes web content and returns structured data.
 Analyze the webpage at the given URL and return ONLY a single, valid JSON object with the following fields:
 
@@ -308,8 +346,14 @@ def process_links():
             print(f"Preserved remaining links in {input_path}")
             stop_and_preserve_queue = True
             break
+        
+            # Check extraction quality and fallback to raw HTML if poor
+            if is_extraction_quality_poor(page_info):
+                print(f"  → Extraction quality poor, using fallback (raw HTML chunk)")
+                raw_html = get_raw_html_chunk(url)
+                page_info['context'] = f"[FALLBACK MODE] Raw HTML excerpt:\n{raw_html}"
 
-        prompt = build_prompt(url, page_info['context'], existing_categories)
+            prompt = build_prompt(url, page_info.get('context'), existing_categories)
         result = None
         try:
             result = adapter.generate_summary(prompt, url)

@@ -29,6 +29,35 @@ def test_arxiv_extraction_from_fixture():
     assert 'context' in result and 'Abstract' in result['context']
 
 
+def test_extraction_quality_detection():
+    """Test the quality detection for fallback triggering."""
+    from scripts.process_links import is_extraction_quality_poor
+
+    # Good extraction should NOT trigger fallback
+    good = {
+        'title': 'Real Title',
+        'authors': ['Author Name'],
+        'context': 'A' * 500,
+    }
+    assert not is_extraction_quality_poor(good), "Good extraction should not trigger fallback"
+
+    # Unknown author + short content should trigger fallback
+    poor = {
+        'title': 'Real Title',
+        'authors': ['Unknown'],
+        'context': 'Short',
+    }
+    assert is_extraction_quality_poor(poor), "Poor extraction should trigger fallback"
+
+    # Unknown title + unknown author should trigger fallback
+    very_poor = {
+        'title': 'Unknown title',
+        'authors': ['Unknown'],
+        'context': 'A' * 500,
+    }
+    assert is_extraction_quality_poor(very_poor), "Very poor extraction should trigger fallback"
+
+
 if __name__ == '__main__':
     test_arxiv_extraction_from_fixture()
     print('arXiv extractor test: OK')
