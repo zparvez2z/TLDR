@@ -6,7 +6,10 @@ from types import SimpleNamespace
 from datetime import datetime
 from typing import Optional
 
-from .summary_model import SummaryOutput
+try:
+    from .summary_model import SummaryOutput
+except ImportError:
+    from summary_model import SummaryOutput
 
 
 class TransientAPIError(RuntimeError):
