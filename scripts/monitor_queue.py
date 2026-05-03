@@ -8,8 +8,6 @@ Usage:
     python scripts/monitor_queue.py --rollback N  # Restore last N commits
 """
 import argparse
-import os
-import sys
 from pathlib import Path
 from datetime import datetime
 import subprocess
@@ -61,9 +59,9 @@ def print_status():
 
     if queue_count > 0:
         print("\nRECOVERY OPTIONS:")
-        print(f"  • Resume processing:     python scripts/process_links.py")
+        print("  • Resume processing:     python scripts/process_links.py")
         print(f"  • View queue:            cat {QUEUE_FILE}")
-        print(f"  • Force clear queue:     python scripts/monitor_queue.py --clear")
+        print("  • Force clear queue:     python scripts/monitor_queue.py --clear")
         print(f"  • Rollback commits:      git log --oneline {QUEUE_FILE} | head -5")
 
 
