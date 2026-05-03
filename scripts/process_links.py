@@ -1,20 +1,15 @@
-import os
 import pathlib
-import json
 import re
 from datetime import datetime
 from html.parser import HTMLParser
 from urllib.parse import urlparse
-from typing import Optional
 
 import requests
 
 try:
     from .model_adapter import ModelAdapter, TransientAPIError
-    from .summary_model import SummaryOutput
 except ImportError:
     from model_adapter import ModelAdapter, TransientAPIError
-    from summary_model import SummaryOutput
 
 
 def write_remaining_queue(input_path, remaining_urls):
@@ -367,7 +362,7 @@ def process_links():
 
         # Check extraction quality and fallback to raw HTML if poor
         if is_extraction_quality_poor(page_info, url=url):
-            print(f"  → Extraction quality poor, using fallback (raw HTML chunk)")
+            print("  → Extraction quality poor, using fallback (raw HTML chunk)")
             raw_html = get_raw_html_chunk(url)
             page_info['context'] = f"[FALLBACK MODE] Raw HTML excerpt:\n{raw_html}"
 
@@ -397,7 +392,7 @@ def process_links():
             break
         except Exception as e:
             if "RESOURCE_EXHAUSTED" in str(e) or "quota" in str(e).lower():
-                print(f"API quota exceeded. Stopping processing.")
+                print("API quota exceeded. Stopping processing.")
                 write_remaining_queue(input_path, urls[idx:])
                 print(f"Remaining unprocessed links saved in {input_path}")
                 stop_and_preserve_queue = True

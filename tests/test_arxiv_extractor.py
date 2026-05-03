@@ -7,10 +7,10 @@ ROOT = str(pathlib.Path(__file__).resolve().parents[1])
 if ROOT not in sys.path:
     sys.path.insert(0, ROOT)
 
-from scripts.process_links import _extract_arxiv_page_data
-
 
 def test_arxiv_extraction_from_fixture():
+    from scripts.process_links import _extract_arxiv_page_data
+
     here = os.path.dirname(__file__)
     fixture = os.path.join(here, 'fixtures', 'arxiv_sample.html')
     with open(fixture, 'r', encoding='utf-8') as f:

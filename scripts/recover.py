@@ -8,8 +8,6 @@ Usage:
     python scripts/recover.py --inspect <category>   # List recent summaries in category
 """
 import argparse
-import os
-import sys
 from pathlib import Path
 from datetime import datetime
 
