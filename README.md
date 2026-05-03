@@ -18,17 +18,17 @@ Sharing back what I'm learning with the community—curated insights, practical 
 | IT-Security | 1 | [Seven Security Considerations Cloud Laboratory Analytics](knowledge/IT-Security/seven-security-considerations-cloud-laboratory-analytics.md) | [IT-Security](#browse-by-category) |
 | Information-Science | 4 | [What Is Rdf](knowledge/Information-Science/what-is-rdf.md) | [Information-Science](#browse-by-category) |
 | Machine-Learning | 12 | [Step Level Optimization Efficient Computer Use Agents](knowledge/Machine-Learning/step-level-optimization-efficient-computer-use-agents.md) | [Machine-Learning](#browse-by-category) |
-| Software-Engineering | 13 | [Uala Agent Simple Http Agent Web Scraping](knowledge/Software-Engineering/uala-agent-simple-http-agent-web-scraping.md) | [Software-Engineering](#browse-by-category) |
+| Software-Engineering | 10 | [Uala Agent Simple Http Agent Web Scraping](knowledge/Software-Engineering/uala-agent-simple-http-agent-web-scraping.md) | [Software-Engineering](#browse-by-category) |
 
 ## Recent additions
 - [Step Level Optimization Efficient Computer Use Agents](knowledge/Machine-Learning/step-level-optimization-efficient-computer-use-agents.md) · Machine-Learning — 03-05-2026
 - [Uala Agent Simple Http Agent Web Scraping](knowledge/Software-Engineering/uala-agent-simple-http-agent-web-scraping.md) · Software-Engineering — 02-05-2026
 - [Towards Uncertainty Aware Language Agent](knowledge/Machine-Learning/towards-uncertainty-aware-language-agent.md) · Machine-Learning — 02-05-2026
 - [The Python Tutorial](knowledge/Software-Engineering/the-python-tutorial.md) · Software-Engineering — 02-05-2026
-- [Step Level Optimization For Efficient Computer Use Agents](knowledge/Software-Engineering/step-level-optimization-for-efficient-computer-use-agents.md) · Software-Engineering — 02-05-2026
-- [Heterogeneous Scientific Foundation Model Collaboration](knowledge/Software-Engineering/heterogeneous-scientific-foundation-model-collaboration.md) · Software-Engineering — 02-05-2026
 - [Heterogeneous Scientific Foundation Model Collaboration](knowledge/Machine-Learning/heterogeneous-scientific-foundation-model-collaboration.md) · Machine-Learning — 02-05-2026
 - [About Python Programming Language](knowledge/Software-Engineering/about-python-programming-language.md) · Software-Engineering — 02-05-2026
+- [Seven Security Considerations Cloud Laboratory Analytics](knowledge/IT-Security/seven-security-considerations-cloud-laboratory-analytics.md) · IT-Security — 29-10-2025
+- [Inside Nvidia Gpus High Performance Matmul Kernels](knowledge/Machine-Learning/inside-nvidia-gpus-high-performance-matmul-kernels.md) · Machine-Learning — 29-09-2025
 
 ## Browse by category
 <details>
@@ -67,17 +67,14 @@ Sharing back what I'm learning with the community—curated insights, practical 
 </details>
 
 <details>
-<summary>Software-Engineering (13)</summary>
+<summary>Software-Engineering (10)</summary>
 
 - [Uala Agent Simple Http Agent Web Scraping](knowledge/Software-Engineering/uala-agent-simple-http-agent-web-scraping.md) — 02-05-2026
 - [The Python Tutorial](knowledge/Software-Engineering/the-python-tutorial.md) — 02-05-2026
-- [Step Level Optimization For Efficient Computer Use Agents](knowledge/Software-Engineering/step-level-optimization-for-efficient-computer-use-agents.md) — 02-05-2026
-- [Heterogeneous Scientific Foundation Model Collaboration](knowledge/Software-Engineering/heterogeneous-scientific-foundation-model-collaboration.md) — 02-05-2026
 - [About Python Programming Language](knowledge/Software-Engineering/about-python-programming-language.md) — 02-05-2026
 - [When To Refactor](knowledge/Software-Engineering/when-to-refactor.md) — 04-08-2025
 - [Technical Debt](knowledge/Software-Engineering/technical-debt.md) — 04-08-2025
 - [How To Refactor](knowledge/Software-Engineering/how-to-refactor.md) — 04-08-2025
-- [What Is Rdf](knowledge/Software-Engineering/what-is-rdf.md) — 13-07-2025
 - [Software Testing Life Cycle Stlc](knowledge/Software-Engineering/software-testing-life-cycle-stlc.md) — 15-05-2025
 - [Software Testing Process Methods And Stages](knowledge/Software-Engineering/software-testing-process-methods-and-stages.md) — 13-12-2024
 - [Levels Of Testing Quality Assurance](knowledge/Software-Engineering/levels-of-testing-quality-assurance.md) — 13-06-2023
@@ -86,6 +83,7 @@ Sharing back what I'm learning with the community—curated insights, practical 
 </details>
 
 <!-- TLDR-AUTO-END -->
+
 
 
 
