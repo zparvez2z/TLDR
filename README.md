@@ -18,17 +18,17 @@ Sharing back what I'm learning with the community—curated insights, practical 
 | IT-Security | 1 | [Seven Security Considerations Cloud Laboratory Analytics](knowledge/IT-Security/seven-security-considerations-cloud-laboratory-analytics.md) | [IT-Security](#browse-by-category) |
 | Information-Science | 4 | [What Is Rdf](knowledge/Information-Science/what-is-rdf.md) | [Information-Science](#browse-by-category) |
 | Machine-Learning | 12 | [Step Level Optimization Efficient Computer Use Agents](knowledge/Machine-Learning/step-level-optimization-efficient-computer-use-agents.md) | [Machine-Learning](#browse-by-category) |
-| Software-Engineering | 10 | [Uala Agent Simple Http Agent Web Scraping](knowledge/Software-Engineering/uala-agent-simple-http-agent-web-scraping.md) | [Software-Engineering](#browse-by-category) |
+| Software-Engineering | 11 | [Interactweb Bench Escaping Blind Execution Website Generation](knowledge/Software-Engineering/interactweb-bench-escaping-blind-execution-website-generation.md) | [Software-Engineering](#browse-by-category) |
 
 ## Recent additions
 - [Step Level Optimization Efficient Computer Use Agents](knowledge/Machine-Learning/step-level-optimization-efficient-computer-use-agents.md) · Machine-Learning — 03-05-2026
+- [Interactweb Bench Escaping Blind Execution Website Generation](knowledge/Software-Engineering/interactweb-bench-escaping-blind-execution-website-generation.md) · Software-Engineering — 03-05-2026
 - [Uala Agent Simple Http Agent Web Scraping](knowledge/Software-Engineering/uala-agent-simple-http-agent-web-scraping.md) · Software-Engineering — 02-05-2026
 - [Towards Uncertainty Aware Language Agent](knowledge/Machine-Learning/towards-uncertainty-aware-language-agent.md) · Machine-Learning — 02-05-2026
 - [The Python Tutorial](knowledge/Software-Engineering/the-python-tutorial.md) · Software-Engineering — 02-05-2026
 - [Heterogeneous Scientific Foundation Model Collaboration](knowledge/Machine-Learning/heterogeneous-scientific-foundation-model-collaboration.md) · Machine-Learning — 02-05-2026
 - [About Python Programming Language](knowledge/Software-Engineering/about-python-programming-language.md) · Software-Engineering — 02-05-2026
 - [Seven Security Considerations Cloud Laboratory Analytics](knowledge/IT-Security/seven-security-considerations-cloud-laboratory-analytics.md) · IT-Security — 29-10-2025
-- [Inside Nvidia Gpus High Performance Matmul Kernels](knowledge/Machine-Learning/inside-nvidia-gpus-high-performance-matmul-kernels.md) · Machine-Learning — 29-09-2025
 
 ## Browse by category
 <details>
@@ -67,8 +67,9 @@ Sharing back what I'm learning with the community—curated insights, practical 
 </details>
 
 <details>
-<summary>Software-Engineering (10)</summary>
+<summary>Software-Engineering (11)</summary>
 
+- [Interactweb Bench Escaping Blind Execution Website Generation](knowledge/Software-Engineering/interactweb-bench-escaping-blind-execution-website-generation.md) — 03-05-2026
 - [Uala Agent Simple Http Agent Web Scraping](knowledge/Software-Engineering/uala-agent-simple-http-agent-web-scraping.md) — 02-05-2026
 - [The Python Tutorial](knowledge/Software-Engineering/the-python-tutorial.md) — 02-05-2026
 - [About Python Programming Language](knowledge/Software-Engineering/about-python-programming-language.md) — 02-05-2026
@@ -83,6 +84,7 @@ Sharing back what I'm learning with the community—curated insights, practical 
 </details>
 
 <!-- TLDR-AUTO-END -->
+
 
 
 
