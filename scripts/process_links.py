@@ -190,6 +190,29 @@ def is_extraction_quality_poor(page_info, url=None, threshold_text_chars=100):
     return sum(signals) <= 1
 
 
+def url_already_processed(url):
+    """Check if URL has already been processed by searching all knowledge files."""
+    knowledge_dir = pathlib.Path('knowledge')
+    if not knowledge_dir.exists():
+        return False
+    
+    # Search all .md files for matching source_url in front matter
+    for md_file in knowledge_dir.rglob('*.md'):
+        try:
+            content = md_file.read_text()
+            # Extract source_url from YAML front matter
+            if 'source_url:' in content:
+                for line in content.split('\n'):
+                    if line.startswith('source_url:'):
+                        source_url = line.split(':', 1)[1].strip()
+                        if source_url == url:
+                            return True
+        except Exception:
+            pass
+    
+    return False
+
+
 def get_raw_html_chunk(url, max_chars=5000):
     """Fetch raw HTML and return a sanitized chunk for fallback use."""
     try:
@@ -351,6 +374,12 @@ def process_links():
     stop_and_preserve_queue = False
     for idx, url in enumerate(urls):
         print(f"Processing {url}...")
+        
+        # Check if URL was already processed to avoid duplicates
+        if url_already_processed(url):
+            print("  ⊘ URL already processed, skipping.")
+            continue
+        
         try:
             page_info = fetch_page_context(url)
         except Exception as e:
