@@ -163,7 +163,7 @@ class ModelAdapter:
         if not token:
             raise RuntimeError('GITHUB_TOKEN not found in environment or adapter')
 
-        model = os.environ.get('GITHUB_MODEL', 'openai/gpt-4.1-mini')
+        model = os.environ.get('GITHUB_MODEL', 'openai/gpt-4.1')
         endpoint_override = os.environ.get('GITHUB_MODELS_ENDPOINT')
         if endpoint_override:
             endpoints = [endpoint_override]

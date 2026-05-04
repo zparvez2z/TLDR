@@ -117,7 +117,7 @@ These occurred during:
 4. **Redundancy:** Dual-provider support adds resilience
 
 ### Current Strategy (May 2026 +)
-- **Primary:** GitHub Models (`openai/gpt-4.1-mini`)
+- **Primary:** GitHub Models (`openai/gpt-4.1`)
 - **Fallback:** Gemini API (preserved for emergency use)
 - **Retry logic:** Both providers implement exponential backoff + jitter
 - **Queue preservation:** Transient errors don't lose progress

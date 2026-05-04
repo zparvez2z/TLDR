@@ -27,7 +27,7 @@ pip install -r requirements-dev.txt
 Create a `.env` file in the project root and add your API keys:
 ```bash
 GITHUB_TOKEN=<your-github-personal-access-token>
-GITHUB_MODEL=openai/gpt-4.1-mini  # Optional; defaults to openai/gpt-4.1-mini
+GITHUB_MODEL=openai/gpt-4.1  # Optional; defaults to openai/gpt-4.1
 GEMINI_API_KEY=<your-gemini-api-key>  # Optional; fallback provider
 ```
 

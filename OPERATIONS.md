@@ -31,7 +31,7 @@ Create `.env` file in the repository root with at least one provider configured:
 - `GEMINI_API_KEY` — Fallback provider (Google Gemini)
 
 #### GitHub Models Configuration
-- `GITHUB_MODEL` (optional, default: `openai/gpt-4.1-mini`)
+- `GITHUB_MODEL` (optional, default: `openai/gpt-4.1`)
 - `GITHUB_MAX_TOKENS` (optional, default: `1000`)
 - `GITHUB_MODELS_ENDPOINT` (optional, overrides default endpoints)
 - `GITHUB_RETRY_ATTEMPTS` (optional, default: `4`)
@@ -46,7 +46,7 @@ Create `.env` file in the repository root with at least one provider configured:
 **Example `.env`:**
 ```
 GITHUB_TOKEN=ghp_xxxxx
-GITHUB_MODEL=openai/gpt-4.1-mini
+GITHUB_MODEL=openai/gpt-4.1
 GEMINI_API_KEY=sk-xxxxx
 GITHUB_RETRY_ATTEMPTS=6
 GITHUB_RETRY_MAX_DELAY_SEC=60
@@ -298,7 +298,7 @@ https://github.com/YOUR_USER/TLDR/actions
 ### GitHub Models (Primary)
 - **API:** REST (`https://models.github.ai/inference/chat/completions`)
 - **Auth:** Bearer token (GITHUB_TOKEN)
-- **Default model:** `openai/gpt-4.1-mini`
+- **Default model:** `openai/gpt-4.1`
 - **Transient errors:** HTTP 429, 5xx, network timeouts
 - **Retry:** Exponential backoff respecting Retry-After header
 
