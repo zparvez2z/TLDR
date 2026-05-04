@@ -17,18 +17,18 @@ Sharing back what I'm learning with the community—curated insights, practical 
 | --- | ---: | --- | --- |
 | IT-Security | 1 | [Seven Security Considerations Cloud Laboratory Analytics](knowledge/IT-Security/seven-security-considerations-cloud-laboratory-analytics.md) | [IT-Security](#browse-by-category) |
 | Information-Science | 4 | [What Is Rdf](knowledge/Information-Science/what-is-rdf.md) | [Information-Science](#browse-by-category) |
-| Machine-Learning | 14 | [Large Scale Study Multi Agent Ai Systems](knowledge/Machine-Learning/large-scale-study-multi-agent-ai-systems.md) | [Machine-Learning](#browse-by-category) |
+| Machine-Learning | 15 | [Large Scale Study Multi Agent Ai Systems](knowledge/Machine-Learning/large-scale-study-multi-agent-ai-systems.md) | [Machine-Learning](#browse-by-category) |
 | Software-Engineering | 11 | [Interactweb Bench Escaping Blind Execution Website Generation](knowledge/Software-Engineering/interactweb-bench-escaping-blind-execution-website-generation.md) | [Software-Engineering](#browse-by-category) |
 
 ## Recent additions
 - [Large Scale Study Multi Agent Ai Systems](knowledge/Machine-Learning/large-scale-study-multi-agent-ai-systems.md) · Machine-Learning — 04-05-2026
+- [Conformal Language Modeling](knowledge/Machine-Learning/conformal-language-modeling.md) · Machine-Learning — 04-05-2026
 - [Step Level Optimization Efficient Computer Use Agents](knowledge/Machine-Learning/step-level-optimization-efficient-computer-use-agents.md) · Machine-Learning — 03-05-2026
 - [Skillclaw Collective Skill Evolution Agentic Evolver](knowledge/Machine-Learning/skillclaw-collective-skill-evolution-agentic-evolver.md) · Machine-Learning — 03-05-2026
 - [Interactweb Bench Escaping Blind Execution Website Generation](knowledge/Software-Engineering/interactweb-bench-escaping-blind-execution-website-generation.md) · Software-Engineering — 03-05-2026
 - [Uala Agent Simple Http Agent Web Scraping](knowledge/Software-Engineering/uala-agent-simple-http-agent-web-scraping.md) · Software-Engineering — 02-05-2026
 - [Towards Uncertainty Aware Language Agent](knowledge/Machine-Learning/towards-uncertainty-aware-language-agent.md) · Machine-Learning — 02-05-2026
 - [The Python Tutorial](knowledge/Software-Engineering/the-python-tutorial.md) · Software-Engineering — 02-05-2026
-- [Heterogeneous Scientific Foundation Model Collaboration](knowledge/Machine-Learning/heterogeneous-scientific-foundation-model-collaboration.md) · Machine-Learning — 02-05-2026
 
 ## Browse by category
 <details>
@@ -49,9 +49,10 @@ Sharing back what I'm learning with the community—curated insights, practical 
 </details>
 
 <details>
-<summary>Machine-Learning (14)</summary>
+<summary>Machine-Learning (15)</summary>
 
 - [Large Scale Study Multi Agent Ai Systems](knowledge/Machine-Learning/large-scale-study-multi-agent-ai-systems.md) — 04-05-2026
+- [Conformal Language Modeling](knowledge/Machine-Learning/conformal-language-modeling.md) — 04-05-2026
 - [Step Level Optimization Efficient Computer Use Agents](knowledge/Machine-Learning/step-level-optimization-efficient-computer-use-agents.md) — 03-05-2026
 - [Skillclaw Collective Skill Evolution Agentic Evolver](knowledge/Machine-Learning/skillclaw-collective-skill-evolution-agentic-evolver.md) — 03-05-2026
 - [Towards Uncertainty Aware Language Agent](knowledge/Machine-Learning/towards-uncertainty-aware-language-agent.md) — 02-05-2026
@@ -86,6 +87,7 @@ Sharing back what I'm learning with the community—curated insights, practical 
 </details>
 
 <!-- TLDR-AUTO-END -->
+
 
 
 
