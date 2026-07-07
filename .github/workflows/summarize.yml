@@ -30,18 +30,6 @@ jobs:
         run: python scripts/daily_pick.py
       - name: Snapshot selected queue
         run: cp input/links-to-summarize.md input/run-selected.md
-      - name: Patch GPT-5 request payload
-        run: |
-          python - <<'PY'
-          from pathlib import Path
-          path = Path('scripts/model_adapter.py')
-          text = path.read_text(encoding='utf-8')
-          text = text.replace(
-              "'max_tokens': int(os.environ.get('GITHUB_MAX_TOKENS', '1000'))",
-              "'max_completion_tokens': int(os.environ.get('GITHUB_MAX_TOKENS', '1000'))",
-          )
-          path.write_text(text, encoding='utf-8')
-          PY
       - name: Validate environment
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -78,5 +66,5 @@ jobs:
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          git add scripts/model_adapter.py knowledge/ input/links-to-summarize.md input/daily-processed.md README.md || true
+          git add knowledge/ input/links-to-summarize.md input/daily-processed.md README.md || true
           git diff --staged --quiet || (git commit -m "docs: Auto-generate knowledge base" && git pull --rebase && git push)
