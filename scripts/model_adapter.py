@@ -184,7 +184,7 @@ class ModelAdapter:
             'messages': [
                 {'role': 'user', 'content': prompt}
             ],
-            'max_tokens': int(os.environ.get('GITHUB_MAX_TOKENS', '1000')),
+            'max_completion_tokens': int(os.environ.get('GITHUB_MAX_TOKENS', '1000')),
         }
 
         retry_attempts = max(1, int(os.environ.get('GITHUB_RETRY_ATTEMPTS', '4')))
