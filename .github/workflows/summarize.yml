@@ -27,6 +27,8 @@ jobs:
       - name: Pick daily topics
         if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
         run: python scripts/daily_pick.py
+      - name: Snapshot selected queue
+        run: cp input/links-to-summarize.md input/run-selected.md
       - name: Validate environment
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -52,6 +54,8 @@ jobs:
           GITHUB_RETRY_BASE_DELAY_SEC: '1.5'
           GITHUB_RETRY_MAX_DELAY_SEC: '20'
         run: python scripts/process_links.py
+      - name: Reconcile queue
+        run: python scripts/reconcile_queue.py
       - name: Commit and push changes
         run: |
           git config --global user.name 'github-actions[bot]'
