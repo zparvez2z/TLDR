@@ -18,10 +18,11 @@ Sharing back what I'm learning with the community—curated insights, practical 
 | IT-Security | 1 | [Seven Security Considerations Cloud Laboratory Analytics](knowledge/IT-Security/seven-security-considerations-cloud-laboratory-analytics.md) | [IT-Security](#browse-by-category) |
 | Information-Science | 4 | [What Is Rdf](knowledge/Information-Science/what-is-rdf.md) | [Information-Science](#browse-by-category) |
 | Machine-Learning | 16 | [Machine Learning Crash Course Google Developers](knowledge/Machine-Learning/machine-learning-crash-course-google-developers.md) | [Machine-Learning](#browse-by-category) |
-| Software-Engineering | 11 | [Interactweb Bench Escaping Blind Execution Website Generation](knowledge/Software-Engineering/interactweb-bench-escaping-blind-execution-website-generation.md) | [Software-Engineering](#browse-by-category) |
-| System-Design | 0 | — | [System-Design](#browse-by-category) |
+| Software-Engineering | 10 | [Interactweb Bench Escaping Blind Execution Website Generation](knowledge/Software-Engineering/interactweb-bench-escaping-blind-execution-website-generation.md) | [Software-Engineering](#browse-by-category) |
+| System-Design | 2 | [What Is Dns And How It Works](knowledge/System-Design/what-is-dns-and-how-it-works.md) | [System-Design](#browse-by-category) |
 
 ## Recent additions
+- [What Is Dns And How It Works](knowledge/System-Design/what-is-dns-and-how-it-works.md) · System-Design — 07-07-2026
 - [Machine Learning Crash Course Google Developers](knowledge/Machine-Learning/machine-learning-crash-course-google-developers.md) · Machine-Learning — 07-07-2026
 - [Large Scale Study Multi Agent Ai Systems](knowledge/Machine-Learning/large-scale-study-multi-agent-ai-systems.md) · Machine-Learning — 04-05-2026
 - [Conformal Language Modeling](knowledge/Machine-Learning/conformal-language-modeling.md) · Machine-Learning — 04-05-2026
@@ -29,7 +30,6 @@ Sharing back what I'm learning with the community—curated insights, practical 
 - [Skillclaw Collective Skill Evolution Agentic Evolver](knowledge/Machine-Learning/skillclaw-collective-skill-evolution-agentic-evolver.md) · Machine-Learning — 03-05-2026
 - [Interactweb Bench Escaping Blind Execution Website Generation](knowledge/Software-Engineering/interactweb-bench-escaping-blind-execution-website-generation.md) · Software-Engineering — 03-05-2026
 - [Uala Agent Simple Http Agent Web Scraping](knowledge/Software-Engineering/uala-agent-simple-http-agent-web-scraping.md) · Software-Engineering — 02-05-2026
-- [Towards Uncertainty Aware Language Agent](knowledge/Machine-Learning/towards-uncertainty-aware-language-agent.md) · Machine-Learning — 02-05-2026
 
 ## Browse by category
 <details>
@@ -72,7 +72,7 @@ Sharing back what I'm learning with the community—curated insights, practical 
 </details>
 
 <details>
-<summary>Software-Engineering (11)</summary>
+<summary>Software-Engineering (10)</summary>
 
 - [Interactweb Bench Escaping Blind Execution Website Generation](knowledge/Software-Engineering/interactweb-bench-escaping-blind-execution-website-generation.md) — 03-05-2026
 - [Uala Agent Simple Http Agent Web Scraping](knowledge/Software-Engineering/uala-agent-simple-http-agent-web-scraping.md) — 02-05-2026
@@ -84,17 +84,20 @@ Sharing back what I'm learning with the community—curated insights, practical 
 - [Software Testing Life Cycle Stlc](knowledge/Software-Engineering/software-testing-life-cycle-stlc.md) — 15-05-2025
 - [Software Testing Process Methods And Stages](knowledge/Software-Engineering/software-testing-process-methods-and-stages.md) — 13-12-2024
 - [Levels Of Testing Quality Assurance](knowledge/Software-Engineering/levels-of-testing-quality-assurance.md) — 13-06-2023
-- [System Design Primer](knowledge/Software-Engineering/system-design-primer.md) — Unknown
 
 </details>
 
 <details>
-<summary>System-Design (0)</summary>
+<summary>System-Design (2)</summary>
 
+- [What Is Dns And How It Works](knowledge/System-Design/what-is-dns-and-how-it-works.md) — 07-07-2026
+- [System Design Primer](knowledge/System-Design/system-design-primer.md) — Unknown
 
 </details>
 
 <!-- TLDR-AUTO-END -->
+
+
 
 
 
