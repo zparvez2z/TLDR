@@ -19,6 +19,7 @@ Sharing back what I'm learning with the community—curated insights, practical 
 | Information-Science | 4 | [What Is Rdf](knowledge/Information-Science/what-is-rdf.md) | [Information-Science](#browse-by-category) |
 | Machine-Learning | 15 | [Large Scale Study Multi Agent Ai Systems](knowledge/Machine-Learning/large-scale-study-multi-agent-ai-systems.md) | [Machine-Learning](#browse-by-category) |
 | Software-Engineering | 11 | [Interactweb Bench Escaping Blind Execution Website Generation](knowledge/Software-Engineering/interactweb-bench-escaping-blind-execution-website-generation.md) | [Software-Engineering](#browse-by-category) |
+| System-Design | 0 | — | [System-Design](#browse-by-category) |
 
 ## Recent additions
 - [Large Scale Study Multi Agent Ai Systems](knowledge/Machine-Learning/large-scale-study-multi-agent-ai-systems.md) · Machine-Learning — 04-05-2026
@@ -86,7 +87,14 @@ Sharing back what I'm learning with the community—curated insights, practical 
 
 </details>
 
+<details>
+<summary>System-Design (0)</summary>
+
+
+</details>
+
 <!-- TLDR-AUTO-END -->
+
 
 
 
