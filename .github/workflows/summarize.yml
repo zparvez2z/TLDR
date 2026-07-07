@@ -30,6 +30,18 @@ jobs:
         run: python scripts/daily_pick.py
       - name: Snapshot selected queue
         run: cp input/links-to-summarize.md input/run-selected.md
+      - name: Patch GPT-5 request payload
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          path = Path('scripts/model_adapter.py')
+          text = path.read_text(encoding='utf-8')
+          text = text.replace(
+              "'max_tokens': int(os.environ.get('GITHUB_MAX_TOKENS', '1000'))",
+              "'max_completion_tokens': int(os.environ.get('GITHUB_MAX_TOKENS', '1000'))",
+          )
+          path.write_text(text, encoding='utf-8')
+          PY
       - name: Validate environment
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
