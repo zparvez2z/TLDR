@@ -68,6 +68,10 @@ jobs:
           GITHUB_RETRY_BASE_DELAY_SEC: '1.5'
           GITHUB_RETRY_MAX_DELAY_SEC: '20'
         run: python scripts/process_links.py
+      - name: Enforce daily categories
+        run: |
+          python scripts/enforce_daily_categories.py
+          python scripts/update_readme_only.py
       - name: Reconcile queue
         run: python scripts/reconcile_queue.py
       - name: Commit and push changes
