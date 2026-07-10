@@ -4,3 +4,5 @@ https://developers.google.com/machine-learning/intro-to-ml
 https://github.com/donnemartin/system-design-primer#system-design-topics-start-here
 https://developers.google.com/machine-learning/crash-course/linear-regression
 https://github.com/donnemartin/system-design-primer#performance-vs-scalability
+https://developers.google.com/machine-learning/crash-course/logistic-regression
+https://github.com/donnemartin/system-design-primer#latency-vs-throughput
