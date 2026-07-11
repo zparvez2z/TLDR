@@ -17,19 +17,19 @@ Sharing back what I'm learning with the community—curated insights, practical 
 | --- | ---: | --- | --- |
 | IT-Security | 1 | [Seven Security Considerations Cloud Laboratory Analytics](knowledge/IT-Security/seven-security-considerations-cloud-laboratory-analytics.md) | [IT-Security](#browse-by-category) |
 | Information-Science | 4 | [What Is Rdf](knowledge/Information-Science/what-is-rdf.md) | [Information-Science](#browse-by-category) |
-| Machine-Learning | 21 | [Incoder 32B Code Foundation Model For Industrial Scenarios](knowledge/Machine-Learning/incoder-32b-code-foundation-model-for-industrial-scenarios.md) | [Machine-Learning](#browse-by-category) |
+| Machine-Learning | 22 | [Incoder 32B Code Foundation Model For Industrial Scenarios](knowledge/Machine-Learning/incoder-32b-code-foundation-model-for-industrial-scenarios.md) | [Machine-Learning](#browse-by-category) |
 | Software-Engineering | 10 | [Interactweb Bench Escaping Blind Execution Website Generation](knowledge/Software-Engineering/interactweb-bench-escaping-blind-execution-website-generation.md) | [Software-Engineering](#browse-by-category) |
 | System-Design | 6 | [Availability Vs Consistency System Design Primer](knowledge/System-Design/availability-vs-consistency-system-design-primer.md) | [System-Design](#browse-by-category) |
 
 ## Recent additions
 - [Incoder 32B Code Foundation Model For Industrial Scenarios](knowledge/Machine-Learning/incoder-32b-code-foundation-model-for-industrial-scenarios.md) · Machine-Learning — 11-07-2026
+- [Grandcode Agentic Rl Competitive Programming](knowledge/Machine-Learning/grandcode-agentic-rl-competitive-programming.md) · Machine-Learning — 11-07-2026
 - [Availability Vs Consistency System Design Primer](knowledge/System-Design/availability-vs-consistency-system-design-primer.md) · System-Design — 11-07-2026
 - [Latency Vs Throughput System Design Primer](knowledge/System-Design/latency-vs-throughput-system-design-primer.md) · System-Design — 10-07-2026
 - [Performance Vs Scalability System Design Primer](knowledge/System-Design/performance-vs-scalability-system-design-primer.md) · System-Design — 09-07-2026
 - [System Design Topics Start Here](knowledge/System-Design/system-design-topics-start-here.md) · System-Design — 08-07-2026
 - [What Is Dns And How It Works](knowledge/System-Design/what-is-dns-and-how-it-works.md) · System-Design — 07-07-2026
 - [Machine Learning Crash Course Google Developers](knowledge/Machine-Learning/machine-learning-crash-course-google-developers.md) · Machine-Learning — 07-07-2026
-- [Large Scale Study Multi Agent Ai Systems](knowledge/Machine-Learning/large-scale-study-multi-agent-ai-systems.md) · Machine-Learning — 04-05-2026
 
 ## Browse by category
 <details>
@@ -50,9 +50,10 @@ Sharing back what I'm learning with the community—curated insights, practical 
 </details>
 
 <details>
-<summary>Machine-Learning (21)</summary>
+<summary>Machine-Learning (22)</summary>
 
 - [Incoder 32B Code Foundation Model For Industrial Scenarios](knowledge/Machine-Learning/incoder-32b-code-foundation-model-for-industrial-scenarios.md) — 11-07-2026
+- [Grandcode Agentic Rl Competitive Programming](knowledge/Machine-Learning/grandcode-agentic-rl-competitive-programming.md) — 11-07-2026
 - [Machine Learning Crash Course Google Developers](knowledge/Machine-Learning/machine-learning-crash-course-google-developers.md) — 07-07-2026
 - [Large Scale Study Multi Agent Ai Systems](knowledge/Machine-Learning/large-scale-study-multi-agent-ai-systems.md) — 04-05-2026
 - [Conformal Language Modeling](knowledge/Machine-Learning/conformal-language-modeling.md) — 04-05-2026
@@ -105,6 +106,8 @@ Sharing back what I'm learning with the community—curated insights, practical 
 </details>
 
 <!-- TLDR-AUTO-END -->
+
+
 
 
 

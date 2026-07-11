@@ -9,3 +9,4 @@ https://github.com/donnemartin/system-design-primer#latency-vs-throughput
 https://developers.google.com/machine-learning/crash-course/classification
 https://github.com/donnemartin/system-design-primer#availability-vs-consistency
 https://arxiv.org/html/2603.16790v3
+https://arxiv.org/html/2604.02721v1
