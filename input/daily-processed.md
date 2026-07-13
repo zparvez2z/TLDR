@@ -13,3 +13,4 @@ https://arxiv.org/html/2604.02721v1
 https://arxiv.org/html/2604.02176v3
 https://developers.google.com/machine-learning/crash-course/numerical-data
 https://github.com/donnemartin/system-design-primer#cap-theorem
+https://developers.google.com/machine-learning/crash-course/categorical-data
