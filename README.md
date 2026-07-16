@@ -17,7 +17,7 @@ Sharing back what I'm learning with the community—curated insights, practical 
 | --- | ---: | --- | --- |
 | IT-Security | 1 | [Seven Security Considerations Cloud Laboratory Analytics](knowledge/IT-Security/seven-security-considerations-cloud-laboratory-analytics.md) | [IT-Security](#browse-by-category) |
 | Information-Science | 4 | [What Is Rdf](knowledge/Information-Science/what-is-rdf.md) | [Information-Science](#browse-by-category) |
-| Machine-Learning | 27 | [Neural Networks Google Ml Crash Course](knowledge/Machine-Learning/neural-networks-google-ml-crash-course.md) | [Machine-Learning](#browse-by-category) |
+| Machine-Learning | 28 | [Neural Networks Google Ml Crash Course](knowledge/Machine-Learning/neural-networks-google-ml-crash-course.md) | [Machine-Learning](#browse-by-category) |
 | Software-Engineering | 10 | [Interactweb Bench Escaping Blind Execution Website Generation](knowledge/Software-Engineering/interactweb-bench-escaping-blind-execution-website-generation.md) | [Software-Engineering](#browse-by-category) |
 | System-Design | 9 | [What Is An Api Cloudflare Learning](knowledge/System-Design/what-is-an-api-cloudflare-learning.md) | [System-Design](#browse-by-category) |
 
@@ -50,7 +50,7 @@ Sharing back what I'm learning with the community—curated insights, practical 
 </details>
 
 <details>
-<summary>Machine-Learning (27)</summary>
+<summary>Machine-Learning (28)</summary>
 
 - [Neural Networks Google Ml Crash Course](knowledge/Machine-Learning/neural-networks-google-ml-crash-course.md) — 15-07-2026
 - [Incoder 32B Code Foundation Model For Industrial Scenarios](knowledge/Machine-Learning/incoder-32b-code-foundation-model-for-industrial-scenarios.md) — 11-07-2026
@@ -70,6 +70,7 @@ Sharing back what I'm learning with the community—curated insights, practical 
 - [Working With Categorical Data Google Ml Crash Course](knowledge/Machine-Learning/working-with-categorical-data-google-ml-crash-course.md) — 25-08-2025
 - [Logistic Regression Google Ml Crash Course](knowledge/Machine-Learning/logistic-regression-google-ml-crash-course.md) — 25-08-2025
 - [Introduction To Machine Learning Google For Developers](knowledge/Machine-Learning/introduction-to-machine-learning-google-for-developers.md) — 25-08-2025
+- [Embeddings Ml Crash Course](knowledge/Machine-Learning/embeddings-ml-crash-course.md) — 25-08-2025
 - [Classification Binary Thresholds And Metrics](knowledge/Machine-Learning/classification-binary-thresholds-and-metrics.md) — 25-08-2025
 - [Neurosym Biocat Biomedical Document Categorization](knowledge/Machine-Learning/neurosym-biocat-biomedical-document-categorization.md) — 04-08-2025
 - [Survey Of Context Engineering For Llms](knowledge/Machine-Learning/survey-of-context-engineering-for-llms.md) — 21-07-2025
@@ -114,6 +115,8 @@ Sharing back what I'm learning with the community—curated insights, practical 
 </details>
 
 <!-- TLDR-AUTO-END -->
+
+
 
 
 
