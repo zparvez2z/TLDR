@@ -17,11 +17,12 @@ Sharing back what I'm learning with the community—curated insights, practical 
 | --- | ---: | --- | --- |
 | IT-Security | 1 | [Seven Security Considerations Cloud Laboratory Analytics](knowledge/IT-Security/seven-security-considerations-cloud-laboratory-analytics.md) | [IT-Security](#browse-by-category) |
 | Information-Science | 4 | [What Is Rdf](knowledge/Information-Science/what-is-rdf.md) | [Information-Science](#browse-by-category) |
-| Machine-Learning | 28 | [Neural Networks Google Ml Crash Course](knowledge/Machine-Learning/neural-networks-google-ml-crash-course.md) | [Machine-Learning](#browse-by-category) |
+| Machine-Learning | 29 | [Introduction To Large Language Models](knowledge/Machine-Learning/introduction-to-large-language-models.md) | [Machine-Learning](#browse-by-category) |
 | Software-Engineering | 10 | [Interactweb Bench Escaping Blind Execution Website Generation](knowledge/Software-Engineering/interactweb-bench-escaping-blind-execution-website-generation.md) | [Software-Engineering](#browse-by-category) |
 | System-Design | 9 | [What Is An Api Cloudflare Learning](knowledge/System-Design/what-is-an-api-cloudflare-learning.md) | [System-Design](#browse-by-category) |
 
 ## Recent additions
+- [Introduction To Large Language Models](knowledge/Machine-Learning/introduction-to-large-language-models.md) · Machine-Learning — 17-07-2026
 - [What Is An Api Cloudflare Learning](knowledge/System-Design/what-is-an-api-cloudflare-learning.md) · System-Design — 15-07-2026
 - [Neural Networks Google Ml Crash Course](knowledge/Machine-Learning/neural-networks-google-ml-crash-course.md) · Machine-Learning — 15-07-2026
 - [Overview Of Http Mdn](knowledge/System-Design/overview-of-http-mdn.md) · System-Design — 14-07-2026
@@ -29,7 +30,6 @@ Sharing back what I'm learning with the community—curated insights, practical 
 - [Incoder 32B Code Foundation Model For Industrial Scenarios](knowledge/Machine-Learning/incoder-32b-code-foundation-model-for-industrial-scenarios.md) · Machine-Learning — 11-07-2026
 - [Grandcode Agentic Rl Competitive Programming](knowledge/Machine-Learning/grandcode-agentic-rl-competitive-programming.md) · Machine-Learning — 11-07-2026
 - [Availability Vs Consistency System Design Primer](knowledge/System-Design/availability-vs-consistency-system-design-primer.md) · System-Design — 11-07-2026
-- [Adams Law Textual Frequency Llms](knowledge/Machine-Learning/adams-law-textual-frequency-llms.md) · Machine-Learning — 11-07-2026
 
 ## Browse by category
 <details>
@@ -50,8 +50,9 @@ Sharing back what I'm learning with the community—curated insights, practical 
 </details>
 
 <details>
-<summary>Machine-Learning (28)</summary>
+<summary>Machine-Learning (29)</summary>
 
+- [Introduction To Large Language Models](knowledge/Machine-Learning/introduction-to-large-language-models.md) — 17-07-2026
 - [Neural Networks Google Ml Crash Course](knowledge/Machine-Learning/neural-networks-google-ml-crash-course.md) — 15-07-2026
 - [Incoder 32B Code Foundation Model For Industrial Scenarios](knowledge/Machine-Learning/incoder-32b-code-foundation-model-for-industrial-scenarios.md) — 11-07-2026
 - [Grandcode Agentic Rl Competitive Programming](knowledge/Machine-Learning/grandcode-agentic-rl-competitive-programming.md) — 11-07-2026
@@ -115,6 +116,8 @@ Sharing back what I'm learning with the community—curated insights, practical 
 </details>
 
 <!-- TLDR-AUTO-END -->
+
+
 
 
 

@@ -19,3 +19,4 @@ https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview
 https://developers.google.com/machine-learning/crash-course/neural-networks
 https://www.cloudflare.com/learning/security/api/what-is-an-api/
 https://developers.google.com/machine-learning/crash-course/embeddings
+https://developers.google.com/machine-learning/crash-course/llm
