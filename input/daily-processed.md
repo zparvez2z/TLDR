@@ -20,3 +20,5 @@ https://developers.google.com/machine-learning/crash-course/neural-networks
 https://www.cloudflare.com/learning/security/api/what-is-an-api/
 https://developers.google.com/machine-learning/crash-course/embeddings
 https://developers.google.com/machine-learning/crash-course/llm
+https://developers.google.com/machine-learning/crash-course/production-ml-systems
+https://www.redhat.com/en/topics/api/what-is-a-rest-api
