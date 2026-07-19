@@ -17,11 +17,12 @@ Sharing back what I'm learning with the community—curated insights, practical 
 | --- | ---: | --- | --- |
 | IT-Security | 1 | [Seven Security Considerations Cloud Laboratory Analytics](knowledge/IT-Security/seven-security-considerations-cloud-laboratory-analytics.md) | [IT-Security](#browse-by-category) |
 | Information-Science | 4 | [What Is Rdf](knowledge/Information-Science/what-is-rdf.md) | [Information-Science](#browse-by-category) |
-| Machine-Learning | 30 | [Introduction To Large Language Models](knowledge/Machine-Learning/introduction-to-large-language-models.md) | [Machine-Learning](#browse-by-category) |
+| Machine-Learning | 31 | [Introduction To Large Language Models](knowledge/Machine-Learning/introduction-to-large-language-models.md) | [Machine-Learning](#browse-by-category) |
 | Software-Engineering | 10 | [Interactweb Bench Escaping Blind Execution Website Generation](knowledge/Software-Engineering/interactweb-bench-escaping-blind-execution-website-generation.md) | [Software-Engineering](#browse-by-category) |
-| System-Design | 10 | [What Is A Rest Api](knowledge/System-Design/what-is-a-rest-api.md) | [System-Design](#browse-by-category) |
+| System-Design | 11 | [What Is Load Balancing How Load Balancers Work](knowledge/System-Design/what-is-load-balancing-how-load-balancers-work.md) | [System-Design](#browse-by-category) |
 
 ## Recent additions
+- [What Is Load Balancing How Load Balancers Work](knowledge/System-Design/what-is-load-balancing-how-load-balancers-work.md) · System-Design — 19-07-2026
 - [What Is A Rest Api](knowledge/System-Design/what-is-a-rest-api.md) · System-Design — 18-07-2026
 - [Introduction To Large Language Models](knowledge/Machine-Learning/introduction-to-large-language-models.md) · Machine-Learning — 17-07-2026
 - [What Is An Api Cloudflare Learning](knowledge/System-Design/what-is-an-api-cloudflare-learning.md) · System-Design — 15-07-2026
@@ -29,7 +30,6 @@ Sharing back what I'm learning with the community—curated insights, practical 
 - [Overview Of Http Mdn](knowledge/System-Design/overview-of-http-mdn.md) · System-Design — 14-07-2026
 - [Cap Theorem Consistency Availability Partition Tolerance](knowledge/System-Design/cap-theorem-consistency-availability-partition-tolerance.md) · System-Design — 12-07-2026
 - [Incoder 32B Code Foundation Model For Industrial Scenarios](knowledge/Machine-Learning/incoder-32b-code-foundation-model-for-industrial-scenarios.md) · Machine-Learning — 11-07-2026
-- [Grandcode Agentic Rl Competitive Programming](knowledge/Machine-Learning/grandcode-agentic-rl-competitive-programming.md) · Machine-Learning — 11-07-2026
 
 ## Browse by category
 <details>
@@ -50,7 +50,7 @@ Sharing back what I'm learning with the community—curated insights, practical 
 </details>
 
 <details>
-<summary>Machine-Learning (30)</summary>
+<summary>Machine-Learning (31)</summary>
 
 - [Introduction To Large Language Models](knowledge/Machine-Learning/introduction-to-large-language-models.md) — 17-07-2026
 - [Neural Networks Google Ml Crash Course](knowledge/Machine-Learning/neural-networks-google-ml-crash-course.md) — 15-07-2026
@@ -74,6 +74,7 @@ Sharing back what I'm learning with the community—curated insights, practical 
 - [Introduction To Machine Learning Google For Developers](knowledge/Machine-Learning/introduction-to-machine-learning-google-for-developers.md) — 25-08-2025
 - [Embeddings Ml Crash Course](knowledge/Machine-Learning/embeddings-ml-crash-course.md) — 25-08-2025
 - [Classification Binary Thresholds And Metrics](knowledge/Machine-Learning/classification-binary-thresholds-and-metrics.md) — 25-08-2025
+- [Automated Machine Learning Automl](knowledge/Machine-Learning/automated-machine-learning-automl.md) — 25-08-2025
 - [Neurosym Biocat Biomedical Document Categorization](knowledge/Machine-Learning/neurosym-biocat-biomedical-document-categorization.md) — 04-08-2025
 - [Survey Of Context Engineering For Llms](knowledge/Machine-Learning/survey-of-context-engineering-for-llms.md) — 21-07-2025
 - [Neural Architecture Search](knowledge/Machine-Learning/neural-architecture-search.md) — 2025-07-01
@@ -102,8 +103,9 @@ Sharing back what I'm learning with the community—curated insights, practical 
 </details>
 
 <details>
-<summary>System-Design (10)</summary>
+<summary>System-Design (11)</summary>
 
+- [What Is Load Balancing How Load Balancers Work](knowledge/System-Design/what-is-load-balancing-how-load-balancers-work.md) — 19-07-2026
 - [What Is A Rest Api](knowledge/System-Design/what-is-a-rest-api.md) — 18-07-2026
 - [What Is An Api Cloudflare Learning](knowledge/System-Design/what-is-an-api-cloudflare-learning.md) — 15-07-2026
 - [Overview Of Http Mdn](knowledge/System-Design/overview-of-http-mdn.md) — 14-07-2026
@@ -118,6 +120,8 @@ Sharing back what I'm learning with the community—curated insights, practical 
 </details>
 
 <!-- TLDR-AUTO-END -->
+
+
 
 
 

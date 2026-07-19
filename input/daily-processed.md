@@ -22,3 +22,5 @@ https://developers.google.com/machine-learning/crash-course/embeddings
 https://developers.google.com/machine-learning/crash-course/llm
 https://developers.google.com/machine-learning/crash-course/production-ml-systems
 https://www.redhat.com/en/topics/api/what-is-a-rest-api
+https://developers.google.com/machine-learning/crash-course/automl
+https://www.cloudflare.com/learning/performance/what-is-load-balancing/
