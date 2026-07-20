@@ -24,3 +24,5 @@ https://developers.google.com/machine-learning/crash-course/production-ml-system
 https://www.redhat.com/en/topics/api/what-is-a-rest-api
 https://developers.google.com/machine-learning/crash-course/automl
 https://www.cloudflare.com/learning/performance/what-is-load-balancing/
+https://developers.google.com/machine-learning/crash-course/fairness
+https://aws.amazon.com/what-is/cdn/

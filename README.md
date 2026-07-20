@@ -17,19 +17,19 @@ Sharing back what I'm learning with the community—curated insights, practical 
 | --- | ---: | --- | --- |
 | IT-Security | 1 | [Seven Security Considerations Cloud Laboratory Analytics](knowledge/IT-Security/seven-security-considerations-cloud-laboratory-analytics.md) | [IT-Security](#browse-by-category) |
 | Information-Science | 4 | [What Is Rdf](knowledge/Information-Science/what-is-rdf.md) | [Information-Science](#browse-by-category) |
-| Machine-Learning | 31 | [Introduction To Large Language Models](knowledge/Machine-Learning/introduction-to-large-language-models.md) | [Machine-Learning](#browse-by-category) |
+| Machine-Learning | 32 | [Ml Fairness Crash Course Module](knowledge/Machine-Learning/ml-fairness-crash-course-module.md) | [Machine-Learning](#browse-by-category) |
 | Software-Engineering | 10 | [Interactweb Bench Escaping Blind Execution Website Generation](knowledge/Software-Engineering/interactweb-bench-escaping-blind-execution-website-generation.md) | [Software-Engineering](#browse-by-category) |
-| System-Design | 11 | [What Is Load Balancing How Load Balancers Work](knowledge/System-Design/what-is-load-balancing-how-load-balancers-work.md) | [System-Design](#browse-by-category) |
+| System-Design | 12 | [What Is A Cdn Content Delivery Network Explained](knowledge/System-Design/what-is-a-cdn-content-delivery-network-explained.md) | [System-Design](#browse-by-category) |
 
 ## Recent additions
+- [What Is A Cdn Content Delivery Network Explained](knowledge/System-Design/what-is-a-cdn-content-delivery-network-explained.md) · System-Design — 20-07-2026
+- [Ml Fairness Crash Course Module](knowledge/Machine-Learning/ml-fairness-crash-course-module.md) · Machine-Learning — 20-07-2026
 - [What Is Load Balancing How Load Balancers Work](knowledge/System-Design/what-is-load-balancing-how-load-balancers-work.md) · System-Design — 19-07-2026
 - [What Is A Rest Api](knowledge/System-Design/what-is-a-rest-api.md) · System-Design — 18-07-2026
 - [Introduction To Large Language Models](knowledge/Machine-Learning/introduction-to-large-language-models.md) · Machine-Learning — 17-07-2026
 - [What Is An Api Cloudflare Learning](knowledge/System-Design/what-is-an-api-cloudflare-learning.md) · System-Design — 15-07-2026
 - [Neural Networks Google Ml Crash Course](knowledge/Machine-Learning/neural-networks-google-ml-crash-course.md) · Machine-Learning — 15-07-2026
 - [Overview Of Http Mdn](knowledge/System-Design/overview-of-http-mdn.md) · System-Design — 14-07-2026
-- [Cap Theorem Consistency Availability Partition Tolerance](knowledge/System-Design/cap-theorem-consistency-availability-partition-tolerance.md) · System-Design — 12-07-2026
-- [Incoder 32B Code Foundation Model For Industrial Scenarios](knowledge/Machine-Learning/incoder-32b-code-foundation-model-for-industrial-scenarios.md) · Machine-Learning — 11-07-2026
 
 ## Browse by category
 <details>
@@ -50,8 +50,9 @@ Sharing back what I'm learning with the community—curated insights, practical 
 </details>
 
 <details>
-<summary>Machine-Learning (31)</summary>
+<summary>Machine-Learning (32)</summary>
 
+- [Ml Fairness Crash Course Module](knowledge/Machine-Learning/ml-fairness-crash-course-module.md) — 20-07-2026
 - [Introduction To Large Language Models](knowledge/Machine-Learning/introduction-to-large-language-models.md) — 17-07-2026
 - [Neural Networks Google Ml Crash Course](knowledge/Machine-Learning/neural-networks-google-ml-crash-course.md) — 15-07-2026
 - [Incoder 32B Code Foundation Model For Industrial Scenarios](knowledge/Machine-Learning/incoder-32b-code-foundation-model-for-industrial-scenarios.md) — 11-07-2026
@@ -103,8 +104,9 @@ Sharing back what I'm learning with the community—curated insights, practical 
 </details>
 
 <details>
-<summary>System-Design (11)</summary>
+<summary>System-Design (12)</summary>
 
+- [What Is A Cdn Content Delivery Network Explained](knowledge/System-Design/what-is-a-cdn-content-delivery-network-explained.md) — 20-07-2026
 - [What Is Load Balancing How Load Balancers Work](knowledge/System-Design/what-is-load-balancing-how-load-balancers-work.md) — 19-07-2026
 - [What Is A Rest Api](knowledge/System-Design/what-is-a-rest-api.md) — 18-07-2026
 - [What Is An Api Cloudflare Learning](knowledge/System-Design/what-is-an-api-cloudflare-learning.md) — 15-07-2026
@@ -120,6 +122,8 @@ Sharing back what I'm learning with the community—curated insights, practical 
 </details>
 
 <!-- TLDR-AUTO-END -->
+
+
 
 
 
