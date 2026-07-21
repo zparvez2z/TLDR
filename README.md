@@ -17,19 +17,19 @@ Sharing back what I'm learning with the community—curated insights, practical 
 | --- | ---: | --- | --- |
 | IT-Security | 1 | [Seven Security Considerations Cloud Laboratory Analytics](knowledge/IT-Security/seven-security-considerations-cloud-laboratory-analytics.md) | [IT-Security](#browse-by-category) |
 | Information-Science | 4 | [What Is Rdf](knowledge/Information-Science/what-is-rdf.md) | [Information-Science](#browse-by-category) |
-| Machine-Learning | 32 | [Ml Fairness Crash Course Module](knowledge/Machine-Learning/ml-fairness-crash-course-module.md) | [Machine-Learning](#browse-by-category) |
+| Machine-Learning | 33 | [Getting Started With Scikit Learn](knowledge/Machine-Learning/getting-started-with-scikit-learn.md) | [Machine-Learning](#browse-by-category) |
 | Software-Engineering | 10 | [Interactweb Bench Escaping Blind Execution Website Generation](knowledge/Software-Engineering/interactweb-bench-escaping-blind-execution-website-generation.md) | [Software-Engineering](#browse-by-category) |
-| System-Design | 12 | [What Is A Cdn Content Delivery Network Explained](knowledge/System-Design/what-is-a-cdn-content-delivery-network-explained.md) | [System-Design](#browse-by-category) |
+| System-Design | 13 | [What Is Caching And How It Works Aws](knowledge/System-Design/what-is-caching-and-how-it-works-aws.md) | [System-Design](#browse-by-category) |
 
 ## Recent additions
+- [What Is Caching And How It Works Aws](knowledge/System-Design/what-is-caching-and-how-it-works-aws.md) · System-Design — 21-07-2026
+- [Getting Started With Scikit Learn](knowledge/Machine-Learning/getting-started-with-scikit-learn.md) · Machine-Learning — 21-07-2026
 - [What Is A Cdn Content Delivery Network Explained](knowledge/System-Design/what-is-a-cdn-content-delivery-network-explained.md) · System-Design — 20-07-2026
 - [Ml Fairness Crash Course Module](knowledge/Machine-Learning/ml-fairness-crash-course-module.md) · Machine-Learning — 20-07-2026
 - [What Is Load Balancing How Load Balancers Work](knowledge/System-Design/what-is-load-balancing-how-load-balancers-work.md) · System-Design — 19-07-2026
 - [What Is A Rest Api](knowledge/System-Design/what-is-a-rest-api.md) · System-Design — 18-07-2026
 - [Introduction To Large Language Models](knowledge/Machine-Learning/introduction-to-large-language-models.md) · Machine-Learning — 17-07-2026
 - [What Is An Api Cloudflare Learning](knowledge/System-Design/what-is-an-api-cloudflare-learning.md) · System-Design — 15-07-2026
-- [Neural Networks Google Ml Crash Course](knowledge/Machine-Learning/neural-networks-google-ml-crash-course.md) · Machine-Learning — 15-07-2026
-- [Overview Of Http Mdn](knowledge/System-Design/overview-of-http-mdn.md) · System-Design — 14-07-2026
 
 ## Browse by category
 <details>
@@ -50,8 +50,9 @@ Sharing back what I'm learning with the community—curated insights, practical 
 </details>
 
 <details>
-<summary>Machine-Learning (32)</summary>
+<summary>Machine-Learning (33)</summary>
 
+- [Getting Started With Scikit Learn](knowledge/Machine-Learning/getting-started-with-scikit-learn.md) — 21-07-2026
 - [Ml Fairness Crash Course Module](knowledge/Machine-Learning/ml-fairness-crash-course-module.md) — 20-07-2026
 - [Introduction To Large Language Models](knowledge/Machine-Learning/introduction-to-large-language-models.md) — 17-07-2026
 - [Neural Networks Google Ml Crash Course](knowledge/Machine-Learning/neural-networks-google-ml-crash-course.md) — 15-07-2026
@@ -104,8 +105,9 @@ Sharing back what I'm learning with the community—curated insights, practical 
 </details>
 
 <details>
-<summary>System-Design (12)</summary>
+<summary>System-Design (13)</summary>
 
+- [What Is Caching And How It Works Aws](knowledge/System-Design/what-is-caching-and-how-it-works-aws.md) — 21-07-2026
 - [What Is A Cdn Content Delivery Network Explained](knowledge/System-Design/what-is-a-cdn-content-delivery-network-explained.md) — 20-07-2026
 - [What Is Load Balancing How Load Balancers Work](knowledge/System-Design/what-is-load-balancing-how-load-balancers-work.md) — 19-07-2026
 - [What Is A Rest Api](knowledge/System-Design/what-is-a-rest-api.md) — 18-07-2026
@@ -122,6 +124,8 @@ Sharing back what I'm learning with the community—curated insights, practical 
 </details>
 
 <!-- TLDR-AUTO-END -->
+
+
 
 
 

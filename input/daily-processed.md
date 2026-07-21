@@ -26,3 +26,5 @@ https://developers.google.com/machine-learning/crash-course/automl
 https://www.cloudflare.com/learning/performance/what-is-load-balancing/
 https://developers.google.com/machine-learning/crash-course/fairness
 https://aws.amazon.com/what-is/cdn/
+https://scikit-learn.org/stable/getting_started.html
+https://aws.amazon.com/caching/
