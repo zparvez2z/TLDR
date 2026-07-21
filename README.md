@@ -16,20 +16,20 @@ Sharing back what I'm learning with the community—curated insights, practical 
 | Category | Count | Latest | Browse |
 | --- | ---: | --- | --- |
 | IT-Security | 1 | [Seven Security Considerations Cloud Laboratory Analytics](knowledge/IT-Security/seven-security-considerations-cloud-laboratory-analytics.md) | [IT-Security](#browse-by-category) |
-| Information-Science | 4 | [What Is Rdf](knowledge/Information-Science/what-is-rdf.md) | [Information-Science](#browse-by-category) |
+| Information-Science | 5 | [Resource2Skill Skill Wiki Creative Software](knowledge/Information-Science/resource2skill-skill-wiki-creative-software.md) | [Information-Science](#browse-by-category) |
 | Machine-Learning | 34 | [Muse Autoskill Self Evolving Agents Skill Lifecycle](knowledge/Machine-Learning/muse-autoskill-self-evolving-agents-skill-lifecycle.md) | [Machine-Learning](#browse-by-category) |
 | Software-Engineering | 11 | [Harness Handbook Evolving Agent Harnesses](knowledge/Software-Engineering/harness-handbook-evolving-agent-harnesses.md) | [Software-Engineering](#browse-by-category) |
 | System-Design | 13 | [What Is Caching And How It Works Aws](knowledge/System-Design/what-is-caching-and-how-it-works-aws.md) | [System-Design](#browse-by-category) |
 
 ## Recent additions
 - [What Is Caching And How It Works Aws](knowledge/System-Design/what-is-caching-and-how-it-works-aws.md) · System-Design — 21-07-2026
+- [Resource2Skill Skill Wiki Creative Software](knowledge/Information-Science/resource2skill-skill-wiki-creative-software.md) · Information-Science — 21-07-2026
 - [Muse Autoskill Self Evolving Agents Skill Lifecycle](knowledge/Machine-Learning/muse-autoskill-self-evolving-agents-skill-lifecycle.md) · Machine-Learning — 21-07-2026
 - [Harness Handbook Evolving Agent Harnesses](knowledge/Software-Engineering/harness-handbook-evolving-agent-harnesses.md) · Software-Engineering — 21-07-2026
 - [Getting Started With Scikit Learn](knowledge/Machine-Learning/getting-started-with-scikit-learn.md) · Machine-Learning — 21-07-2026
 - [What Is A Cdn Content Delivery Network Explained](knowledge/System-Design/what-is-a-cdn-content-delivery-network-explained.md) · System-Design — 20-07-2026
 - [Ml Fairness Crash Course Module](knowledge/Machine-Learning/ml-fairness-crash-course-module.md) · Machine-Learning — 20-07-2026
 - [What Is Load Balancing How Load Balancers Work](knowledge/System-Design/what-is-load-balancing-how-load-balancers-work.md) · System-Design — 19-07-2026
-- [What Is A Rest Api](knowledge/System-Design/what-is-a-rest-api.md) · System-Design — 18-07-2026
 
 ## Browse by category
 <details>
@@ -40,8 +40,9 @@ Sharing back what I'm learning with the community—curated insights, practical 
 </details>
 
 <details>
-<summary>Information-Science (4)</summary>
+<summary>Information-Science (5)</summary>
 
+- [Resource2Skill Skill Wiki Creative Software](knowledge/Information-Science/resource2skill-skill-wiki-creative-software.md) — 21-07-2026
 - [What Is Rdf](knowledge/Information-Science/what-is-rdf.md) — 24-05-2024
 - [Ontology In Information Science](knowledge/Information-Science/ontology-in-information-science.md) — 24-05-2024
 - [What Is An Ontology](knowledge/Information-Science/what-is-an-ontology.md) — 08-05-2023
@@ -126,6 +127,8 @@ Sharing back what I'm learning with the community—curated insights, practical 
 </details>
 
 <!-- TLDR-AUTO-END -->
+
+
 
 
 
