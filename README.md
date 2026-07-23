@@ -1,15 +1,20 @@
 # TLDR
 
-Sharing back what I'm learning with the community—curated insights, practical knowledge, and key resources from my ongoing journey in tech, data, and beyond.
+TLDR is my personal knowledge notebook.
 
-## Quick Start
+I use this repository to collect short, practical summaries of useful resources I am learning from. The goal is simple: turn good links into clear notes that are easier to revisit, share, and build on over time.
 
-1. Create Python 3.11 environment and activate
-2. `pip install -r requirements.txt`
-3. Set `GITHUB_TOKEN` or `GEMINI_API_KEY` in `.env`
-4. `python scripts/process_links.py`
+## What you will find here
 
-**New to operations?** See [OPERATIONS.md](OPERATIONS.md) for detailed setup, configuration, troubleshooting, and recovery procedures.
+This knowledge base currently focuses on topics such as machine learning, system design, software engineering, information science, and IT security.
+
+Each note includes a short summary, key takeaways, and a link back to the original source.
+
+## How to browse
+
+Use the dashboard below to explore topics by category or open the latest additions.
+
+For setup, automation, maintenance, and troubleshooting details, see [OPERATIONS.md](OPERATIONS.md).
 
 <!-- TLDR-AUTO-START -->
 ## Category dashboard
@@ -130,119 +135,3 @@ Sharing back what I'm learning with the community—curated insights, practical 
 </details>
 
 <!-- TLDR-AUTO-END -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
