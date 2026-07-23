@@ -1,354 +1,453 @@
 # Operations & Troubleshooting
 
-Complete guide to configuration, troubleshooting, and recovery procedures for the TLDR knowledge system.
+This file explains how the TLDR knowledge system works behind the scenes: local setup, GitHub Actions automation, daily topic lists, model configuration, recovery, and known limitations.
 
-## Setup Guide
+For the simple project purpose and public knowledge dashboard, see [README.md](README.md).
 
-### 1. Python Environment
+---
 
-Requires Python 3.11+
+## 1. System overview
 
-```bash
-# Create virtual environment
-python3.11 -m venv venv311
-source venv311/bin/activate  # Linux/macOS
-# or
-venv311\Scripts\activate      # Windows
+TLDR turns source URLs into short Markdown knowledge notes.
+
+High-level flow:
+
+```text
+input/daily-machine-learning.md
+input/daily-system-design.md
+        ↓
+scripts/daily_pick.py
+        ↓
+input/links-to-summarize.md
+        ↓
+scripts/process_links.py
+        ↓
+knowledge/<Category>/<generated-note>.md
+        ↓
+scripts/enforce_daily_categories.py
+        ↓
+scripts/update_readme_only.py
+        ↓
+README.md dashboard
+        ↓
+input/daily-processed.md
 ```
 
-### 2. Install Dependencies
+The automation currently processes one Machine Learning topic and one System Design topic per scheduled run.
+
+---
+
+## 2. Important files
+
+| File | Purpose |
+| --- | --- |
+| `README.md` | Simple public-facing project description and generated knowledge dashboard. |
+| `OPERATIONS.md` | Technical setup, automation details, and troubleshooting. |
+| `.github/workflows/summarize.yml` | GitHub Actions workflow for scheduled processing. |
+| `input/daily-machine-learning.md` | Source list for daily Machine Learning topics. |
+| `input/daily-system-design.md` | Source list for daily System Design topics. |
+| `input/links-to-summarize.md` | Temporary queue used by the processor. Should usually be empty after success. |
+| `input/daily-processed.md` | Tracks daily URLs that were successfully processed. |
+| `knowledge/` | Generated Markdown notes organized by category. |
+| `scripts/daily_pick.py` | Picks the next unprocessed ML and System Design URLs. |
+| `scripts/process_links.py` | Fetches page content, calls the model, writes Markdown files, and updates README. |
+| `scripts/enforce_daily_categories.py` | Ensures daily ML/System Design URLs land in the intended category folders. |
+| `scripts/reconcile_queue.py` | Compares selected URLs with generated knowledge files and preserves failures. |
+| `scripts/update_readme_only.py` | Regenerates only the README dashboard. |
+
+---
+
+## 3. Local setup
+
+Requires Python 3.11+.
 
 ```bash
+python3.11 -m venv venv311
+source venv311/bin/activate
 pip install -r requirements.txt
 ```
 
-### 3. Configure Environment Variables
+On Windows:
 
-Create `.env` file in the repository root with at least one provider configured:
-
-#### Provider Selection (pick one)
-- `GITHUB_TOKEN` — Primary provider (GitHub Models)
-- `GEMINI_API_KEY` — Fallback provider (Google Gemini)
-
-#### GitHub Models Configuration
-- `GITHUB_MODEL` (optional, default: `openai/gpt-4.1`)
-- `GITHUB_MAX_TOKENS` (optional, default: `1000`)
-- `GITHUB_MODELS_ENDPOINT` (optional, overrides default endpoints)
-- `GITHUB_RETRY_ATTEMPTS` (optional, default: `4`)
-- `GITHUB_RETRY_BASE_DELAY_SEC` (optional, default: `1.5`)
-- `GITHUB_RETRY_MAX_DELAY_SEC` (optional, default: `20`)
-
-#### Gemini Configuration (Fallback)
-- `GEMINI_RETRY_ATTEMPTS` (optional, default: `4`)
-- `GEMINI_RETRY_BASE_DELAY_SEC` (optional, default: `1.5`)
-- `GEMINI_RETRY_MAX_DELAY_SEC` (optional, default: `20`)
-
-**Example `.env`:**
+```powershell
+py -3.11 -m venv venv311
+venv311\Scripts\activate
+pip install -r requirements.txt
 ```
+
+---
+
+## 4. Environment variables
+
+Create a `.env` file in the repository root for local runs.
+
+Recommended GitHub Models setup:
+
+```env
 GITHUB_TOKEN=ghp_xxxxx
-GITHUB_MODEL=openai/gpt-4.1
-GEMINI_API_KEY=sk-xxxxx
-GITHUB_RETRY_ATTEMPTS=6
-GITHUB_RETRY_MAX_DELAY_SEC=60
+GITHUB_MODEL=openai/gpt-5
+GITHUB_MAX_TOKENS=6000
+GITHUB_RETRY_ATTEMPTS=4
+GITHUB_RETRY_BASE_DELAY_SEC=1.5
+GITHUB_RETRY_MAX_DELAY_SEC=20
 ```
 
-### 4. Run Ingestion
+Optional Gemini fallback/local alternative:
+
+```env
+GEMINI_API_KEY=xxxxx
+GEMINI_RETRY_ATTEMPTS=4
+GEMINI_RETRY_BASE_DELAY_SEC=1.5
+GEMINI_RETRY_MAX_DELAY_SEC=20
+```
+
+Important behavior:
+
+- If `GITHUB_TOKEN` is available, the adapter uses GitHub Models first.
+- If `GITHUB_TOKEN` is missing and `GEMINI_API_KEY` exists, it uses Gemini.
+- Current code does not automatically fall back to Gemini after a GitHub Models failure in the same run.
+
+---
+
+## 5. GitHub Actions configuration
+
+The scheduled workflow lives at:
+
+```text
+.github/workflows/summarize.yml
+```
+
+Required workflow permissions:
+
+```yaml
+permissions:
+  contents: write
+  models: read
+```
+
+Why these are needed:
+
+- `contents: write` lets the workflow commit generated notes and README updates.
+- `models: read` lets the workflow call GitHub Models.
+
+The workflow currently uses:
+
+```yaml
+GITHUB_MODEL: openai/gpt-5
+GITHUB_MAX_TOKENS: '6000'
+```
+
+The workflow runs on:
+
+- daily schedule
+- manual `workflow_dispatch`
+- push changes to `input/links-to-summarize.md`
+
+---
+
+## 6. Daily automation behavior
+
+### Daily topic sources
+
+Machine Learning topics are stored in:
+
+```text
+input/daily-machine-learning.md
+```
+
+System Design topics are stored in:
+
+```text
+input/daily-system-design.md
+```
+
+Each scheduled run picks the first URL from each list that is not already processed.
+
+### Processed tracking
+
+The system considers a URL processed if it appears in either:
+
+```text
+input/daily-processed.md
+```
+
+or as a `source_url:` inside a file under:
+
+```text
+knowledge/**/*.md
+```
+
+This prevents duplicate processing.
+
+### Queue file
+
+The selected daily URLs are written into:
+
+```text
+input/links-to-summarize.md
+```
+
+After a successful run, this file should be empty.
+
+If a transient error happens, failed URLs are restored to this queue so they can be retried.
+
+---
+
+## 7. Adding more daily topics
+
+Add new topics to the end of the correct list.
+
+Machine Learning example:
+
+```md
+# 46 - Model Persistence
+https://scikit-learn.org/stable/model_persistence.html
+```
+
+System Design example:
+
+```md
+# 46 - Database Indexing
+https://example.com/database-indexing-guide
+```
+
+Guidelines:
+
+- Add one URL per topic.
+- Prefer stable documentation pages over temporary blog posts.
+- Avoid duplicates.
+- Avoid direct PDF URLs for now; PDF support is not fully implemented yet.
+- Keep Machine Learning topics in `daily-machine-learning.md`.
+- Keep System Design topics in `daily-system-design.md`.
+
+When the lists are empty, the workflow does not fail. It prints:
+
+```text
+No new daily topics available.
+```
+
+and leaves the queue empty.
+
+---
+
+## 8. Manual commands
+
+Process whatever is currently in the queue:
 
 ```bash
 python scripts/process_links.py
 ```
 
----
+Pick the next daily ML/System Design pair:
 
-## Monitoring & Status
+```bash
+python scripts/daily_pick.py
+```
 
-### Check Queue and Knowledge Status
+Enforce daily categories:
+
+```bash
+python scripts/enforce_daily_categories.py
+```
+
+Regenerate README dashboard only:
+
+```bash
+python scripts/update_readme_only.py
+```
+
+Run queue reconciliation:
+
+```bash
+python scripts/reconcile_queue.py
+```
+
+Check queue and knowledge status:
 
 ```bash
 python scripts/monitor_queue.py
 ```
 
-Output:
-- Queue pending URLs (if any)
-- Total summaries in knowledge base
-- Recovery recommendations
+---
+
+## 9. README behavior
+
+The README is intentionally simple. It should explain the purpose of the repository, not the technical implementation.
+
+The generated dashboard is kept between these markers:
+
+```md
+<!-- TLDR-AUTO-START -->
+<!-- TLDR-AUTO-END -->
+```
+
+Do not manually edit content inside those markers unless you are repairing the generated dashboard. It will be overwritten by the README generation script.
+
+The dashboard sorts entries using the date stored in each generated note. This means “Latest” may refer to the source/article date, not necessarily the date the automation processed the URL.
 
 ---
 
-## Troubleshooting
+## 10. Category enforcement
 
-### Extraction Fallback Strategy
+Daily ML and System Design topics should land in predictable folders:
 
-The system automatically detects when HTML extraction quality is poor (e.g., when a page has:
-- Missing or "Unknown" title AND
-- Missing or "Unknown" authors AND/OR minimal visible text
-
-When poor extraction is detected, the system:
-1. **Logs a fallback warning**: "Extraction quality poor, using fallback (raw HTML chunk)"
-2. **Fetches raw HTML** (5KB by default) after stripping script/style tags
-3. **Augments the prompt** with `[FALLBACK MODE]` prefix and the raw HTML excerpt
-4. **Lets the LLM process** the raw HTML to recover metadata and content
-
-This fallback helps with:
-- Mathematical/research papers with unusual HTML (e.g., LaTeX rendering artifacts)
-- JavaScript-heavy pages where the text extraction misses content
-- Pages with metadata in non-standard locations
-
-**Trade-off**: Fallback uses ~5x more tokens (raw HTML is ~5KB vs ~500 chars clean text). Use the fallback only when extraction genuinely fails; for normal pages, clean extraction is more efficient.
-
-### Troubleshooting
-
-### Rate Limit Errors (429 / RESOURCE_EXHAUSTED)
-
-**What happens:**
-- GitHub Models returns HTTP 429 (too many requests)
-- Gemini raises `RESOURCE_EXHAUSTED` quota error
-- System automatically retries with exponential backoff
-- If retries exhausted, processing stops and **remaining URLs are preserved** in `input/links-to-summarize.md`
-
-**Recovery:**
-1. Check remaining queue:
-   ```bash
-   python scripts/monitor_queue.py
-   ```
-2. Wait for rate limit window to reset:
-   - GitHub Models: ~1 hour
-   - Gemini: Varies by account quota
-3. Re-run the script to process remaining URLs:
-   ```bash
-   python scripts/process_links.py
-   ```
-
-**Increase Resilience:**
-
-If you want the system to wait longer before giving up, increase retry parameters in `.env`:
-
-```
-GITHUB_RETRY_ATTEMPTS=6
-GITHUB_RETRY_MAX_DELAY_SEC=60
-GEMINI_RETRY_ATTEMPTS=6
-GEMINI_RETRY_MAX_DELAY_SEC=60
+```text
+knowledge/Machine-Learning/
+knowledge/System-Design/
 ```
 
-This will retry up to 6 times with maximum 60-second delays between attempts.
-
-### Provider Fallback: Switch to Gemini
-
-**If GitHub Models is down or rate-limited:**
-
-1. Comment out `GITHUB_TOKEN` in `.env`:
-   ```bash
-   # GITHUB_TOKEN=ghp_xxxx
-   GEMINI_API_KEY=sk-xxxxxx
-   ```
-2. Re-run:
-   ```bash
-   python scripts/process_links.py
-   ```
-   The system will now use Gemini as the primary provider.
-
-**Restore GitHub Models:**
-1. Uncomment `GITHUB_TOKEN`
-2. Re-run the script
-
-### Malformed Response from Model
-
-**Symptom:** Error mentions "JSON decode" or "SummaryOutput validation"
-
-**Cause:** Model returned incomplete or invalid JSON response
-
-**Recovery:**
-1. This is a transient error—retry automatically (queue is preserved)
-2. Wait a moment and re-run:
-   ```bash
-   python scripts/process_links.py
-   ```
-3. If same URL consistently fails, it may be unsuitable for summarization:
-   - Remove it from `input/links-to-summarize.md`
-   - Or try with a different model: `GITHUB_MODEL=openai/gpt-4-turbo`
-
-### Queue Stuck or Lost
-
-**Recover from accidental queue deletion:**
+Because the model can sometimes choose a different category, the workflow runs:
 
 ```bash
-# View recent commits to queue file
-git log --oneline input/links-to-summarize.md | head -5
-
-# Show queue content from specific commit
-git show <commit-hash>:input/links-to-summarize.md
-
-# Restore queue from commit
-git checkout <commit-hash> input/links-to-summarize.md
+python scripts/enforce_daily_categories.py
 ```
 
-**Prevention:** The system preserves the queue automatically on any transient error. Only on **full success** is the queue cleared.
+after processing.
 
-### Empty or Low-Quality Summaries
+This script moves generated daily-topic files into their intended category based on whether the source URL came from:
 
-**Cause:** Model struggled with URL content (paywalled, PDF, complex media, etc.)
-
-**Inspect and Recover:**
-
-1. View recent summaries in a category:
-   ```bash
-   python scripts/recover.py --inspect Software-Engineering
-   ```
-
-2. Review generated file manually:
-   ```bash
-   cat knowledge/Software-Engineering/article-name.md
-   ```
-
-3. Delete if unsuitable:
-   ```bash
-   rm knowledge/Software-Engineering/bad-summary.md
-   ```
-
-4. Re-queue the URL:
-   ```bash
-   python scripts/recover.py --requeue "https://example.com/article"
-   ```
-
-5. Re-run processor:
-   ```bash
-   python scripts/process_links.py
-   ```
+```text
+input/daily-machine-learning.md
+input/daily-system-design.md
+```
 
 ---
 
-## Debugging
+## 11. Troubleshooting
 
-### Enable Detailed Logs
+### Queue is not empty after a run
 
-Add to `.env`:
-```
-PYTHONVERBOSE=1
-```
+This usually means at least one URL failed.
 
-Run with verbose output:
-```bash
-python -u scripts/process_links.py 2>&1 | tee process.log
-```
+Check:
 
-Look for:
-- **Provider selection:** "Using GitHub Models" or "Using Gemini"
-- **Retry attempts:** "Retry attempt X of Y"
-- **Rate-limit headers:** "Retry-After: NNN"
-- **Parsed output:** "Parsed SummaryOutput: title=..."
-
-### Inspect Processing Queue
-
-View current queue:
 ```bash
 cat input/links-to-summarize.md
 ```
 
-Add a URL to queue:
+Then either wait and rerun, or remove the problematic URL.
+
+### GitHub Models 403
+
+Common causes:
+
+- Missing `models: read` workflow permission.
+- Model not available to the repository/account.
+- Invalid or limited token.
+
+Check that the workflow includes:
+
+```yaml
+permissions:
+  contents: write
+  models: read
+```
+
+### GitHub Models 400 with token parameter errors
+
+For GPT-5, the adapter must use:
+
+```python
+max_completion_tokens
+```
+
+not:
+
+```python
+max_tokens
+```
+
+### Rate limit errors: 429
+
+What happens:
+
+- GitHub Models may return HTTP 429.
+- The script retries with exponential backoff.
+- If retries are exhausted, remaining URLs are preserved in `input/links-to-summarize.md`.
+
+Recovery:
+
 ```bash
-echo "https://example.com/article" >> input/links-to-summarize.md
+python scripts/monitor_queue.py
+# wait for rate limit reset
+python scripts/process_links.py
 ```
 
-Clear queue (use with caution):
-```bash
-python scripts/monitor_queue.py --clear
+You can increase retry tolerance:
+
+```env
+GITHUB_RETRY_ATTEMPTS=6
+GITHUB_RETRY_MAX_DELAY_SEC=60
 ```
 
+### Empty or low-quality summaries
+
+Possible causes:
+
+- Paywalled content
+- JavaScript-heavy pages
+- PDF URLs
+- Very short pages
+- Model returned weak output
+
+Inspect the generated note manually under `knowledge/`.
+
+If it is bad:
+
+1. Delete the bad Markdown file.
+2. Re-add the URL to `input/links-to-summarize.md`.
+3. Rerun the processor.
+
 ---
 
-## Helper Scripts Reference
+## 12. Current limitations
 
-| Script | Command | Purpose |
-| --- | --- | --- |
-| Monitor | `python scripts/monitor_queue.py` | Show queue status and summary count |
-| Monitor | `python scripts/monitor_queue.py --clear` | Clear queue (with confirmation) |
-| Recover | `python scripts/recover.py --requeue <url>` | Re-queue URL for reprocessing |
-| Recover | `python scripts/recover.py --requeue-file <file>` | Re-queue multiple URLs from file |
-| Recover | `python scripts/recover.py --inspect <category>` | List recent summaries in category |
-| Update | `python scripts/update_readme_only.py` | Regenerate README index (no processing) |
+### PDF URLs
 
----
+Direct PDF URLs are not properly supported yet.
 
-## GitHub Actions Workflow
+The current processor is designed around HTML extraction. It fetches a URL and parses visible HTML text. A direct PDF URL may run, but the extracted context can be empty or unreliable.
 
-The workflow (`.github/workflows/summarize.yml`) runs automatically when `input/links-to-summarize.md` is updated:
+Recommended future improvement:
 
-1. **Checkout** repository
-2. **Setup** Python 3.11 environment
-3. **Install** dependencies from `requirements.txt`
-4. **Validate** environment (logs active provider)
-5. **Process** links using `process_links.py`
-6. **Commit & push** generated files
-
-The workflow uses GitHub Actions secrets:
-- `GITHUB_TOKEN` (auto-provided, enables GitHub Models)
-- `GEMINI_API_KEY` (optional fallback, must be configured in repo settings)
-
-### Monitoring Workflow Runs
-
-View workflow status:
+```text
+PDF URL
+→ download PDF
+→ extract text with pypdf/pdfplumber/PyMuPDF
+→ pass extracted text to GitHub Models
+→ generate Markdown summary
 ```
-https://github.com/YOUR_USER/TLDR/actions
-```
+
+### JavaScript-heavy pages
+
+Pages that rely heavily on client-side rendering may produce weak summaries because the script uses `requests`, not a browser.
+
+### Model fallback
+
+The system can use Gemini if GitHub Models is not configured, but it does not currently fall back from GitHub Models to Gemini after a GitHub Models runtime failure.
 
 ---
 
-## Provider Architecture
+## 13. Maintenance checklist
 
-### GitHub Models (Primary)
-- **API:** REST (`https://models.github.ai/inference/chat/completions`)
-- **Auth:** Bearer token (GITHUB_TOKEN)
-- **Default model:** `openai/gpt-4.1`
-- **Transient errors:** HTTP 429, 5xx, network timeouts
-- **Retry:** Exponential backoff respecting Retry-After header
+Weekly or occasional checks:
 
-### Gemini API (Fallback)
-- **SDK:** google-generativeai
-- **Auth:** API key (GEMINI_API_KEY)
-- **Model:** `gemini-3.1-pro-preview`
-- **Transient errors:** RESOURCE_EXHAUSTED, quota, 429, 5xx, timeouts
-- **Retry:** Exponential backoff with keyword-based error classification
-
-**Provider Selection Logic:**
-1. If `GITHUB_TOKEN` is set → use GitHub Models
-2. Else if `GEMINI_API_KEY` is set → use Gemini
-3. Else → raise `NotImplementedError` (no provider configured)
+- Confirm recent `docs: Auto-generate knowledge base` commits are being created.
+- Confirm `input/links-to-summarize.md` is empty after successful runs.
+- Confirm `daily-processed.md` is growing by expected URLs.
+- Review recent generated notes for quality.
+- Add more URLs before the daily topic lists run out.
+- Keep README simple and move technical details here.
 
 ---
 
-## FAQ
+## 14. Roadmap ideas
 
-**Q: How long does processing take?**
-A: Depends on model and internet connection. Typically 2-5 seconds per URL.
+Potential improvements:
 
-**Q: Why is the queue preserved on failure?**
-A: To prevent data loss. If processing fails midway, the next run continues from where it left off.
-
-**Q: Can I use both providers in one run?**
-A: No, one provider per run. The system selects the active provider at startup based on env var priority.
-
-**Q: What happens if the model returns invalid JSON?**
-A: The system treats it as a transient error, retries automatically, and preserves the queue.
-
-**Q: How do I delete a generated summary?**
-A: Delete the `.md` file from `knowledge/<category>/` and optionally re-queue the URL if you want to retry.
-
-**Q: Can I manually add URLs to the queue?**
-A: Yes, append to `input/links-to-summarize.md` or use `python scripts/recover.py --requeue <url>`
-
----
-
-## Support
-
-For issues not covered above:
-
-1. Check the logs: `python -u scripts/process_links.py 2>&1 | tee debug.log`
-2. View the queue: `cat input/links-to-summarize.md`
-3. Check provider credentials in `.env`
-4. Review GitHub Actions workflow runs (if using CI): GitHub repo → Actions tab
-
----
-
-## Usage & Cost History
-
-See [GEMINI_USAGE.md](GEMINI_USAGE.md) for detailed analysis of Gemini API consumption, cost breakdown, and rate-limit patterns from the initial 6-month evaluation period (Jun–Nov 2025).
+- Add real PDF URL support.
+- Add warning when daily topic lists are almost empty.
+- Improve fallback from GitHub Models to Gemini.
+- Add summary quality checks.
+- Add a processed date field separate from source publication date.
+- Improve README sorting to optionally show processing date.
