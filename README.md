@@ -17,11 +17,12 @@ Sharing back what I'm learning with the community—curated insights, practical 
 | --- | ---: | --- | --- |
 | IT-Security | 1 | [Seven Security Considerations Cloud Laboratory Analytics](knowledge/IT-Security/seven-security-considerations-cloud-laboratory-analytics.md) | [IT-Security](#browse-by-category) |
 | Information-Science | 5 | [Resource2Skill Skill Wiki Creative Software](knowledge/Information-Science/resource2skill-skill-wiki-creative-software.md) | [Information-Science](#browse-by-category) |
-| Machine-Learning | 35 | [Muse Autoskill Self Evolving Agents Skill Lifecycle](knowledge/Machine-Learning/muse-autoskill-self-evolving-agents-skill-lifecycle.md) | [Machine-Learning](#browse-by-category) |
+| Machine-Learning | 36 | [Muse Autoskill Self Evolving Agents Skill Lifecycle](knowledge/Machine-Learning/muse-autoskill-self-evolving-agents-skill-lifecycle.md) | [Machine-Learning](#browse-by-category) |
 | Software-Engineering | 11 | [Harness Handbook Evolving Agent Harnesses](knowledge/Software-Engineering/harness-handbook-evolving-agent-harnesses.md) | [Software-Engineering](#browse-by-category) |
-| System-Design | 13 | [What Is Caching And How It Works Aws](knowledge/System-Design/what-is-caching-and-how-it-works-aws.md) | [System-Design](#browse-by-category) |
+| System-Design | 14 | [Fully Managed Message Queuing Amazon Sqs](knowledge/System-Design/fully-managed-message-queuing-amazon-sqs.md) | [System-Design](#browse-by-category) |
 
 ## Recent additions
+- [Fully Managed Message Queuing Amazon Sqs](knowledge/System-Design/fully-managed-message-queuing-amazon-sqs.md) · System-Design — 23-07-2026
 - [What Is Caching And How It Works Aws](knowledge/System-Design/what-is-caching-and-how-it-works-aws.md) · System-Design — 21-07-2026
 - [Resource2Skill Skill Wiki Creative Software](knowledge/Information-Science/resource2skill-skill-wiki-creative-software.md) · Information-Science — 21-07-2026
 - [Muse Autoskill Self Evolving Agents Skill Lifecycle](knowledge/Machine-Learning/muse-autoskill-self-evolving-agents-skill-lifecycle.md) · Machine-Learning — 21-07-2026
@@ -29,7 +30,6 @@ Sharing back what I'm learning with the community—curated insights, practical 
 - [Getting Started With Scikit Learn](knowledge/Machine-Learning/getting-started-with-scikit-learn.md) · Machine-Learning — 21-07-2026
 - [What Is A Cdn Content Delivery Network Explained](knowledge/System-Design/what-is-a-cdn-content-delivery-network-explained.md) · System-Design — 20-07-2026
 - [Ml Fairness Crash Course Module](knowledge/Machine-Learning/ml-fairness-crash-course-module.md) · Machine-Learning — 20-07-2026
-- [What Is Load Balancing How Load Balancers Work](knowledge/System-Design/what-is-load-balancing-how-load-balancers-work.md) · System-Design — 19-07-2026
 
 ## Browse by category
 <details>
@@ -51,7 +51,7 @@ Sharing back what I'm learning with the community—curated insights, practical 
 </details>
 
 <details>
-<summary>Machine-Learning (35)</summary>
+<summary>Machine-Learning (36)</summary>
 
 - [Muse Autoskill Self Evolving Agents Skill Lifecycle](knowledge/Machine-Learning/muse-autoskill-self-evolving-agents-skill-lifecycle.md) — 21-07-2026
 - [Getting Started With Scikit Learn](knowledge/Machine-Learning/getting-started-with-scikit-learn.md) — 21-07-2026
@@ -68,6 +68,7 @@ Sharing back what I'm learning with the community—curated insights, practical 
 - [Skillclaw Collective Skill Evolution Agentic Evolver](knowledge/Machine-Learning/skillclaw-collective-skill-evolution-agentic-evolver.md) — 03-05-2026
 - [Towards Uncertainty Aware Language Agent](knowledge/Machine-Learning/towards-uncertainty-aware-language-agent.md) — 02-05-2026
 - [Heterogeneous Scientific Foundation Model Collaboration](knowledge/Machine-Learning/heterogeneous-scientific-foundation-model-collaboration.md) — 02-05-2026
+- [Overfitting L2 Regularization](knowledge/Machine-Learning/overfitting-l2-regularization.md) — 09-04-2026
 - [Linear Regression Google Ml Crash Course](knowledge/Machine-Learning/linear-regression-google-ml-crash-course.md) — 09-12-2025
 - [Dividing Datasets Into Training Validation And Test Sets](knowledge/Machine-Learning/dividing-datasets-into-training-validation-and-test-sets.md) — 03-12-2025
 - [Datasets Generalization And Overfitting Ml Crash Course](knowledge/Machine-Learning/datasets-generalization-and-overfitting-ml-crash-course.md) — 03-12-2025
@@ -109,8 +110,9 @@ Sharing back what I'm learning with the community—curated insights, practical 
 </details>
 
 <details>
-<summary>System-Design (13)</summary>
+<summary>System-Design (14)</summary>
 
+- [Fully Managed Message Queuing Amazon Sqs](knowledge/System-Design/fully-managed-message-queuing-amazon-sqs.md) — 23-07-2026
 - [What Is Caching And How It Works Aws](knowledge/System-Design/what-is-caching-and-how-it-works-aws.md) — 21-07-2026
 - [What Is A Cdn Content Delivery Network Explained](knowledge/System-Design/what-is-a-cdn-content-delivery-network-explained.md) — 20-07-2026
 - [What Is Load Balancing How Load Balancers Work](knowledge/System-Design/what-is-load-balancing-how-load-balancers-work.md) — 19-07-2026
@@ -128,6 +130,8 @@ Sharing back what I'm learning with the community—curated insights, practical 
 </details>
 
 <!-- TLDR-AUTO-END -->
+
+
 
 
 

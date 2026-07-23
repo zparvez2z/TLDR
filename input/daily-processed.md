@@ -32,3 +32,5 @@ https://arxiv.org/html/2607.13285v1
 https://arxiv.org/html/2605.27366v2
 https://arxiv.org/html/2606.29538v4
 https://developers.google.com/machine-learning/crash-course/overfitting/dividing-datasets
+https://developers.google.com/machine-learning/crash-course/overfitting/regularization
+https://aws.amazon.com/sqs/
