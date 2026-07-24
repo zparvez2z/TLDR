@@ -34,3 +34,5 @@ https://arxiv.org/html/2606.29538v4
 https://developers.google.com/machine-learning/crash-course/overfitting/dividing-datasets
 https://developers.google.com/machine-learning/crash-course/overfitting/regularization
 https://aws.amazon.com/sqs/
+https://developers.google.com/machine-learning/crash-course/categorical-data/feature-crosses
+https://aws.amazon.com/architecture/well-architected/

@@ -22,19 +22,19 @@ For setup, automation, maintenance, and troubleshooting details, see [OPERATIONS
 | --- | ---: | --- | --- |
 | IT-Security | 1 | [Seven Security Considerations Cloud Laboratory Analytics](knowledge/IT-Security/seven-security-considerations-cloud-laboratory-analytics.md) | [IT-Security](#browse-by-category) |
 | Information-Science | 5 | [Resource2Skill Skill Wiki Creative Software](knowledge/Information-Science/resource2skill-skill-wiki-creative-software.md) | [Information-Science](#browse-by-category) |
-| Machine-Learning | 36 | [Muse Autoskill Self Evolving Agents Skill Lifecycle](knowledge/Machine-Learning/muse-autoskill-self-evolving-agents-skill-lifecycle.md) | [Machine-Learning](#browse-by-category) |
+| Machine-Learning | 37 | [Categorical Data Feature Crosses](knowledge/Machine-Learning/categorical-data-feature-crosses.md) | [Machine-Learning](#browse-by-category) |
 | Software-Engineering | 11 | [Harness Handbook Evolving Agent Harnesses](knowledge/Software-Engineering/harness-handbook-evolving-agent-harnesses.md) | [Software-Engineering](#browse-by-category) |
-| System-Design | 14 | [Fully Managed Message Queuing Amazon Sqs](knowledge/System-Design/fully-managed-message-queuing-amazon-sqs.md) | [System-Design](#browse-by-category) |
+| System-Design | 15 | [Aws Well Architected Framework Overview](knowledge/System-Design/aws-well-architected-framework-overview.md) | [System-Design](#browse-by-category) |
 
 ## Recent additions
+- [Categorical Data Feature Crosses](knowledge/Machine-Learning/categorical-data-feature-crosses.md) · Machine-Learning — 24-07-2026
+- [Aws Well Architected Framework Overview](knowledge/System-Design/aws-well-architected-framework-overview.md) · System-Design — 24-07-2026
 - [Fully Managed Message Queuing Amazon Sqs](knowledge/System-Design/fully-managed-message-queuing-amazon-sqs.md) · System-Design — 23-07-2026
 - [What Is Caching And How It Works Aws](knowledge/System-Design/what-is-caching-and-how-it-works-aws.md) · System-Design — 21-07-2026
 - [Resource2Skill Skill Wiki Creative Software](knowledge/Information-Science/resource2skill-skill-wiki-creative-software.md) · Information-Science — 21-07-2026
 - [Muse Autoskill Self Evolving Agents Skill Lifecycle](knowledge/Machine-Learning/muse-autoskill-self-evolving-agents-skill-lifecycle.md) · Machine-Learning — 21-07-2026
 - [Harness Handbook Evolving Agent Harnesses](knowledge/Software-Engineering/harness-handbook-evolving-agent-harnesses.md) · Software-Engineering — 21-07-2026
 - [Getting Started With Scikit Learn](knowledge/Machine-Learning/getting-started-with-scikit-learn.md) · Machine-Learning — 21-07-2026
-- [What Is A Cdn Content Delivery Network Explained](knowledge/System-Design/what-is-a-cdn-content-delivery-network-explained.md) · System-Design — 20-07-2026
-- [Ml Fairness Crash Course Module](knowledge/Machine-Learning/ml-fairness-crash-course-module.md) · Machine-Learning — 20-07-2026
 
 ## Browse by category
 <details>
@@ -56,8 +56,9 @@ For setup, automation, maintenance, and troubleshooting details, see [OPERATIONS
 </details>
 
 <details>
-<summary>Machine-Learning (36)</summary>
+<summary>Machine-Learning (37)</summary>
 
+- [Categorical Data Feature Crosses](knowledge/Machine-Learning/categorical-data-feature-crosses.md) — 24-07-2026
 - [Muse Autoskill Self Evolving Agents Skill Lifecycle](knowledge/Machine-Learning/muse-autoskill-self-evolving-agents-skill-lifecycle.md) — 21-07-2026
 - [Getting Started With Scikit Learn](knowledge/Machine-Learning/getting-started-with-scikit-learn.md) — 21-07-2026
 - [Ml Fairness Crash Course Module](knowledge/Machine-Learning/ml-fairness-crash-course-module.md) — 20-07-2026
@@ -115,8 +116,9 @@ For setup, automation, maintenance, and troubleshooting details, see [OPERATIONS
 </details>
 
 <details>
-<summary>System-Design (14)</summary>
+<summary>System-Design (15)</summary>
 
+- [Aws Well Architected Framework Overview](knowledge/System-Design/aws-well-architected-framework-overview.md) — 24-07-2026
 - [Fully Managed Message Queuing Amazon Sqs](knowledge/System-Design/fully-managed-message-queuing-amazon-sqs.md) — 23-07-2026
 - [What Is Caching And How It Works Aws](knowledge/System-Design/what-is-caching-and-how-it-works-aws.md) — 21-07-2026
 - [What Is A Cdn Content Delivery Network Explained](knowledge/System-Design/what-is-a-cdn-content-delivery-network-explained.md) — 20-07-2026
@@ -135,3 +137,5 @@ For setup, automation, maintenance, and troubleshooting details, see [OPERATIONS
 </details>
 
 <!-- TLDR-AUTO-END -->
+
+
