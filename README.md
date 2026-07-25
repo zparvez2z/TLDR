@@ -22,11 +22,12 @@ For setup, automation, maintenance, and troubleshooting details, see [OPERATIONS
 | --- | ---: | --- | --- |
 | IT-Security | 1 | [Seven Security Considerations Cloud Laboratory Analytics](knowledge/IT-Security/seven-security-considerations-cloud-laboratory-analytics.md) | [IT-Security](#browse-by-category) |
 | Information-Science | 5 | [Resource2Skill Skill Wiki Creative Software](knowledge/Information-Science/resource2skill-skill-wiki-creative-software.md) | [Information-Science](#browse-by-category) |
-| Machine-Learning | 37 | [Categorical Data Feature Crosses](knowledge/Machine-Learning/categorical-data-feature-crosses.md) | [Machine-Learning](#browse-by-category) |
+| Machine-Learning | 38 | [Categorical Data Feature Crosses](knowledge/Machine-Learning/categorical-data-feature-crosses.md) | [Machine-Learning](#browse-by-category) |
 | Software-Engineering | 11 | [Harness Handbook Evolving Agent Harnesses](knowledge/Software-Engineering/harness-handbook-evolving-agent-harnesses.md) | [Software-Engineering](#browse-by-category) |
-| System-Design | 15 | [Aws Well Architected Framework Overview](knowledge/System-Design/aws-well-architected-framework-overview.md) | [System-Design](#browse-by-category) |
+| System-Design | 16 | [What Is Load Balancing Algorithms Types Benefits](knowledge/System-Design/what-is-load-balancing-algorithms-types-benefits.md) | [System-Design](#browse-by-category) |
 
 ## Recent additions
+- [What Is Load Balancing Algorithms Types Benefits](knowledge/System-Design/what-is-load-balancing-algorithms-types-benefits.md) · System-Design — 25-07-2026
 - [Categorical Data Feature Crosses](knowledge/Machine-Learning/categorical-data-feature-crosses.md) · Machine-Learning — 24-07-2026
 - [Aws Well Architected Framework Overview](knowledge/System-Design/aws-well-architected-framework-overview.md) · System-Design — 24-07-2026
 - [Fully Managed Message Queuing Amazon Sqs](knowledge/System-Design/fully-managed-message-queuing-amazon-sqs.md) · System-Design — 23-07-2026
@@ -34,7 +35,6 @@ For setup, automation, maintenance, and troubleshooting details, see [OPERATIONS
 - [Resource2Skill Skill Wiki Creative Software](knowledge/Information-Science/resource2skill-skill-wiki-creative-software.md) · Information-Science — 21-07-2026
 - [Muse Autoskill Self Evolving Agents Skill Lifecycle](knowledge/Machine-Learning/muse-autoskill-self-evolving-agents-skill-lifecycle.md) · Machine-Learning — 21-07-2026
 - [Harness Handbook Evolving Agent Harnesses](knowledge/Software-Engineering/harness-handbook-evolving-agent-harnesses.md) · Software-Engineering — 21-07-2026
-- [Getting Started With Scikit Learn](knowledge/Machine-Learning/getting-started-with-scikit-learn.md) · Machine-Learning — 21-07-2026
 
 ## Browse by category
 <details>
@@ -56,7 +56,7 @@ For setup, automation, maintenance, and troubleshooting details, see [OPERATIONS
 </details>
 
 <details>
-<summary>Machine-Learning (37)</summary>
+<summary>Machine-Learning (38)</summary>
 
 - [Categorical Data Feature Crosses](knowledge/Machine-Learning/categorical-data-feature-crosses.md) — 24-07-2026
 - [Muse Autoskill Self Evolving Agents Skill Lifecycle](knowledge/Machine-Learning/muse-autoskill-self-evolving-agents-skill-lifecycle.md) — 21-07-2026
@@ -81,6 +81,7 @@ For setup, automation, maintenance, and troubleshooting details, see [OPERATIONS
 - [Inside Nvidia Gpus High Performance Matmul Kernels](knowledge/Machine-Learning/inside-nvidia-gpus-high-performance-matmul-kernels.md) — 29-09-2025
 - [Working With Numerical Data Google Ml Crash Course](knowledge/Machine-Learning/working-with-numerical-data-google-ml-crash-course.md) — 25-08-2025
 - [Working With Categorical Data Google Ml Crash Course](knowledge/Machine-Learning/working-with-categorical-data-google-ml-crash-course.md) — 25-08-2025
+- [Recommendation Systems Introduction Google Developers](knowledge/Machine-Learning/recommendation-systems-introduction-google-developers.md) — 25-08-2025
 - [Production Ml Systems](knowledge/Machine-Learning/production-ml-systems.md) — 25-08-2025
 - [Logistic Regression Google Ml Crash Course](knowledge/Machine-Learning/logistic-regression-google-ml-crash-course.md) — 25-08-2025
 - [Introduction To Machine Learning Google For Developers](knowledge/Machine-Learning/introduction-to-machine-learning-google-for-developers.md) — 25-08-2025
@@ -116,8 +117,9 @@ For setup, automation, maintenance, and troubleshooting details, see [OPERATIONS
 </details>
 
 <details>
-<summary>System-Design (15)</summary>
+<summary>System-Design (16)</summary>
 
+- [What Is Load Balancing Algorithms Types Benefits](knowledge/System-Design/what-is-load-balancing-algorithms-types-benefits.md) — 25-07-2026
 - [Aws Well Architected Framework Overview](knowledge/System-Design/aws-well-architected-framework-overview.md) — 24-07-2026
 - [Fully Managed Message Queuing Amazon Sqs](knowledge/System-Design/fully-managed-message-queuing-amazon-sqs.md) — 23-07-2026
 - [What Is Caching And How It Works Aws](knowledge/System-Design/what-is-caching-and-how-it-works-aws.md) — 21-07-2026
@@ -137,5 +139,7 @@ For setup, automation, maintenance, and troubleshooting details, see [OPERATIONS
 </details>
 
 <!-- TLDR-AUTO-END -->
+
+
 
 

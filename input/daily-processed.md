@@ -36,3 +36,5 @@ https://developers.google.com/machine-learning/crash-course/overfitting/regulari
 https://aws.amazon.com/sqs/
 https://developers.google.com/machine-learning/crash-course/categorical-data/feature-crosses
 https://aws.amazon.com/architecture/well-architected/
+https://developers.google.com/machine-learning/recommendation
+https://aws.amazon.com/what-is/load-balancing/
