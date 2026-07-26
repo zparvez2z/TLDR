@@ -22,19 +22,19 @@ For setup, automation, maintenance, and troubleshooting details, see [OPERATIONS
 | --- | ---: | --- | --- |
 | IT-Security | 1 | [Seven Security Considerations Cloud Laboratory Analytics](knowledge/IT-Security/seven-security-considerations-cloud-laboratory-analytics.md) | [IT-Security](#browse-by-category) |
 | Information-Science | 5 | [Resource2Skill Skill Wiki Creative Software](knowledge/Information-Science/resource2skill-skill-wiki-creative-software.md) | [Information-Science](#browse-by-category) |
-| Machine-Learning | 38 | [Categorical Data Feature Crosses](knowledge/Machine-Learning/categorical-data-feature-crosses.md) | [Machine-Learning](#browse-by-category) |
+| Machine-Learning | 39 | [Model Selection And Evaluation In Scikit Learn](knowledge/Machine-Learning/model-selection-and-evaluation-in-scikit-learn.md) | [Machine-Learning](#browse-by-category) |
 | Software-Engineering | 11 | [Harness Handbook Evolving Agent Harnesses](knowledge/Software-Engineering/harness-handbook-evolving-agent-harnesses.md) | [Software-Engineering](#browse-by-category) |
-| System-Design | 16 | [What Is Load Balancing Algorithms Types Benefits](knowledge/System-Design/what-is-load-balancing-algorithms-types-benefits.md) | [System-Design](#browse-by-category) |
+| System-Design | 17 | [What Is A Message Queue](knowledge/System-Design/what-is-a-message-queue.md) | [System-Design](#browse-by-category) |
 
 ## Recent additions
+- [What Is A Message Queue](knowledge/System-Design/what-is-a-message-queue.md) · System-Design — 26-07-2026
+- [Model Selection And Evaluation In Scikit Learn](knowledge/Machine-Learning/model-selection-and-evaluation-in-scikit-learn.md) · Machine-Learning — 26-07-2026
 - [What Is Load Balancing Algorithms Types Benefits](knowledge/System-Design/what-is-load-balancing-algorithms-types-benefits.md) · System-Design — 25-07-2026
 - [Categorical Data Feature Crosses](knowledge/Machine-Learning/categorical-data-feature-crosses.md) · Machine-Learning — 24-07-2026
 - [Aws Well Architected Framework Overview](knowledge/System-Design/aws-well-architected-framework-overview.md) · System-Design — 24-07-2026
 - [Fully Managed Message Queuing Amazon Sqs](knowledge/System-Design/fully-managed-message-queuing-amazon-sqs.md) · System-Design — 23-07-2026
 - [What Is Caching And How It Works Aws](knowledge/System-Design/what-is-caching-and-how-it-works-aws.md) · System-Design — 21-07-2026
 - [Resource2Skill Skill Wiki Creative Software](knowledge/Information-Science/resource2skill-skill-wiki-creative-software.md) · Information-Science — 21-07-2026
-- [Muse Autoskill Self Evolving Agents Skill Lifecycle](knowledge/Machine-Learning/muse-autoskill-self-evolving-agents-skill-lifecycle.md) · Machine-Learning — 21-07-2026
-- [Harness Handbook Evolving Agent Harnesses](knowledge/Software-Engineering/harness-handbook-evolving-agent-harnesses.md) · Software-Engineering — 21-07-2026
 
 ## Browse by category
 <details>
@@ -56,8 +56,9 @@ For setup, automation, maintenance, and troubleshooting details, see [OPERATIONS
 </details>
 
 <details>
-<summary>Machine-Learning (38)</summary>
+<summary>Machine-Learning (39)</summary>
 
+- [Model Selection And Evaluation In Scikit Learn](knowledge/Machine-Learning/model-selection-and-evaluation-in-scikit-learn.md) — 26-07-2026
 - [Categorical Data Feature Crosses](knowledge/Machine-Learning/categorical-data-feature-crosses.md) — 24-07-2026
 - [Muse Autoskill Self Evolving Agents Skill Lifecycle](knowledge/Machine-Learning/muse-autoskill-self-evolving-agents-skill-lifecycle.md) — 21-07-2026
 - [Getting Started With Scikit Learn](knowledge/Machine-Learning/getting-started-with-scikit-learn.md) — 21-07-2026
@@ -117,8 +118,9 @@ For setup, automation, maintenance, and troubleshooting details, see [OPERATIONS
 </details>
 
 <details>
-<summary>System-Design (16)</summary>
+<summary>System-Design (17)</summary>
 
+- [What Is A Message Queue](knowledge/System-Design/what-is-a-message-queue.md) — 26-07-2026
 - [What Is Load Balancing Algorithms Types Benefits](knowledge/System-Design/what-is-load-balancing-algorithms-types-benefits.md) — 25-07-2026
 - [Aws Well Architected Framework Overview](knowledge/System-Design/aws-well-architected-framework-overview.md) — 24-07-2026
 - [Fully Managed Message Queuing Amazon Sqs](knowledge/System-Design/fully-managed-message-queuing-amazon-sqs.md) — 23-07-2026
@@ -139,6 +141,8 @@ For setup, automation, maintenance, and troubleshooting details, see [OPERATIONS
 </details>
 
 <!-- TLDR-AUTO-END -->
+
+
 
 
 

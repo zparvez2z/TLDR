@@ -38,3 +38,5 @@ https://developers.google.com/machine-learning/crash-course/categorical-data/fea
 https://aws.amazon.com/architecture/well-architected/
 https://developers.google.com/machine-learning/recommendation
 https://aws.amazon.com/what-is/load-balancing/
+https://scikit-learn.org/stable/model_selection.html
+https://aws.amazon.com/message-queue/
