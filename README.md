@@ -22,19 +22,19 @@ For setup, automation, maintenance, and troubleshooting details, see [OPERATIONS
 | --- | ---: | --- | --- |
 | IT-Security | 1 | [Seven Security Considerations Cloud Laboratory Analytics](knowledge/IT-Security/seven-security-considerations-cloud-laboratory-analytics.md) | [IT-Security](#browse-by-category) |
 | Information-Science | 5 | [Resource2Skill Skill Wiki Creative Software](knowledge/Information-Science/resource2skill-skill-wiki-creative-software.md) | [Information-Science](#browse-by-category) |
-| Machine-Learning | 40 | [Scikit Learn Metrics And Scoring](knowledge/Machine-Learning/scikit-learn-metrics-and-scoring.md) | [Machine-Learning](#browse-by-category) |
+| Machine-Learning | 41 | [Preprocessing Data Scikit Learn](knowledge/Machine-Learning/preprocessing-data-scikit-learn.md) | [Machine-Learning](#browse-by-category) |
 | Software-Engineering | 11 | [Harness Handbook Evolving Agent Harnesses](knowledge/Software-Engineering/harness-handbook-evolving-agent-harnesses.md) | [Software-Engineering](#browse-by-category) |
-| System-Design | 18 | [What Is Pub Sub Messaging Aws Explained](knowledge/System-Design/what-is-pub-sub-messaging-aws-explained.md) | [System-Design](#browse-by-category) |
+| System-Design | 19 | [Event Driven Architecture Eda Explained Aws](knowledge/System-Design/event-driven-architecture-eda-explained-aws.md) | [System-Design](#browse-by-category) |
 
 ## Recent additions
+- [Preprocessing Data Scikit Learn](knowledge/Machine-Learning/preprocessing-data-scikit-learn.md) · Machine-Learning — 28-07-2026
+- [Event Driven Architecture Eda Explained Aws](knowledge/System-Design/event-driven-architecture-eda-explained-aws.md) · System-Design — 28-07-2026
 - [What Is Pub Sub Messaging Aws Explained](knowledge/System-Design/what-is-pub-sub-messaging-aws-explained.md) · System-Design — 27-07-2026
 - [Scikit Learn Metrics And Scoring](knowledge/Machine-Learning/scikit-learn-metrics-and-scoring.md) · Machine-Learning — 27-07-2026
 - [What Is A Message Queue](knowledge/System-Design/what-is-a-message-queue.md) · System-Design — 26-07-2026
 - [Model Selection And Evaluation In Scikit Learn](knowledge/Machine-Learning/model-selection-and-evaluation-in-scikit-learn.md) · Machine-Learning — 26-07-2026
 - [What Is Load Balancing Algorithms Types Benefits](knowledge/System-Design/what-is-load-balancing-algorithms-types-benefits.md) · System-Design — 25-07-2026
 - [Categorical Data Feature Crosses](knowledge/Machine-Learning/categorical-data-feature-crosses.md) · Machine-Learning — 24-07-2026
-- [Aws Well Architected Framework Overview](knowledge/System-Design/aws-well-architected-framework-overview.md) · System-Design — 24-07-2026
-- [Fully Managed Message Queuing Amazon Sqs](knowledge/System-Design/fully-managed-message-queuing-amazon-sqs.md) · System-Design — 23-07-2026
 
 ## Browse by category
 <details>
@@ -56,8 +56,9 @@ For setup, automation, maintenance, and troubleshooting details, see [OPERATIONS
 </details>
 
 <details>
-<summary>Machine-Learning (40)</summary>
+<summary>Machine-Learning (41)</summary>
 
+- [Preprocessing Data Scikit Learn](knowledge/Machine-Learning/preprocessing-data-scikit-learn.md) — 28-07-2026
 - [Scikit Learn Metrics And Scoring](knowledge/Machine-Learning/scikit-learn-metrics-and-scoring.md) — 27-07-2026
 - [Model Selection And Evaluation In Scikit Learn](knowledge/Machine-Learning/model-selection-and-evaluation-in-scikit-learn.md) — 26-07-2026
 - [Categorical Data Feature Crosses](knowledge/Machine-Learning/categorical-data-feature-crosses.md) — 24-07-2026
@@ -119,8 +120,9 @@ For setup, automation, maintenance, and troubleshooting details, see [OPERATIONS
 </details>
 
 <details>
-<summary>System-Design (18)</summary>
+<summary>System-Design (19)</summary>
 
+- [Event Driven Architecture Eda Explained Aws](knowledge/System-Design/event-driven-architecture-eda-explained-aws.md) — 28-07-2026
 - [What Is Pub Sub Messaging Aws Explained](knowledge/System-Design/what-is-pub-sub-messaging-aws-explained.md) — 27-07-2026
 - [What Is A Message Queue](knowledge/System-Design/what-is-a-message-queue.md) — 26-07-2026
 - [What Is Load Balancing Algorithms Types Benefits](knowledge/System-Design/what-is-load-balancing-algorithms-types-benefits.md) — 25-07-2026
@@ -143,6 +145,8 @@ For setup, automation, maintenance, and troubleshooting details, see [OPERATIONS
 </details>
 
 <!-- TLDR-AUTO-END -->
+
+
 
 
 

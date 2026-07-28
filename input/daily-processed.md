@@ -42,3 +42,5 @@ https://scikit-learn.org/stable/model_selection.html
 https://aws.amazon.com/message-queue/
 https://scikit-learn.org/stable/modules/model_evaluation.html
 https://aws.amazon.com/what-is/pub-sub-messaging/
+https://scikit-learn.org/stable/modules/preprocessing.html
+https://aws.amazon.com/what-is/eda/
