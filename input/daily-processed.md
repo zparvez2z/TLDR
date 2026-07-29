@@ -44,3 +44,5 @@ https://scikit-learn.org/stable/modules/model_evaluation.html
 https://aws.amazon.com/what-is/pub-sub-messaging/
 https://scikit-learn.org/stable/modules/preprocessing.html
 https://aws.amazon.com/what-is/eda/
+https://scikit-learn.org/stable/modules/feature_selection.html
+https://aws.amazon.com/what-is/serverless-computing/
