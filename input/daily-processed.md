@@ -46,3 +46,5 @@ https://scikit-learn.org/stable/modules/preprocessing.html
 https://aws.amazon.com/what-is/eda/
 https://scikit-learn.org/stable/modules/feature_selection.html
 https://aws.amazon.com/what-is/serverless-computing/
+https://scikit-learn.org/stable/modules/feature_extraction.html
+https://www.cloudflare.com/learning/security/api/what-is-an-api-gateway/
