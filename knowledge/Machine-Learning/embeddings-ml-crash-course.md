@@ -2,6 +2,10 @@
 source_url: https://developers.google.com/machine-learning/crash-course/embeddings
 author: Google Developers
 date: 25-08-2025
+source_last_updated: 2025-08-25
+verified_against_source: true
+verified_date: 2026-08-22
+verification_scope: Checked against the original Google Developers page; examples are simplified for personal learning.
 difficulty: Intermediate
 tags: [machine-learning, embeddings, vectors, representation-learning, neural-networks]
 ---
@@ -27,6 +31,8 @@ Instead of representing a category as a huge one-hot vector, an embedding repres
 Similar things should have similar vectors.
 
 ## Simple example
+
+The original source uses a food-recommendation example and discusses why one-hot vectors cannot represent useful similarity between foods.
 
 Suppose a food recommendation model learns embeddings for food items.
 
@@ -96,6 +102,12 @@ Use embeddings when:
 ## Mental model
 
 An embedding is like a map. Items with similar meaning or behavior should appear close together on the map.
+
+## Verification notes
+
+- Verified against the original Google Developers Embeddings page on 2026-08-22.
+- Source confirms one-hot encoding limitations, large input vectors, many weights, data/compute/memory costs, lower-dimensional embeddings, semantic relationships, word2vec-style visualization, encoding vs embedding, and contextual embeddings.
+- The food examples are aligned with the source's food-recommendation framing, with small simplifications for personal learning.
 
 ## Related notes
 
