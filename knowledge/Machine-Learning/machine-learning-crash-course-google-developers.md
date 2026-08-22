@@ -1,15 +1,73 @@
 ---
 source_url: https://developers.google.com/machine-learning/crash-course
-author: Unknown
+author: Google Developers
 date: 07-07-2026
+difficulty: Beginner
+tags: [machine-learning, roadmap, fundamentals, google-ml-crash-course]
 ---
 
-# Machine Learning | Google for Developers
+# Machine Learning Crash Course Roadmap
 
-Google’s Machine Learning Crash Course is a free, structured introduction to core ML concepts and practices. It organizes learning into modules spanning model fundamentals, data handling, advanced architectures, and real-world deployment concerns. The course highlights both conceptual understanding and practical best practices, including responsible AI considerations and automation. It also provides an introduction to modern topics like embeddings and large language models, and is accessible in multiple languages.
-- ML Models: Linear regression, logistic regression, and classification fundamentals
-- Data: Working with numerical and categorical features; generalization, datasets, and overfitting
-- Advanced ML: Neural networks, embeddings, and an introduction to large language models (LLMs)
-- Real-world ML: Production ML systems, AutoML, and fairness/responsible engineering
-- Designed for structured, self-paced learning with a clear progression from fundamentals to deployment
-- Available in many languages to support a global developer audience
+## TL;DR
+
+Google's Machine Learning Crash Course is a structured roadmap for learning the main ideas of machine learning. Use this note as the starting map for the Machine Learning section: it shows the order of topics and how the individual notes connect.
+
+This is not a deep concept note. It is a guide for what to study next.
+
+## Purpose
+
+The course introduces machine learning step by step: first the basic idea of learning from data, then simple models, then data preparation, then more advanced model types, and finally real-world ML concerns such as production systems, AutoML, and fairness.
+
+## Recommended learning path
+
+1. **Introduction to Machine Learning** — understand what ML is and how it differs from traditional programming.
+2. **Linear Regression** — learn the simplest supervised learning model for predicting numbers.
+3. **Logistic Regression** — learn how models estimate probabilities for classification.
+4. **Classification** — turn probabilities into decisions and evaluate classification quality.
+5. **Numerical Data** — prepare numeric features for training.
+6. **Categorical Data** — represent non-numeric values such as city, product type, or category.
+7. **Overfitting and Generalization** — understand why models can perform well during training but fail on new data.
+8. **Regularization** — control model complexity and reduce overfitting.
+9. **Neural Networks** — learn how models can capture more complex patterns.
+10. **Embeddings** — represent items, words, or categories as useful vectors.
+11. **Large Language Models** — understand the basics of modern language models.
+12. **Production ML Systems** — learn what changes when ML is used in real applications.
+13. **AutoML and Fairness** — understand automation and responsible ML concerns.
+
+## What the course covers
+
+- Core supervised learning ideas: features, labels, models, training, loss, and evaluation.
+- Basic model families: linear regression, logistic regression, and classification.
+- Data preparation: numerical features, categorical features, datasets, and generalization.
+- More advanced topics: neural networks, embeddings, and large language models.
+- Practical deployment concerns: production ML systems, AutoML, and fairness.
+
+## How to use this note
+
+Use this as the table of contents for your ML learning. Do not try to memorize everything from this page. Instead, open one topic at a time and build a small mental model for each concept.
+
+A good beginner sequence is:
+
+```text
+Introduction to ML → Linear Regression → Logistic Regression → Classification → Metrics → Overfitting → Regularization
+```
+
+## Why it matters
+
+Machine learning has many topics, and it is easy to jump randomly between them. A roadmap prevents that. It helps you learn in the right order: first the language of ML, then simple models, then evaluation, then practical problems.
+
+## Common mistake
+
+A common beginner mistake is starting with neural networks or LLMs before understanding features, labels, loss, training, and evaluation. Those basics make every later topic easier.
+
+## Related notes
+
+- [Introduction to Machine Learning](introduction-to-machine-learning-google-for-developers.md)
+- [Linear Regression](linear-regression-google-ml-crash-course.md)
+- [Classification](classification-binary-thresholds-and-metrics.md)
+- [Neural Networks](neural-networks-google-ml-crash-course.md)
+- [Introduction to Large Language Models](introduction-to-large-language-models.md)
+
+## Source
+
+Original source: https://developers.google.com/machine-learning/crash-course
