@@ -2,6 +2,10 @@
 source_url: https://scikit-learn.org/stable/model_selection.html
 author: scikit-learn Developers
 date: 26-07-2026
+source_version: scikit-learn 1.9.0
+verified_against_source: true
+verified_date: 2026-08-22
+verification_scope: Checked against the original scikit-learn documentation; examples are simplified for personal learning.
 difficulty: Intermediate
 tags: [machine-learning, model-selection, cross-validation, hyperparameter-tuning, evaluation]
 ---
@@ -43,6 +47,7 @@ We use cross-validation to compare them fairly. Then we tune hyperparameters, su
 - **Cross-validation**: splitting data into several train/validation folds to estimate performance more reliably.
 - **Grid search**: trying many predefined hyperparameter combinations.
 - **Randomized search**: sampling hyperparameter combinations randomly.
+- **Successive halving**: an efficient search method that gives more resources to promising candidates.
 - **Validation curve**: shows how performance changes with one hyperparameter.
 - **Learning curve**: shows how performance changes as training data increases.
 - **Baseline model**: a simple model used as a reference point.
@@ -88,6 +93,12 @@ It is especially important when:
 ## Mental model
 
 Model selection is like testing several study strategies before an exam. You do not choose the strategy that only worked once by luck; you choose the one that works consistently across practice tests.
+
+## Verification notes
+
+- Verified against the original scikit-learn Model Selection and Evaluation documentation on 2026-08-22.
+- Source confirms cross-validation, hyperparameter tuning, decision-threshold tuning, metrics/scoring, validation curves, and learning curves.
+- The rent-prediction example is adapted for personal learning.
 
 ## Related notes
 
