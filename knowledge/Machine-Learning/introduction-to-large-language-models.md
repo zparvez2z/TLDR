@@ -2,6 +2,10 @@
 source_url: https://developers.google.com/machine-learning/crash-course/llm
 author: Google Developers
 date: 17-07-2026
+source_last_updated: 2026-01-09
+verified_against_source: true
+verified_date: 2026-08-22
+verification_scope: Checked against the original Google Developers page; examples are simplified for personal learning.
 difficulty: Intermediate
 tags: [machine-learning, llm, language-models, transformers, tokens, prompt-engineering]
 ---
@@ -22,7 +26,7 @@ A language model predicts likely next tokens based on context.
 context → probability distribution over next token → generated text
 ```
 
-Large language models scale this idea with massive datasets, many parameters, and Transformer architectures.
+Large language models scale this idea with massive datasets, many parameters, and Transformer architectures that use self-attention to consider broad context.
 
 ## Simple example
 
@@ -45,6 +49,7 @@ It does not look up the answer like a database by default. It predicts text base
 - **Token**: a piece of text, often a word part rather than a full word.
 - **Context**: the text the model uses to make the next prediction.
 - **Language model**: a model that predicts token sequences.
+- **N-gram**: an ordered sequence of words or tokens used in older language-model approaches.
 - **Large language model**: a scaled-up language model with many parameters and broad training data.
 - **Parameter**: a learned value inside the model.
 - **Transformer**: the architecture behind most modern LLMs.
@@ -99,6 +104,12 @@ Be careful when:
 ## Mental model
 
 An LLM is a very powerful text prediction engine. It can behave like a writer, assistant, tutor, or coder, but underneath it is still predicting likely token sequences from context.
+
+## Verification notes
+
+- Verified against the original Google Developers Introduction to Large Language Models page on 2026-08-22.
+- Source confirms language models, tokens, n-grams, context, recurrent neural networks, whole-context evaluation by LLMs, self-attention, parameters, fine-tuning, distillation, and key LLM problems.
+- The Germany/Berlin example is adapted for personal learning.
 
 ## Related notes
 
