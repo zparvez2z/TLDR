@@ -1,17 +1,101 @@
 ---
 source_url: https://developers.google.com/machine-learning/crash-course/overfitting/regularization
-author: Unknown
+author: Google Developers
 date: 09-04-2026
+difficulty: Beginner
+tags: [machine-learning, regularization, l2, overfitting, generalization]
 ---
 
-# Overfitting: L2 regularization | Machine Learning | Google for Developers
+# Regularization: L2 and Early Stopping
 
-L2 regularization reduces overfitting by adding a penalty proportional to the squared magnitude of model weights to the training objective. The regularization rate (lambda) scales this penalty, with higher values leading to simpler models and lower values increasing the risk of overfitting. Early stopping is an alternative that halts training based on validation performance rather than explicitly penalizing complexity. Achieving good generalization requires tuning both the regularization rate and the learning rate, which influence weights in opposite directions.
+## TL;DR
 
-- L2 penalizes large weights most strongly; small weights contribute little, encouraging weights toward (but not exactly) zero.
-- Training minimizes loss plus lambda times model complexity (loss + λ·complexity).
-- High lambda strengthens regularization, typically yielding a near-normal weight histogram centered at 0 and reducing overfitting risk.
-- Low lambda weakens regularization, often producing flatter weight histograms and higher overfitting risk.
-- The ideal regularization rate is data-dependent and must be tuned using validation data.
-- Early stopping can lower test loss even if training loss rises, but it is quick rather than optimal compared to tuning lambda.
-- Learning rate and regularization rate must be balanced: high learning rates pull weights away from zero, while high regularization pushes them toward zero; changing one often requires retuning the other.
+Regularization helps a model generalize by discouraging it from becoming too complex. L2 regularization does this by penalizing large weights during training.
+
+Regularization is one of the main tools for reducing overfitting.
+
+## Core idea
+
+A model can fit training data too closely by giving very large importance to specific features. L2 regularization adds an extra penalty for large weights.
+
+```text
+training objective = prediction loss + regularization penalty
+```
+
+The model is no longer rewarded only for fitting the training data. It is also encouraged to stay simpler.
+
+## Simple example
+
+Suppose an apartment rent model learns that one rare feature has a huge effect:
+
+```text
+has_blue_door → rent increases by €900
+```
+
+Maybe this pattern happened by accident in the training data. Regularization discourages very large weights like this unless the feature is truly useful.
+
+## Key terms
+
+- **Regularization**: techniques that reduce overfitting by controlling model complexity.
+- **L2 regularization**: penalizes the squared size of weights.
+- **Lambda / regularization rate**: controls how strong the penalty is.
+- **Weight magnitude**: how large the learned feature weights are.
+- **Early stopping**: stopping training when validation performance stops improving.
+- **Generalization**: performing well on unseen data.
+
+## Why it matters
+
+Without regularization, a flexible model can memorize noise. With too much regularization, the model may become too simple and underfit.
+
+The goal is balance:
+
+```text
+too little regularization → overfitting
+too much regularization → underfitting
+right amount → better generalization
+```
+
+## L2 regularization intuition
+
+L2 regularization pushes weights toward smaller values. It usually does not force weights exactly to zero, but it reduces extreme weights.
+
+This can make the model more stable and less sensitive to noise in individual features.
+
+## Early stopping intuition
+
+Early stopping watches validation performance during training. If validation performance stops improving, training stops before the model memorizes too much training noise.
+
+It is fast and practical, but it is not the same as carefully tuning regularization.
+
+## Common beginner mistakes
+
+- Thinking regularization always improves a model.
+- Using a high regularization rate without checking validation performance.
+- Forgetting that learning rate and regularization can interact.
+- Looking only at training loss.
+- Treating early stopping as a perfect replacement for good validation and tuning.
+
+## When to use it
+
+Use regularization when:
+
+- validation performance is worse than training performance;
+- the model has many features or parameters;
+- feature weights become very large;
+- the model behaves unstably on new data;
+- you want better generalization.
+
+## Mental model
+
+Regularization is like telling the model: "Fit the data, but do not make the explanation unnecessarily complicated."
+
+## Related notes
+
+- [Overfitting and Generalization](datasets-generalization-and-overfitting-ml-crash-course.md)
+- [Linear Regression](linear-regression-google-ml-crash-course.md)
+- [Logistic Regression](logistic-regression-google-ml-crash-course.md)
+- [Model Selection](model-selection-and-evaluation-in-scikit-learn.md)
+
+## Source
+
+Original source: https://developers.google.com/machine-learning/crash-course/overfitting/regularization
