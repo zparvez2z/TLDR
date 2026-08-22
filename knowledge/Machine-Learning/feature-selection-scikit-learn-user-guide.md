@@ -2,6 +2,10 @@
 source_url: https://scikit-learn.org/stable/modules/feature_selection.html
 author: scikit-learn Developers
 date: 29-07-2026
+source_version: scikit-learn 1.9.0
+verified_against_source: true
+verified_date: 2026-08-22
+verification_scope: Checked against the original scikit-learn documentation; examples are simplified for personal learning.
 difficulty: Intermediate
 tags: [machine-learning, feature-selection, dimensionality-reduction, regularization, scikit-learn]
 ---
@@ -47,10 +51,10 @@ Feature selection tries to remove the useless or redundant features.
 - **Irrelevant feature**: a feature that does not help prediction.
 - **Redundant feature**: a feature that repeats information already present elsewhere.
 - **Dimensionality**: the number of features.
-- **Filter method**: selects features using statistical tests before training the main model.
-- **Wrapper method**: trains models repeatedly to test feature subsets.
-- **Embedded method**: selects features as part of model training.
+- **VarianceThreshold**: removes features with variance below a threshold.
+- **Univariate feature selection**: selects features using statistical tests.
 - **RFE**: recursive feature elimination; repeatedly removes the least useful features.
+- **SelectFromModel**: selects features based on model-estimated importance.
 - **L1 regularization**: can push some feature weights to zero, effectively selecting features.
 
 ## Why it matters
@@ -61,23 +65,21 @@ However, removing features too aggressively can hurt performance if useful signa
 
 ## Common approaches
 
-### Filter methods
+### Low-variance filtering
 
-Use statistics to rank features before the main model is trained.
+Remove features that barely change across samples.
 
-Examples: variance threshold, chi-square tests, mutual information.
+### Univariate selection
 
-### Wrapper methods
+Use statistical scores such as chi-square, F-tests, or mutual information to select useful features.
 
-Train models with different feature subsets and compare performance.
+### Recursive feature elimination
 
-Example: recursive feature elimination.
+Train a model, remove weak features, and repeat.
 
-### Embedded methods
+### Model-based selection
 
-Let the model choose features during training.
-
-Examples: L1-regularized linear models, tree-based feature importance.
+Use feature weights or feature importances from a model to choose features.
 
 ## Common beginner mistakes
 
@@ -104,6 +106,12 @@ Avoid aggressive feature selection when data is limited and you are unsure which
 ## Mental model
 
 Feature selection is like packing for a trip. You do not want to carry everything; you want the items that are actually useful.
+
+## Verification notes
+
+- Verified against the original scikit-learn Feature Selection documentation on 2026-08-22.
+- Source confirms feature selection/dimensionality reduction, low-variance removal, univariate selection, recursive feature elimination, model-based selection, and L1-based feature selection.
+- The apartment-rent example is adapted for personal learning.
 
 ## Related notes
 
