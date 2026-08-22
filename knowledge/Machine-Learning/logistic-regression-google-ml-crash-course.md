@@ -2,6 +2,10 @@
 source_url: https://developers.google.com/machine-learning/crash-course/logistic-regression
 author: Google Developers
 date: 25-08-2025
+source_last_updated: 2025-08-25
+verified_against_source: true
+verified_date: 2026-08-22
+verification_scope: Checked against the original Google Developers page; examples are simplified for personal learning.
 difficulty: Beginner
 tags: [machine-learning, supervised-learning, classification, logistic-regression, probability]
 ---
@@ -32,6 +36,8 @@ Example output:
 The probability is not yet the final class. A later classification threshold turns it into a decision.
 
 ## Simple example
+
+The original source uses questions such as whether it will rain today or whether an email is spam.
 
 Suppose we want to predict whether an email is spam.
 
@@ -96,6 +102,12 @@ It may not work well when:
 ## Mental model
 
 Think of logistic regression as a scoring system. It adds evidence from features, converts the score into a probability, then lets you choose how confident the model must be before saying yes.
+
+## Verification notes
+
+- Verified against the original Google Developers Logistic Regression page on 2026-08-22.
+- Source confirms probability prediction, sigmoid, log loss, regularization, comparison with linear regression, use cases, and prerequisites.
+- The spam example is aligned with the source's own spam/rain examples.
 
 ## Related notes
 
