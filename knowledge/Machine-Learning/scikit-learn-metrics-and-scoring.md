@@ -2,6 +2,10 @@
 source_url: https://scikit-learn.org/stable/modules/model_evaluation.html
 author: scikit-learn Developers
 date: 27-07-2026
+source_version: scikit-learn 1.9.0
+verified_against_source: true
+verified_date: 2026-08-22
+verification_scope: Checked against the original scikit-learn documentation; examples are simplified for personal learning.
 difficulty: Intermediate
 tags: [machine-learning, metrics, scoring, evaluation, classification, regression]
 ---
@@ -47,6 +51,7 @@ But it catches zero fraud cases. Accuracy is misleading here. Recall, precision,
 - **Recall**: how many real positives are found.
 - **F1 score**: balance between precision and recall.
 - **Log loss**: measures quality of predicted probabilities.
+- **Brier score**: evaluates probability predictions for classification.
 - **MAE**: average absolute error for regression.
 - **MSE/RMSE**: squared-error based regression metrics that punish large errors more.
 - **Baseline**: a simple reference model used to judge whether your model is actually useful.
@@ -91,7 +96,7 @@ Use **recall** when false negatives are expensive.
 
 Use **F1** when precision and recall both matter.
 
-Use **log loss** when probability quality matters.
+Use **log loss** or **Brier score** when probability quality matters.
 
 Use **MAE** when you want an easy-to-understand average error.
 
@@ -100,6 +105,12 @@ Use **RMSE** when large errors should be punished more strongly.
 ## Mental model
 
 A metric is the scoreboard. Before training harder, make sure you are playing the right game.
+
+## Verification notes
+
+- Verified against the original scikit-learn Metrics and Scoring documentation on 2026-08-22.
+- Source confirms choosing scoring functions based on the goal, separating prediction from decision-making, consistent scoring functions, scoring APIs, metric functions, cross-validation scoring, classification metrics, regression metrics, and dummy estimators.
+- The fraud example is adapted for personal learning.
 
 ## Related notes
 
