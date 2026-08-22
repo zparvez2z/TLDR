@@ -1,16 +1,101 @@
 ---
 source_url: https://scikit-learn.org/stable/model_selection.html
-author: Unknown
+author: scikit-learn Developers
 date: 26-07-2026
+difficulty: Intermediate
+tags: [machine-learning, model-selection, cross-validation, hyperparameter-tuning, evaluation]
 ---
 
-# 3. Model selection and evaluation — scikit-learn 1.9.0 documentation
+# Model Selection and Evaluation
 
-This scikit-learn User Guide chapter explains core techniques for evaluating and selecting machine learning models. It covers cross-validation strategies and how to compute robust performance metrics, along with statistical significance via permutation tests. It provides practical methods for hyperparameter tuning, including grid search, randomized search, and successive halving, as well as guidance on decision-threshold tuning for classifiers. The chapter also details the scoring API, a wide range of evaluation metrics, and tools like validation and learning curves for diagnosing model behavior.
-- Cross-validation fundamentals: computing cross-validated metrics, choosing iterators (e.g., KFold, StratifiedKFold, GroupKFold, TimeSeriesSplit), and shuffling considerations.
-- Model selection with CV: GridSearchCV, RandomizedSearchCV, and successive halving (HalvingGridSearchCV/HalvingRandomSearchCV), plus tips to improve efficiency and avoid overfitting.
-- Alternatives to brute-force parameter search and practical advice for effective hyperparameter optimization.
-- Decision threshold tuning for classification to align with precision/recall or cost objectives.
-- Scoring API overview and metric selection guidance for classification, multilabel ranking, regression, and clustering; using dummy estimators for baselines.
-- Validation and learning curves to visualize bias-variance trade-offs and data sufficiency.
-- Permutation test score to assess the statistical significance of model performance.
+## TL;DR
+
+Model selection is the process of choosing the model, settings, and evaluation method that work best on unseen data. The main goal is not to get the best training score, but to choose a model that generalizes.
+
+Use this note as the practical workflow for comparing and tuning models.
+
+## Core idea
+
+A reliable ML workflow separates training from evaluation.
+
+```text
+split data → choose metric → train model → validate → tune → test once
+```
+
+The validation process helps you choose between models. The test set should be used only near the end to estimate final performance.
+
+## Simple example
+
+Suppose we want to choose a rent prediction model.
+
+Candidate models:
+
+- linear regression
+- random forest
+- gradient boosting
+
+We use cross-validation to compare them fairly. Then we tune hyperparameters, such as tree depth or regularization strength. Finally, we test the selected model on data it has not seen during tuning.
+
+## Key terms
+
+- **Model selection**: choosing the best model or model configuration.
+- **Hyperparameter**: a setting chosen before training, such as learning rate, tree depth, or regularization strength.
+- **Cross-validation**: splitting data into several train/validation folds to estimate performance more reliably.
+- **Grid search**: trying many predefined hyperparameter combinations.
+- **Randomized search**: sampling hyperparameter combinations randomly.
+- **Validation curve**: shows how performance changes with one hyperparameter.
+- **Learning curve**: shows how performance changes as training data increases.
+- **Baseline model**: a simple model used as a reference point.
+
+## Why it matters
+
+A model that looks best on one random split may not really be best. Cross-validation reduces dependence on one lucky or unlucky split.
+
+Model selection also prevents you from choosing a model based only on intuition. It makes model choice measurable.
+
+## Practical workflow
+
+1. Define the real goal.
+2. Choose the right metric.
+3. Create train/validation/test splits.
+4. Start with a simple baseline.
+5. Compare a few model families.
+6. Tune hyperparameters using cross-validation.
+7. Inspect learning curves and validation curves.
+8. Evaluate the final model on the test set.
+9. Document the result and limitations.
+
+## Common beginner mistakes
+
+- Tuning on the test set repeatedly.
+- Choosing the model with the best training score.
+- Trying complex models before building a baseline.
+- Comparing models with different data splits.
+- Optimizing the wrong metric.
+- Forgetting that cross-validation costs more computation.
+
+## When to use it
+
+Use model selection whenever you have more than one possible model, preprocessing pipeline, metric, or hyperparameter setting.
+
+It is especially important when:
+
+- the dataset is small;
+- model performance is close between options;
+- hyperparameters strongly affect results;
+- you need confidence that the model will generalize.
+
+## Mental model
+
+Model selection is like testing several study strategies before an exam. You do not choose the strategy that only worked once by luck; you choose the one that works consistently across practice tests.
+
+## Related notes
+
+- [Metrics and Scoring](scikit-learn-metrics-and-scoring.md)
+- [Overfitting and Generalization](datasets-generalization-and-overfitting-ml-crash-course.md)
+- [Regularization](overfitting-l2-regularization.md)
+- [Preprocessing Data](preprocessing-data-scikit-learn.md)
+
+## Source
+
+Original source: https://scikit-learn.org/stable/model_selection.html
