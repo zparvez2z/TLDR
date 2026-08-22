@@ -2,6 +2,10 @@
 source_url: https://developers.google.com/machine-learning/crash-course/classification
 author: Google Developers
 date: 25-08-2025
+source_last_updated: 2025-08-25
+verified_against_source: true
+verified_date: 2026-08-22
+verification_scope: Checked against the original Google Developers page; examples are simplified for personal learning.
 difficulty: Beginner
 tags: [machine-learning, classification, threshold, confusion-matrix, precision, recall]
 ---
@@ -33,7 +37,9 @@ Changing the threshold changes the model's behavior.
 
 ## Simple example
 
-Suppose a model predicts whether a patient needs extra medical review.
+The original source uses spam/not-spam as an example of turning a probability into a category.
+
+For a personal learning example, suppose a model predicts whether a patient needs extra medical review.
 
 - A low threshold catches more risky cases but creates more false alarms.
 - A high threshold creates fewer false alarms but may miss real risky cases.
@@ -93,6 +99,12 @@ Use **AUC** when you want to compare ranking/separation quality across threshold
 ## Mental model
 
 Classification is decision-making under uncertainty. The model gives a probability, but humans choose the threshold based on the situation.
+
+## Verification notes
+
+- Verified against the original Google Developers Classification page on 2026-08-22.
+- Source confirms thresholds, binary classification, metrics, ROC, AUC, and the introduction to multi-class classification.
+- The medical-review example is adapted for personal learning; the source uses spam/not-spam as its main example.
 
 ## Related notes
 
