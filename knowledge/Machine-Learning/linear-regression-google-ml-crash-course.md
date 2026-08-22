@@ -2,6 +2,10 @@
 source_url: https://developers.google.com/machine-learning/crash-course/linear-regression
 author: Google Developers
 date: 09-12-2025
+source_last_updated: 2025-12-09
+verified_against_source: true
+verified_date: 2026-08-22
+verification_scope: Checked against the original Google Developers page; examples are simplified for personal learning.
 difficulty: Beginner
 tags: [machine-learning, supervised-learning, regression, loss, gradient-descent]
 ---
@@ -26,7 +30,9 @@ The model starts with imperfect weights. During training, it adjusts those weigh
 
 ## Simple example
 
-Suppose we want to predict apartment rent.
+The original source explains linear regression with car fuel efficiency: car weight is used as a feature, and miles per gallon is the label.
+
+For a personal learning example, suppose we want to predict apartment rent.
 
 Features:
 
@@ -87,6 +93,12 @@ It may not work well when:
 ## Mental model
 
 Think of linear regression as fitting the best straight line through data points. The line will not pass perfectly through every point, but it tries to minimize the overall error.
+
+## Verification notes
+
+- Verified against the original Google Developers Linear Regression page on 2026-08-22.
+- Source confirms the linear regression equation, bias, weights, features, labels, training, loss, gradient descent, hyperparameter tuning, and multiple-feature models.
+- The apartment-rent example is adapted for personal learning; the source uses car fuel efficiency as its main example.
 
 ## Related notes
 
