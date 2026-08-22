@@ -2,6 +2,10 @@
 source_url: https://developers.google.com/machine-learning/crash-course/neural-networks
 author: Google Developers
 date: 15-07-2026
+source_last_updated: 2025-08-25
+verified_against_source: true
+verified_date: 2026-08-22
+verification_scope: Checked against the original Google Developers page; examples are simplified for personal learning.
 difficulty: Intermediate
 tags: [machine-learning, neural-networks, deep-learning, nonlinear-models, backpropagation]
 ---
@@ -84,6 +88,12 @@ They may not be the best first choice when:
 ## Mental model
 
 A neural network is a stack of learned transformations. Each layer reshapes the data into a representation that makes the final prediction easier.
+
+## Verification notes
+
+- Verified against the original Google Developers Neural Networks page on 2026-08-22.
+- Source confirms nonlinear patterns, avoiding manual feature-cross experimentation, nodes, hidden layers, activation functions, inference intuition, backpropagation, and multi-class classification approaches.
+- The cat-image example is adapted for personal learning.
 
 ## Related notes
 
