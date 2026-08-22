@@ -2,6 +2,9 @@
 source_url: https://developers.google.com/machine-learning/crash-course
 author: Google Developers
 date: 07-07-2026
+verified_against_source: true
+verified_date: 2026-08-22
+verification_scope: Checked against the original Google Developers course overview; learning order mirrors the published module structure.
 difficulty: Beginner
 tags: [machine-learning, roadmap, fundamentals, google-ml-crash-course]
 ---
@@ -36,7 +39,7 @@ The course introduces machine learning step by step: first the basic idea of lea
 
 ## What the course covers
 
-- Core supervised learning ideas: features, labels, models, training, loss, and evaluation.
+- Core supervised learning ideas: regression and classification models.
 - Basic model families: linear regression, logistic regression, and classification.
 - Data preparation: numerical features, categorical features, datasets, and generalization.
 - More advanced topics: neural networks, embeddings, and large language models.
@@ -59,6 +62,12 @@ Machine learning has many topics, and it is easy to jump randomly between them. 
 ## Common mistake
 
 A common beginner mistake is starting with neural networks or LLMs before understanding features, labels, loss, training, and evaluation. Those basics make every later topic easier.
+
+## Verification notes
+
+- Verified against the original Google Developers Machine Learning Crash Course overview on 2026-08-22.
+- Source confirms the course modules and order: linear regression, logistic regression, classification, numerical data, categorical data, datasets/generalization/overfitting, neural networks, embeddings, LLMs, production ML, AutoML, and fairness.
+- The recommended path adds the separate Introduction to Machine Learning note before the Crash Course modules for beginner readability.
 
 ## Related notes
 
