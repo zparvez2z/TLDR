@@ -2,6 +2,10 @@
 source_url: https://scikit-learn.org/stable/modules/preprocessing.html
 author: scikit-learn Developers
 date: 28-07-2026
+source_version: scikit-learn 1.9.0
+verified_against_source: true
+verified_date: 2026-08-22
+verification_scope: Checked against the original scikit-learn documentation; examples are simplified for personal learning.
 difficulty: Intermediate
 tags: [machine-learning, preprocessing, scaling, normalization, pipeline, data-preparation]
 ---
@@ -10,7 +14,7 @@ tags: [machine-learning, preprocessing, scaling, normalization, pipeline, data-p
 
 ## TL;DR
 
-Preprocessing turns raw data into a form that models can learn from more effectively. It includes scaling, standardization, normalization, encoding, binning, missing-value handling, and feature transformations.
+Preprocessing turns raw data into a form that models can learn from more effectively. It includes scaling, standardization, normalization, encoding, binning, and feature transformations.
 
 Good preprocessing must be learned from training data only, then applied consistently to validation, test, and future data.
 
@@ -45,8 +49,7 @@ Preprocessing may include:
 
 - scaling numerical features;
 - encoding city as categorical data;
-- filling missing building age;
-- creating useful features such as distance bands;
+- creating distance bands;
 - keeping the same transformation inside a pipeline.
 
 ## Key terms
@@ -68,8 +71,7 @@ Preprocessing also prevents accidental leakage. For example, if you calculate sc
 ## Common preprocessing tasks
 
 - scale numeric features;
-- encode categorical features;
-- handle missing values;
+- normalize samples;
 - transform skewed distributions;
 - create polynomial or interaction features;
 - bin continuous values;
@@ -87,7 +89,7 @@ Preprocessing also prevents accidental leakage. For example, if you calculate sc
 
 ## When to use it
 
-Use preprocessing whenever raw data is messy, differently scaled, categorical, sparse, skewed, incomplete, or not directly model-ready.
+Use preprocessing whenever raw data is messy, differently scaled, sparse, skewed, incomplete, or not directly model-ready.
 
 It is especially important for:
 
@@ -101,6 +103,13 @@ It is especially important for:
 ## Mental model
 
 Preprocessing is the bridge between real-world messy data and model-ready input. The model can only learn from the data representation you give it.
+
+## Verification notes
+
+- Verified against the original scikit-learn Preprocessing documentation on 2026-08-22.
+- Source confirms that `sklearn.preprocessing` provides utility functions and transformer classes that change raw feature vectors into representations more suitable for downstream estimators.
+- Source confirms standardization, scaling, robust handling of outliers, normalizers, and the importance of feature scale for many estimators.
+- The apartment-rent example is adapted for personal learning.
 
 ## Related notes
 
