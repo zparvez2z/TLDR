@@ -2,6 +2,10 @@
 source_url: https://developers.google.com/machine-learning/crash-course/overfitting/regularization
 author: Google Developers
 date: 09-04-2026
+source_last_updated: 2026-04-09
+verified_against_source: true
+verified_date: 2026-08-22
+verification_scope: Checked against the original Google Developers page; examples are simplified for personal learning.
 difficulty: Beginner
 tags: [machine-learning, regularization, l2, overfitting, generalization]
 ---
@@ -20,6 +24,12 @@ A model can fit training data too closely by giving very large importance to spe
 
 ```text
 training objective = prediction loss + regularization penalty
+```
+
+More specifically, the source describes the objective as:
+
+```text
+minimize(loss + lambda × complexity)
 ```
 
 The model is no longer rewarded only for fitting the training data. It is also encouraged to stay simpler.
@@ -57,6 +67,14 @@ right amount → better generalization
 
 ## L2 regularization intuition
 
+L2 regularization adds the squared weights together as a complexity penalty:
+
+```text
+w1² + w2² + ... + wn²
+```
+
+Because weights are squared, very large weights receive a much stronger penalty than small weights.
+
 L2 regularization pushes weights toward smaller values. It usually does not force weights exactly to zero, but it reduces extreme weights.
 
 This can make the model more stable and less sensitive to noise in individual features.
@@ -88,6 +106,12 @@ Use regularization when:
 ## Mental model
 
 Regularization is like telling the model: "Fit the data, but do not make the explanation unnecessarily complicated."
+
+## Verification notes
+
+- Verified against the original Google Developers L2 Regularization page on 2026-08-22.
+- Source confirms L2 as a penalty on squared weights, lambda/regularization rate, high vs low regularization effects, early stopping, and the interaction between learning rate and regularization rate.
+- The apartment-rent example is adapted for personal learning.
 
 ## Related notes
 
