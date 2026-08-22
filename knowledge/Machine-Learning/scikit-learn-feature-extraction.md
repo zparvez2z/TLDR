@@ -2,6 +2,10 @@
 source_url: https://scikit-learn.org/stable/modules/feature_extraction.html
 author: scikit-learn Developers
 date: 30-07-2026
+source_version: scikit-learn 1.9.0
+verified_against_source: true
+verified_date: 2026-08-22
+verification_scope: Checked against the original scikit-learn documentation; examples are simplified for personal learning.
 difficulty: Intermediate
 tags: [machine-learning, feature-extraction, text-vectorization, tf-idf, bag-of-words]
 ---
@@ -116,6 +120,13 @@ It is especially useful for:
 ## Mental model
 
 Feature extraction is translation. It translates messy real-world information into numbers a model can understand.
+
+## Verification notes
+
+- Verified against the original scikit-learn Feature Extraction documentation on 2026-08-22.
+- Source confirms feature extraction from text/images, the difference between feature extraction and feature selection, DictVectorizer, one-hot coding for dictionary/categorical features, and sparse representations.
+- Source also covers text vectorization, CountVectorizer/Bag-of-Words, TF-IDF, and hashing-based feature extraction.
+- The email example is adapted for personal learning.
 
 ## Related notes
 
