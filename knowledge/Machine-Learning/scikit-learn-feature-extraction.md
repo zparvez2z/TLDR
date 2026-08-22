@@ -1,19 +1,129 @@
 ---
 source_url: https://scikit-learn.org/stable/modules/feature_extraction.html
-author: Unknown
+author: scikit-learn Developers
 date: 30-07-2026
+difficulty: Intermediate
+tags: [machine-learning, feature-extraction, text-vectorization, tf-idf, bag-of-words]
 ---
 
-# 8.2. Feature extraction — scikit-learn 1.9.0 documentation
+# Feature Extraction
 
-This guide explains how scikit-learn’s feature_extraction module transforms raw data (text, images, dicts) into numerical features suitable for machine learning models. It distinguishes feature extraction from feature selection and details tools for categorical, hashed, and text features. Key components include DictVectorizer for one-hot encoding of mappings, FeatureHasher for fast, low-memory hashing, and standard text vectorization via Bag-of-Words and TF-IDF. The module emphasizes sparse representations for scalability and provides practical guidance on input formats, parameter choices, and trade-offs.
-- Feature extraction converts arbitrary data (e.g., text, images, dicts) into numeric feature vectors; it is distinct from feature selection.
-- DictVectorizer transforms lists of Python dicts into sparse matrices, performing one-hot encoding for categorical features and handling multi-valued features.
-- Sparse output (scipy.sparse) is used by default to manage very wide, mostly zero matrices.
-- FeatureHasher implements the hashing trick for high-speed, low-memory vectorization, sacrificing inspectability (no inverse_transform).
-- Uses signed MurmurHash3 (32-bit) with alternate_sign=True by default to mitigate collision bias; can disable for estimators expecting non-negative inputs (e.g., MultinomialNB, chi2 selectors).
-- Accepts mappings, (feature, value) pairs, or strings via input_type, and sums repeated feature values per sample; outputs CSR sparse matrices.
-- Recommended to choose n_features as a power of two for even feature distribution; practical limit up to 2^31 - 1 features.
-- Text feature extraction includes tokenization, counting (Bag-of-Words), and weighting via TF-IDF (e.g., CountVectorizer + TfidfTransformer).
-- Generators can introduce lazy feature extraction for efficiency in NLP pipelines.
-- Appropriate for large corpora and sequence labeling tasks (e.g., PoS-context windows) with memory-efficient representations.
+## TL;DR
+
+Feature extraction converts raw data into numerical features that a model can learn from. It is especially important for text, images, dictionaries, and other data that is not already in clean numeric table form.
+
+Feature extraction creates features. Feature selection chooses among existing features.
+
+## Core idea
+
+Models need numerical input. Feature extraction turns raw objects into vectors.
+
+```text
+raw text / image / dictionary → numerical feature vector → model
+```
+
+For text, this often means converting words into counts, TF-IDF values, or embeddings.
+
+## Simple example
+
+Suppose we want to classify emails as spam or not spam.
+
+Raw text:
+
+```text
+Win money now
+```
+
+A simple Bag-of-Words extractor might create features like:
+
+```text
+win: 1
+money: 1
+now: 1
+meeting: 0
+invoice: 0
+```
+
+Now the model can learn from the numbers.
+
+## Key terms
+
+- **Feature extraction**: creating numerical features from raw data.
+- **Vectorization**: converting data into vectors.
+- **Bag-of-Words**: represents text by word counts, ignoring word order.
+- **TF-IDF**: gives higher weight to terms that are important in a document but not common everywhere.
+- **DictVectorizer**: converts dictionaries of feature values into matrices.
+- **FeatureHasher**: maps features into a fixed number of buckets using hashing.
+- **Sparse matrix**: stores mostly-zero data efficiently.
+- **Hashing trick**: fast feature mapping with possible collisions.
+
+## Why it matters
+
+Most real-world data is not model-ready. Text, categories, logs, events, and metadata need to be transformed before learning can happen.
+
+Good feature extraction can make a simple model effective. Poor feature extraction can hide useful patterns from the model.
+
+## Common approaches
+
+### Dictionary features
+
+Useful when each example is represented as key-value pairs.
+
+Example:
+
+```text
+{"city": "Heilbronn", "rooms": 2, "furnished": true}
+```
+
+### Text features
+
+Common tools:
+
+- token counts;
+- Bag-of-Words;
+- TF-IDF;
+- n-grams;
+- embeddings.
+
+### Hashing features
+
+Useful for very large or streaming feature spaces where storing a full vocabulary is expensive.
+
+Trade-off: hashing is fast, but less interpretable because original feature names may not be recoverable.
+
+## Common beginner mistakes
+
+- Confusing feature extraction with feature selection.
+- Forgetting that Bag-of-Words ignores word order.
+- Creating huge dense matrices instead of sparse matrices.
+- Using hashing without understanding collisions.
+- Fitting text vectorizers on the full dataset before splitting, causing leakage.
+- Treating TF-IDF as always better than simple counts.
+
+## When to use it
+
+Use feature extraction when raw input is not already clean numeric features.
+
+It is especially useful for:
+
+- text classification;
+- search and information retrieval;
+- categorical dictionaries;
+- logs and event data;
+- large sparse feature spaces;
+- natural language processing pipelines.
+
+## Mental model
+
+Feature extraction is translation. It translates messy real-world information into numbers a model can understand.
+
+## Related notes
+
+- [Feature Selection](feature-selection-scikit-learn-user-guide.md)
+- [Categorical Data](working-with-categorical-data-google-ml-crash-course.md)
+- [Preprocessing Data](preprocessing-data-scikit-learn.md)
+- [Embeddings](embeddings-ml-crash-course.md)
+
+## Source
+
+Original source: https://scikit-learn.org/stable/modules/feature_extraction.html
