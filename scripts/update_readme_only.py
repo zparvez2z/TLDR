@@ -18,6 +18,17 @@ def title_from_stem(stem):
     return stem.replace('-', ' ').title()
 
 
+def title_from_markdown(path):
+    """Prefer the first Markdown H1 title; fall back to the filename."""
+    try:
+        for line in path.read_text(encoding='utf-8').splitlines():
+            if line.startswith('# '):
+                return line[2:].strip()
+    except Exception:
+        pass
+    return title_from_stem(path.stem)
+
+
 def collect_entries(knowledge_dir):
     categories = {}
     all_entries = []
@@ -29,10 +40,14 @@ def collect_entries(knowledge_dir):
         files = sorted(cat_dir.glob('*.md'))
         entries = []
         for f in files:
+            # Category README files are navigation pages, not knowledge notes.
+            if f.name.lower() == 'readme.md':
+                continue
+
             rel_path = f.relative_to('.')
             date_value = None
             try:
-                text = f.read_text()
+                text = f.read_text(encoding='utf-8')
                 if 'date:' in text:
                     for line in text.splitlines():
                         if line.startswith('date:'):
@@ -44,8 +59,8 @@ def collect_entries(knowledge_dir):
             parsed_date = parse_date(date_value)
             entry = {
                 'category': cat_dir.name,
-                'title': title_from_stem(f.stem),
-                'path': rel_path,
+                'title': title_from_markdown(f),
+                'path': rel_path.as_posix(),
                 'date': date_value or '',
                 'parsed_date': parsed_date,
             }
@@ -56,6 +71,7 @@ def collect_entries(knowledge_dir):
         categories[cat_dir.name] = entries
 
     return categories, all_entries
+
 
 def update_readme():
     knowledge_dir = pathlib.Path('knowledge')
@@ -101,10 +117,9 @@ def update_readme():
         auto_lines.append("\n</details>\n\n")
     auto_lines.append('<!-- TLDR-AUTO-END -->\n')
 
-    # Read the current README
     readme_path = pathlib.Path('README.md')
     if readme_path.exists():
-        with open(readme_path, 'r') as f:
+        with open(readme_path, 'r', encoding='utf-8') as f:
             content = f.read()
     else:
         content = ''
@@ -117,20 +132,19 @@ def update_readme():
     auto_content = ''.join(auto_lines)
 
     if start_idx != -1 and end_idx != -1:
-        # Replace only the auto section
         before = content[:start_idx]
         after = content[end_idx + len(end_marker):]
         new_content = before + auto_content + after
     else:
-        # Markers not found, append auto section at end
         if content and not content.endswith('\n'):
             content += '\n'
         new_content = content + auto_content
 
-    with open('README.md', 'w') as f:
+    with open('README.md', 'w', encoding='utf-8') as f:
         f.write(new_content)
-    
+
     print("README updated successfully!")
+
 
 if __name__ == "__main__":
     update_readme()
