@@ -2,6 +2,10 @@
 source_url: https://developers.google.com/machine-learning/crash-course/overfitting
 author: Google Developers
 date: 03-12-2025
+source_last_updated: 2025-12-03
+verified_against_source: true
+verified_date: 2026-08-22
+verification_scope: Checked against the original Google Developers page; examples are simplified for personal learning.
 difficulty: Beginner
 tags: [machine-learning, overfitting, generalization, datasets, validation]
 ---
@@ -12,7 +16,7 @@ tags: [machine-learning, overfitting, generalization, datasets, validation]
 
 A model is useful only if it performs well on new data, not just on the data it saw during training. Overfitting happens when a model memorizes training data too closely and fails to generalize.
 
-This note explains why data quality, dataset splitting, validation, and loss curves matter.
+This note explains why data quality, dataset splitting, validation, regularization, early stopping, and loss curves matter.
 
 ## Core idea
 
@@ -50,6 +54,7 @@ It should not simply memorize individual examples.
 - **Test set**: data used for final evaluation.
 - **Data leakage**: when information from validation/test data accidentally influences training.
 - **Loss curve**: a plot showing how loss changes during training.
+- **Regularization**: reducing overfitting by controlling model complexity.
 
 ## Why it matters
 
@@ -63,10 +68,10 @@ Common methods:
 
 - use more representative data;
 - clean unreliable or incorrect data;
-- split data correctly;
+- split data correctly into training, validation, and test sets;
 - reduce model complexity;
 - use regularization;
-- stop training earlier;
+- use early stopping;
 - avoid data leakage;
 - evaluate with the right metric.
 
@@ -94,6 +99,12 @@ Before trusting a model, check:
 ## Mental model
 
 Training is like practicing with example questions. Generalization is whether you can solve new questions on the exam. Overfitting is memorizing the practice answers without understanding the topic.
+
+## Verification notes
+
+- Verified against the original Google Developers Datasets, Generalization, and Overfitting page on 2026-08-22.
+- Source confirms data quality importance, dataset construction, feature engineering, unreliable data, direct vs derived labels, training/validation/test splits, overfitting, regularization, early stopping, and loss-curve interpretation.
+- The apartment-rent example is adapted for personal learning.
 
 ## Related notes
 
