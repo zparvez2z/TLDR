@@ -2,6 +2,10 @@
 source_url: https://developers.google.com/machine-learning/intro-to-ml
 author: Google Developers
 date: 25-08-2025
+source_last_updated: 2025-08-25
+verified_against_source: true
+verified_date: 2026-08-22
+verification_scope: Checked against the original Google Developers page; examples are simplified for personal learning.
 difficulty: Beginner
 tags: [machine-learning, fundamentals, supervised-learning, features, labels]
 ---
@@ -105,6 +109,12 @@ Machine learning may not be a good choice when:
 - there is not enough data;
 - the cost of wrong predictions is too high without human review;
 - the data does not represent the real problem.
+
+## Verification notes
+
+- Verified against the original Google Developers Introduction to Machine Learning page on 2026-08-22.
+- Source confirms that the course introduces ML concepts, does not cover implementation or data handling, and focuses on ML types, supervised ML concepts, and how ML problem solving differs from traditional approaches.
+- The apartment-rent example is adapted for personal learning.
 
 ## Related notes
 
