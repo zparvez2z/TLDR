@@ -14,6 +14,8 @@ Each note includes a short summary, key takeaways, and a link back to the origin
 
 Use the dashboard below to explore topics by category or open the latest additions.
 
+For a guided Machine Learning path, start with [Machine Learning Learning Path](knowledge/Machine-Learning/README.md).
+
 For setup, automation, maintenance, and troubleshooting details, see [OPERATIONS.md](OPERATIONS.md).
 
 <!-- TLDR-AUTO-START -->
@@ -22,19 +24,19 @@ For setup, automation, maintenance, and troubleshooting details, see [OPERATIONS
 | --- | ---: | --- | --- |
 | IT-Security | 1 | [Seven Security Considerations Cloud Laboratory Analytics](knowledge/IT-Security/seven-security-considerations-cloud-laboratory-analytics.md) | [IT-Security](#browse-by-category) |
 | Information-Science | 5 | [Resource2Skill Skill Wiki Creative Software](knowledge/Information-Science/resource2skill-skill-wiki-creative-software.md) | [Information-Science](#browse-by-category) |
-| Machine-Learning | 43 | [Scikit Learn Feature Extraction](knowledge/Machine-Learning/scikit-learn-feature-extraction.md) | [Machine-Learning](#browse-by-category) |
+| Machine-Learning | 43 | [Feature Extraction](knowledge/Machine-Learning/scikit-learn-feature-extraction.md) | [Machine-Learning](#browse-by-category) |
 | Software-Engineering | 11 | [Harness Handbook Evolving Agent Harnesses](knowledge/Software-Engineering/harness-handbook-evolving-agent-harnesses.md) | [Software-Engineering](#browse-by-category) |
 | System-Design | 21 | [What Is An Api Gateway](knowledge/System-Design/what-is-an-api-gateway.md) | [System-Design](#browse-by-category) |
 
 ## Recent additions
 - [What Is An Api Gateway](knowledge/System-Design/what-is-an-api-gateway.md) · System-Design — 30-07-2026
-- [Scikit Learn Feature Extraction](knowledge/Machine-Learning/scikit-learn-feature-extraction.md) · Machine-Learning — 30-07-2026
+- [Feature Extraction](knowledge/Machine-Learning/scikit-learn-feature-extraction.md) · Machine-Learning — 30-07-2026
 - [What Is Serverless Computing Explained Aws](knowledge/System-Design/what-is-serverless-computing-explained-aws.md) · System-Design — 29-07-2026
-- [Feature Selection Scikit Learn User Guide](knowledge/Machine-Learning/feature-selection-scikit-learn-user-guide.md) · Machine-Learning — 29-07-2026
-- [Preprocessing Data Scikit Learn](knowledge/Machine-Learning/preprocessing-data-scikit-learn.md) · Machine-Learning — 28-07-2026
+- [Feature Selection](knowledge/Machine-Learning/feature-selection-scikit-learn-user-guide.md) · Machine-Learning — 29-07-2026
+- [Preprocessing Data](knowledge/Machine-Learning/preprocessing-data-scikit-learn.md) · Machine-Learning — 28-07-2026
 - [Event Driven Architecture Eda Explained Aws](knowledge/System-Design/event-driven-architecture-eda-explained-aws.md) · System-Design — 28-07-2026
 - [What Is Pub Sub Messaging Aws Explained](knowledge/System-Design/what-is-pub-sub-messaging-aws-explained.md) · System-Design — 27-07-2026
-- [Scikit Learn Metrics And Scoring](knowledge/Machine-Learning/scikit-learn-metrics-and-scoring.md) · Machine-Learning — 27-07-2026
+- [Metrics and Scoring](knowledge/Machine-Learning/scikit-learn-metrics-and-scoring.md) · Machine-Learning — 27-07-2026
 
 ## Browse by category
 <details>
@@ -58,40 +60,40 @@ For setup, automation, maintenance, and troubleshooting details, see [OPERATIONS
 <details>
 <summary>Machine-Learning (43)</summary>
 
-- [Scikit Learn Feature Extraction](knowledge/Machine-Learning/scikit-learn-feature-extraction.md) — 30-07-2026
-- [Feature Selection Scikit Learn User Guide](knowledge/Machine-Learning/feature-selection-scikit-learn-user-guide.md) — 29-07-2026
-- [Preprocessing Data Scikit Learn](knowledge/Machine-Learning/preprocessing-data-scikit-learn.md) — 28-07-2026
-- [Scikit Learn Metrics And Scoring](knowledge/Machine-Learning/scikit-learn-metrics-and-scoring.md) — 27-07-2026
-- [Model Selection And Evaluation In Scikit Learn](knowledge/Machine-Learning/model-selection-and-evaluation-in-scikit-learn.md) — 26-07-2026
+- [Feature Extraction](knowledge/Machine-Learning/scikit-learn-feature-extraction.md) — 30-07-2026
+- [Feature Selection](knowledge/Machine-Learning/feature-selection-scikit-learn-user-guide.md) — 29-07-2026
+- [Preprocessing Data](knowledge/Machine-Learning/preprocessing-data-scikit-learn.md) — 28-07-2026
+- [Metrics and Scoring](knowledge/Machine-Learning/scikit-learn-metrics-and-scoring.md) — 27-07-2026
+- [Model Selection and Evaluation](knowledge/Machine-Learning/model-selection-and-evaluation-in-scikit-learn.md) — 26-07-2026
 - [Categorical Data Feature Crosses](knowledge/Machine-Learning/categorical-data-feature-crosses.md) — 24-07-2026
 - [Muse Autoskill Self Evolving Agents Skill Lifecycle](knowledge/Machine-Learning/muse-autoskill-self-evolving-agents-skill-lifecycle.md) — 21-07-2026
 - [Getting Started With Scikit Learn](knowledge/Machine-Learning/getting-started-with-scikit-learn.md) — 21-07-2026
 - [Ml Fairness Crash Course Module](knowledge/Machine-Learning/ml-fairness-crash-course-module.md) — 20-07-2026
-- [Introduction To Large Language Models](knowledge/Machine-Learning/introduction-to-large-language-models.md) — 17-07-2026
-- [Neural Networks Google Ml Crash Course](knowledge/Machine-Learning/neural-networks-google-ml-crash-course.md) — 15-07-2026
+- [Introduction to Large Language Models](knowledge/Machine-Learning/introduction-to-large-language-models.md) — 17-07-2026
+- [Neural Networks](knowledge/Machine-Learning/neural-networks-google-ml-crash-course.md) — 15-07-2026
 - [Incoder 32B Code Foundation Model For Industrial Scenarios](knowledge/Machine-Learning/incoder-32b-code-foundation-model-for-industrial-scenarios.md) — 11-07-2026
 - [Grandcode Agentic Rl Competitive Programming](knowledge/Machine-Learning/grandcode-agentic-rl-competitive-programming.md) — 11-07-2026
 - [Adams Law Textual Frequency Llms](knowledge/Machine-Learning/adams-law-textual-frequency-llms.md) — 11-07-2026
-- [Machine Learning Crash Course Google Developers](knowledge/Machine-Learning/machine-learning-crash-course-google-developers.md) — 07-07-2026
+- [Machine Learning Crash Course Roadmap](knowledge/Machine-Learning/machine-learning-crash-course-google-developers.md) — 07-07-2026
 - [Large Scale Study Multi Agent Ai Systems](knowledge/Machine-Learning/large-scale-study-multi-agent-ai-systems.md) — 04-05-2026
 - [Conformal Language Modeling](knowledge/Machine-Learning/conformal-language-modeling.md) — 04-05-2026
 - [Step Level Optimization Efficient Computer Use Agents](knowledge/Machine-Learning/step-level-optimization-efficient-computer-use-agents.md) — 03-05-2026
 - [Skillclaw Collective Skill Evolution Agentic Evolver](knowledge/Machine-Learning/skillclaw-collective-skill-evolution-agentic-evolver.md) — 03-05-2026
 - [Towards Uncertainty Aware Language Agent](knowledge/Machine-Learning/towards-uncertainty-aware-language-agent.md) — 02-05-2026
 - [Heterogeneous Scientific Foundation Model Collaboration](knowledge/Machine-Learning/heterogeneous-scientific-foundation-model-collaboration.md) — 02-05-2026
-- [Overfitting L2 Regularization](knowledge/Machine-Learning/overfitting-l2-regularization.md) — 09-04-2026
-- [Linear Regression Google Ml Crash Course](knowledge/Machine-Learning/linear-regression-google-ml-crash-course.md) — 09-12-2025
+- [Regularization](knowledge/Machine-Learning/overfitting-l2-regularization.md) — 09-04-2026
+- [Linear Regression](knowledge/Machine-Learning/linear-regression-google-ml-crash-course.md) — 09-12-2025
 - [Dividing Datasets Into Training Validation And Test Sets](knowledge/Machine-Learning/dividing-datasets-into-training-validation-and-test-sets.md) — 03-12-2025
-- [Datasets Generalization And Overfitting Ml Crash Course](knowledge/Machine-Learning/datasets-generalization-and-overfitting-ml-crash-course.md) — 03-12-2025
+- [Overfitting and Generalization](knowledge/Machine-Learning/datasets-generalization-and-overfitting-ml-crash-course.md) — 03-12-2025
 - [Inside Nvidia Gpus High Performance Matmul Kernels](knowledge/Machine-Learning/inside-nvidia-gpus-high-performance-matmul-kernels.md) — 29-09-2025
-- [Working With Numerical Data Google Ml Crash Course](knowledge/Machine-Learning/working-with-numerical-data-google-ml-crash-course.md) — 25-08-2025
-- [Working With Categorical Data Google Ml Crash Course](knowledge/Machine-Learning/working-with-categorical-data-google-ml-crash-course.md) — 25-08-2025
+- [Working with Numerical Data](knowledge/Machine-Learning/working-with-numerical-data-google-ml-crash-course.md) — 25-08-2025
+- [Working with Categorical Data](knowledge/Machine-Learning/working-with-categorical-data-google-ml-crash-course.md) — 25-08-2025
 - [Recommendation Systems Introduction Google Developers](knowledge/Machine-Learning/recommendation-systems-introduction-google-developers.md) — 25-08-2025
 - [Production Ml Systems](knowledge/Machine-Learning/production-ml-systems.md) — 25-08-2025
-- [Logistic Regression Google Ml Crash Course](knowledge/Machine-Learning/logistic-regression-google-ml-crash-course.md) — 25-08-2025
-- [Introduction To Machine Learning Google For Developers](knowledge/Machine-Learning/introduction-to-machine-learning-google-for-developers.md) — 25-08-2025
-- [Embeddings Ml Crash Course](knowledge/Machine-Learning/embeddings-ml-crash-course.md) — 25-08-2025
-- [Classification Binary Thresholds And Metrics](knowledge/Machine-Learning/classification-binary-thresholds-and-metrics.md) — 25-08-2025
+- [Logistic Regression](knowledge/Machine-Learning/logistic-regression-google-ml-crash-course.md) — 25-08-2025
+- [Introduction to Machine Learning](knowledge/Machine-Learning/introduction-to-machine-learning-google-for-developers.md) — 25-08-2025
+- [Embeddings](knowledge/Machine-Learning/embeddings-ml-crash-course.md) — 25-08-2025
+- [Classification](knowledge/Machine-Learning/classification-binary-thresholds-and-metrics.md) — 25-08-2025
 - [Automated Machine Learning Automl](knowledge/Machine-Learning/automated-machine-learning-automl.md) — 25-08-2025
 - [Neurosym Biocat Biomedical Document Categorization](knowledge/Machine-Learning/neurosym-biocat-biomedical-document-categorization.md) — 04-08-2025
 - [Survey Of Context Engineering For Llms](knowledge/Machine-Learning/survey-of-context-engineering-for-llms.md) — 21-07-2025
@@ -149,63 +151,3 @@ For setup, automation, maintenance, and troubleshooting details, see [OPERATIONS
 </details>
 
 <!-- TLDR-AUTO-END -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
