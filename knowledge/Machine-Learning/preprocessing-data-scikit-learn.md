@@ -1,19 +1,114 @@
 ---
 source_url: https://scikit-learn.org/stable/modules/preprocessing.html
-author: Unknown
+author: scikit-learn Developers
 date: 28-07-2026
+difficulty: Intermediate
+tags: [machine-learning, preprocessing, scaling, normalization, pipeline, data-preparation]
 ---
 
-# 8.3. Preprocessing data — scikit-learn 1.9.0 documentation
+# Preprocessing Data
 
-The scikit-learn preprocessing module provides utilities and transformers to convert raw feature vectors into forms better suited for machine learning estimators. It emphasizes feature scaling and standardization, offering methods tailored for dense, sparse, and outlier-prone data. The guide also covers normalization, kernel matrix centering, and various feature engineering transforms, all following the fit/transform API for seamless use in Pipelines. Practical notes and examples highlight when and how to use each scaler or transformer, and common pitfalls such as centering sparse data.
-- Standardization with StandardScaler (optionally disabling centering or scaling) to promote stable learning for many estimators.
-- Scaling to fixed ranges using MinMaxScaler and unit-max scaling with MaxAbsScaler, particularly useful for sparse or zero-centered data.
-- Guidance for sparse inputs: avoid centering; use MaxAbsScaler or StandardScaler with with_mean=false; RobustScaler can transform (not fit) on sparse data.
-- RobustScaler for datasets with outliers; consider PCA with whiten=True to reduce feature correlation.
-- KernelCenterer to center Gram/kernel matrices without explicit feature mapping, preserving kernel algebra.
-- Normalization and non-linear transforms (e.g., QuantileTransformer, PowerTransformer, FunctionTransformer) to address skewed distributions.
-- Feature engineering tools such as KBinsDiscretizer, PolynomialFeatures, and SplineTransformer for discretization and interaction terms.
-- Categorical encoding options (e.g., OneHotEncoder, OrdinalEncoder, LabelEncoder) compatible with the Pipeline API.
-- Fit on training data and apply the same learned transformation to test data; inspect transformer attributes to understand learned parameters.
-- Avoid breaking sparsity and excessive memory usage by choosing appropriate scalers and sparse matrix formats (CSR/CSC).
+## TL;DR
+
+Preprocessing turns raw data into a form that models can learn from more effectively. It includes scaling, standardization, normalization, encoding, binning, missing-value handling, and feature transformations.
+
+Good preprocessing must be learned from training data only, then applied consistently to validation, test, and future data.
+
+## Core idea
+
+Raw features often have different scales, formats, distributions, or meanings. Preprocessing makes them more usable.
+
+```text
+raw data → fitted transformer on training data → transformed data → model
+```
+
+The important rule:
+
+```text
+fit preprocessing on training data only
+apply the same transformation to validation/test/new data
+```
+
+## Simple example
+
+Suppose we predict apartment rent.
+
+Raw features:
+
+- size in square meters
+- distance in kilometers
+- building age
+- city
+- furnished/unfurnished
+
+Preprocessing may include:
+
+- scaling numerical features;
+- encoding city as categorical data;
+- filling missing building age;
+- creating useful features such as distance bands;
+- keeping the same transformation inside a pipeline.
+
+## Key terms
+
+- **Standardization**: transforms values to have roughly zero mean and unit variance.
+- **Min-max scaling**: scales values into a fixed range.
+- **Robust scaling**: scaling method less sensitive to outliers.
+- **Normalization**: rescales individual samples, often to unit length.
+- **Transformer**: an object that learns a transformation and applies it.
+- **Pipeline**: connects preprocessing and modeling steps safely.
+- **Data leakage**: when validation/test information influences training.
+
+## Why it matters
+
+Many algorithms are sensitive to feature scale. A feature measured in euros may dominate a feature measured from 0 to 1, even if it is not more important.
+
+Preprocessing also prevents accidental leakage. For example, if you calculate scaling values using the full dataset before splitting, the model indirectly sees information from validation/test data.
+
+## Common preprocessing tasks
+
+- scale numeric features;
+- encode categorical features;
+- handle missing values;
+- transform skewed distributions;
+- create polynomial or interaction features;
+- bin continuous values;
+- preserve sparse matrices when needed;
+- combine preprocessing with a model in a pipeline.
+
+## Common beginner mistakes
+
+- Fitting scalers before splitting the data.
+- Applying different transformations to train and test data.
+- Centering sparse matrices and accidentally using too much memory.
+- Scaling labels when only features should be scaled.
+- Forgetting that tree-based models often need less scaling than linear models or neural networks.
+- Treating preprocessing as a minor detail when it can strongly affect performance.
+
+## When to use it
+
+Use preprocessing whenever raw data is messy, differently scaled, categorical, sparse, skewed, incomplete, or not directly model-ready.
+
+It is especially important for:
+
+- linear models;
+- logistic regression;
+- SVMs;
+- neural networks;
+- distance-based models such as k-nearest neighbors;
+- pipelines used in production.
+
+## Mental model
+
+Preprocessing is the bridge between real-world messy data and model-ready input. The model can only learn from the data representation you give it.
+
+## Related notes
+
+- [Numerical Data](working-with-numerical-data-google-ml-crash-course.md)
+- [Categorical Data](working-with-categorical-data-google-ml-crash-course.md)
+- [Feature Extraction](scikit-learn-feature-extraction.md)
+- [Model Selection](model-selection-and-evaluation-in-scikit-learn.md)
+
+## Source
+
+Original source: https://scikit-learn.org/stable/modules/preprocessing.html
