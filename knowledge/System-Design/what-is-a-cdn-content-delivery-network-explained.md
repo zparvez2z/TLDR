@@ -1,17 +1,120 @@
 ---
 source_url: https://aws.amazon.com/what-is/cdn/
-author: Unknown
+author: Amazon Web Services
 date: 20-07-2026
+source_type: learning_article
+verified_against_source: true
+verified_date: 2026-08-23
+verification_scope: Checked against the original AWS article; this note summarizes CDN purpose, latency reduction, edge servers, caching, static and dynamic content handling, availability, security, and CloudFront.
+difficulty: Beginner
+tags: [system-design, cdn, caching, edge-computing, latency, web-performance]
 ---
 
-# What is a CDN? - Content Delivery Network Explained - AWS x facebook linkedin instagram twitch youtube podcasts email California Consumer Privacy Act (CCPA) Opt-Out Icon
+# What Is a CDN?
 
-A content delivery network (CDN) is a globally distributed system of interconnected edge servers that caches and delivers web content closer to users to reduce latency and improve performance. The article explains why CDNs matter, detailing benefits like faster page loads, lower bandwidth costs, higher availability, and stronger security. It outlines CDN evolution across three generations, the types of content served (static vs dynamic), and how CDNs work via points of presence using caching, dynamic acceleration, and edge logic. Practical use cases highlight high-speed content delivery, real-time streaming, and massive multi-user scaling, with Amazon CloudFront cited as AWS’s CDN service.
-- CDNs reduce latency by placing intermediary edge servers between clients and origin servers, cutting round trips and bandwidth usage.
-- Key benefits: faster page loads, reduced hosting/bandwidth costs via caching, improved availability and scalability, and DDoS mitigation.
-- Evolution: 1st gen focused on traffic management and replication; 2nd gen addressed streaming and mobile with cloud/P2P; 3rd gen emphasizes edge computing and autonomous edge networks.
-- Content types: static content is ideal for caching; dynamic content is accelerated via optimized, persistent connections rather than caching.
-- How it works: globally distributed points of presence leverage caching, dynamic acceleration, and edge logic to inspect requests, optimize content, and offload origin compute.
-- Use cases: global content delivery (e.g., Reuters), real-time streaming at scale (e.g., Hulu), and massive concurrent user support (e.g., King games).
-- CDNs enhance user experience by handling traffic spikes and hardware failures, routing intelligently, and serving content from nearby locations.
-- Amazon CloudFront is AWS’s CDN service, often used with Amazon S3 for scalable, secure, and cost-effective delivery.
+## TL;DR
+
+A CDN, or content delivery network, is a distributed network of edge servers that delivers content from locations closer to users.
+
+The main goal is to reduce latency, improve performance, reduce origin load, and increase availability.
+
+## Core idea
+
+Without a CDN:
+
+```text
+user far away → origin server
+```
+
+With a CDN:
+
+```text
+user → nearby CDN edge server → origin only when needed
+```
+
+The edge server can serve cached content, so the request does not always need to travel all the way to the origin.
+
+## Why CDNs matter
+
+AWS explains that CDNs help because Internet users and origin servers may be far apart. Long physical distance and many network hops increase delay.
+
+A CDN can:
+
+- reduce page load time;
+- reduce bandwidth usage at the origin;
+- improve user experience;
+- handle traffic spikes;
+- improve availability;
+- help absorb DDoS traffic by distributing load.
+
+## Static vs dynamic content
+
+### Static content
+
+Static content does not change often and is ideal for caching.
+
+Examples:
+
+- images;
+- CSS files;
+- JavaScript files;
+- fonts;
+- videos;
+- logos.
+
+### Dynamic content
+
+Dynamic content may change per user or request.
+
+Examples:
+
+- personalized recommendations;
+- account pages;
+- real-time dashboards;
+- shopping carts.
+
+A CDN may not cache all dynamic content, but it can still improve delivery through optimized routes, persistent connections, and edge logic.
+
+## How a CDN works
+
+A CDN uses geographically distributed points of presence, often called POPs.
+
+Each POP contains edge servers.
+
+The CDN can use:
+
+- **caching**: storing copies of content near users;
+- **dynamic acceleration**: optimizing routes and connections;
+- **edge logic**: running some request handling closer to the user.
+
+## CDN vs load balancer
+
+A CDN and a load balancer are related but not the same.
+
+- A **load balancer** distributes traffic across backend servers.
+- A **CDN** distributes content closer to users and reduces origin traffic.
+
+Many large systems use both.
+
+## Common beginner mistakes
+
+- Thinking a CDN only stores images.
+- Caching private or personalized content incorrectly.
+- Forgetting cache invalidation and TTL rules.
+- Assuming a CDN removes the need for backend scaling.
+- Not designing fallback behavior if the origin or CDN has issues.
+
+## Mental model
+
+A CDN is like placing copies of popular content in many local libraries instead of making every user travel to one central library.
+
+## Related notes
+
+- [Caching](what-is-caching-and-how-it-works-aws.md)
+- [Load Balancing](what-is-load-balancing-how-load-balancers-work.md)
+- [Latency vs Throughput](latency-vs-throughput-system-design-primer.md)
+- [DNS](what-is-dns-and-how-it-works.md)
+
+## Source
+
+Original source: https://aws.amazon.com/what-is/cdn/
