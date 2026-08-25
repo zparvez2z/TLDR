@@ -48,3 +48,5 @@ https://scikit-learn.org/stable/modules/feature_selection.html
 https://aws.amazon.com/what-is/serverless-computing/
 https://scikit-learn.org/stable/modules/feature_extraction.html
 https://www.cloudflare.com/learning/security/api/what-is-an-api-gateway/
+https://scikit-learn.org/stable/modules/unsupervised_reduction.html
+https://www.cloudflare.com/learning/cdn/what-is-caching/
