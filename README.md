@@ -26,19 +26,19 @@ For setup, automation, maintenance, and troubleshooting details, see [OPERATIONS
 | --- | ---: | --- | --- |
 | IT-Security | 1 | [Seven security considerations when implementing cloud-based laboratory analytics](knowledge/IT-Security/seven-security-considerations-cloud-laboratory-analytics.md) | [IT-Security](#browse-by-category) |
 | Information-Science | 5 | [1 Resource2Skill distills multimodal resources into a hierarchical Skill Wiki across seven creative software domains.](knowledge/Information-Science/resource2skill-skill-wiki-creative-software.md) | [Information-Science](#browse-by-category) |
-| Machine-Learning | 42 | [Feature Extraction](knowledge/Machine-Learning/scikit-learn-feature-extraction.md) | [Machine-Learning](#browse-by-category) |
+| Machine-Learning | 43 | [Unsupervised Dimensionality Reduction](knowledge/Machine-Learning/unsupervised-dimensionality-reduction-scikit-learn.md) | [Machine-Learning](#browse-by-category) |
 | Software-Engineering | 11 | [Harness Handbook: Making Evolving Agent Harnesses Readable, Navigable, and Editable](knowledge/Software-Engineering/harness-handbook-evolving-agent-harnesses.md) | [Software-Engineering](#browse-by-category) |
-| System-Design | 21 | [What Is an API Gateway?](knowledge/System-Design/what-is-an-api-gateway.md) | [System-Design](#browse-by-category) |
+| System-Design | 22 | [Caching: Browser and CDN Caches](knowledge/System-Design/caching-browser-cdn-cloudflare.md) | [System-Design](#browse-by-category) |
 
 ## Recent additions
+- [Unsupervised Dimensionality Reduction](knowledge/Machine-Learning/unsupervised-dimensionality-reduction-scikit-learn.md) · Machine-Learning — 25-08-2026
+- [Caching: Browser and CDN Caches](knowledge/System-Design/caching-browser-cdn-cloudflare.md) · System-Design — 25-08-2026
 - [What Is an API Gateway?](knowledge/System-Design/what-is-an-api-gateway.md) · System-Design — 30-07-2026
 - [Feature Extraction](knowledge/Machine-Learning/scikit-learn-feature-extraction.md) · Machine-Learning — 30-07-2026
 - [What Is Serverless Computing?](knowledge/System-Design/what-is-serverless-computing-explained-aws.md) · System-Design — 29-07-2026
 - [Feature Selection](knowledge/Machine-Learning/feature-selection-scikit-learn-user-guide.md) · Machine-Learning — 29-07-2026
 - [Preprocessing Data](knowledge/Machine-Learning/preprocessing-data-scikit-learn.md) · Machine-Learning — 28-07-2026
 - [Event-Driven Architecture](knowledge/System-Design/event-driven-architecture-eda-explained-aws.md) · System-Design — 28-07-2026
-- [What Is Pub/Sub Messaging?](knowledge/System-Design/what-is-pub-sub-messaging-aws-explained.md) · System-Design — 27-07-2026
-- [Metrics and Scoring](knowledge/Machine-Learning/scikit-learn-metrics-and-scoring.md) · Machine-Learning — 27-07-2026
 
 ## Browse by category
 <details>
@@ -60,8 +60,9 @@ For setup, automation, maintenance, and troubleshooting details, see [OPERATIONS
 </details>
 
 <details>
-<summary>Machine-Learning (42)</summary>
+<summary>Machine-Learning (43)</summary>
 
+- [Unsupervised Dimensionality Reduction](knowledge/Machine-Learning/unsupervised-dimensionality-reduction-scikit-learn.md) — 25-08-2026
 - [Feature Extraction](knowledge/Machine-Learning/scikit-learn-feature-extraction.md) — 30-07-2026
 - [Feature Selection](knowledge/Machine-Learning/feature-selection-scikit-learn-user-guide.md) — 29-07-2026
 - [Preprocessing Data](knowledge/Machine-Learning/preprocessing-data-scikit-learn.md) — 28-07-2026
@@ -125,8 +126,9 @@ For setup, automation, maintenance, and troubleshooting details, see [OPERATIONS
 </details>
 
 <details>
-<summary>System-Design (21)</summary>
+<summary>System-Design (22)</summary>
 
+- [Caching: Browser and CDN Caches](knowledge/System-Design/caching-browser-cdn-cloudflare.md) — 25-08-2026
 - [What Is an API Gateway?](knowledge/System-Design/what-is-an-api-gateway.md) — 30-07-2026
 - [What Is Serverless Computing?](knowledge/System-Design/what-is-serverless-computing-explained-aws.md) — 29-07-2026
 - [Event-Driven Architecture](knowledge/System-Design/event-driven-architecture-eda-explained-aws.md) — 28-07-2026
@@ -152,3 +154,4 @@ For setup, automation, maintenance, and troubleshooting details, see [OPERATIONS
 </details>
 
 <!-- TLDR-AUTO-END -->
+
