@@ -1,9 +1,6 @@
 name: Summarize and Categorize Knowledge Links
 
 on:
-  schedule:
-    # Runs daily at 06:00 UTC, which is 08:00 in Germany during summer time.
-    - cron: '0 6 * * *'
   workflow_dispatch:
   push:
     paths:
@@ -26,7 +23,7 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
       - name: Pick daily topics
-        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+        if: github.event_name == 'workflow_dispatch'
         run: python scripts/daily_pick.py
       - name: Snapshot selected queue
         run: cp input/links-to-summarize.md input/run-selected.md
