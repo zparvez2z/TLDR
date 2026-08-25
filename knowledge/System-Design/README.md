@@ -2,7 +2,7 @@
 
 This page is the study guide for the System Design section of TLDR.
 
-The System Design folder now contains **21 source-reviewed notes**. The goal of this page is to make those notes usable as a learning path instead of leaving them as a flat list of files.
+The System Design folder now contains **22 source-reviewed notes**. The goal of this page is to make those notes usable as a learning path instead of leaving them as a flat list of files.
 
 Use this page in two ways:
 
@@ -10,7 +10,7 @@ Use this page in two ways:
 2. Jump to the API, traffic, messaging, or cloud sections if you want to revise a specific area.
 
 ```text
-Current status: 21 System Design notes, 21 source-reviewed, 0 unverified notes
+Current status: 22 System Design notes, 22 source-reviewed, 0 unverified notes
 Last learning-path update: 2026-08-25
 ```
 
@@ -30,8 +30,6 @@ System design is not only memorizing components. It is about explaining why one 
 
 ## Recommended beginner route
 
-This is the best route if you want to learn system design in a clean order:
-
 ```text
 System Design Primer
 → System Design Topics: Start Here
@@ -47,6 +45,7 @@ System Design Primer
 → Load Balancing
 → CDN
 → Caching
+→ Browser and CDN Caches
 → Message Queue
 → Pub/Sub Messaging
 → Event-Driven Architecture
@@ -58,8 +57,6 @@ System Design Primer
 
 ## 1. Start here
 
-These notes explain the overall map and basic vocabulary.
-
 1. [The System Design Primer](system-design-primer.md)  
    Use this as the main map for large-scale system design topics and interview preparation.
 
@@ -69,8 +66,6 @@ These notes explain the overall map and basic vocabulary.
 ---
 
 ## 2. Core system design trade-offs
-
-These notes explain the basic trade-offs behind scalable systems.
 
 3. [Performance vs Scalability](performance-vs-scalability-system-design-primer.md)  
    Learn the difference between making one request faster and handling more total load.
@@ -94,8 +89,6 @@ Performance vs Scalability → Latency vs Throughput → Availability vs Consist
 
 ## 3. Web and network foundations
 
-These notes explain how clients reach services and exchange data.
-
 7. [What Is DNS?](what-is-dns-and-how-it-works.md)  
    Learn how domain names are translated into IP addresses using resolvers, root servers, TLD servers, authoritative nameservers, and caching.
 
@@ -111,8 +104,6 @@ DNS → HTTP
 ---
 
 ## 4. APIs and service entry points
-
-These notes explain how services expose functionality and how clients interact with them.
 
 9. [What Is an API?](what-is-an-api-cloudflare-learning.md)  
    Learn how APIs act as contracts between software systems.
@@ -133,8 +124,6 @@ API → REST API → API Gateway
 
 ## 5. Traffic management and performance
 
-These notes explain how systems handle high traffic and reduce response time.
-
 12. [What Is Load Balancing?](what-is-load-balancing-how-load-balancers-work.md)  
     Learn how traffic is distributed across multiple backend servers to improve reliability and scalability.
 
@@ -147,28 +136,29 @@ These notes explain how systems handle high traffic and reduce response time.
 15. [What Is Caching?](what-is-caching-and-how-it-works-aws.md)  
     Learn cache hits, cache misses, TTLs, cache layers, freshness trade-offs, and common caching mistakes.
 
+16. [Caching: Browser and CDN Caches](caching-browser-cdn-cloudflare.md)  
+    Learn browser caching, CDN caching, cache hits, cache misses, TTL, and DNS caching from Cloudflare's CDN-focused explanation.
+
 Recommended order:
 
 ```text
-Load Balancing → Load Balancing Algorithms → CDN → Caching
+Load Balancing → Load Balancing Algorithms → CDN → Caching → Browser and CDN Caches
 ```
 
 ---
 
 ## 6. Messaging and asynchronous systems
 
-These notes explain how services communicate without waiting for each other directly.
-
-16. [What Is a Message Queue?](what-is-a-message-queue.md)  
+17. [What Is a Message Queue?](what-is-a-message-queue.md)  
     Learn how queues decouple producers and consumers, buffer work, and support background processing.
 
-17. [Amazon SQS: Fully Managed Message Queuing](fully-managed-message-queuing-amazon-sqs.md)  
+18. [Amazon SQS: Fully Managed Message Queuing](fully-managed-message-queuing-amazon-sqs.md)  
     Learn SQS as a managed AWS implementation of the message queue pattern.
 
-18. [What Is Pub/Sub Messaging?](what-is-pub-sub-messaging-aws-explained.md)  
+19. [What Is Pub/Sub Messaging?](what-is-pub-sub-messaging-aws-explained.md)  
     Learn one-to-many messaging with publishers, topics, subscribers, fanout, filtering, and push delivery.
 
-19. [Event-Driven Architecture](event-driven-architecture-eda-explained-aws.md)  
+20. [Event-Driven Architecture](event-driven-architecture-eda-explained-aws.md)  
     Learn how systems communicate through events, producers, routers, and consumers.
 
 Recommended order:
@@ -181,12 +171,10 @@ Message Queue → Amazon SQS → Pub/Sub Messaging → Event-Driven Architecture
 
 ## 7. Cloud architecture
 
-These notes explain higher-level cloud design patterns and review frameworks.
-
-20. [What Is Serverless Computing?](what-is-serverless-computing-explained-aws.md)  
+21. [What Is Serverless Computing?](what-is-serverless-computing-explained-aws.md)  
     Learn managed infrastructure, automatic scaling, pay-for-use billing, FaaS, BaaS, and serverless trade-offs.
 
-21. [AWS Well-Architected Framework](aws-well-architected-framework-overview.md)  
+22. [AWS Well-Architected Framework](aws-well-architected-framework-overview.md)  
     Learn the six pillars: operational excellence, security, reliability, performance efficiency, cost optimization, and sustainability.
 
 Recommended order:
@@ -214,7 +202,7 @@ HTTP → API → REST API → API Gateway → Load Balancing → Caching
 ### Design for high traffic
 
 ```text
-Performance vs Scalability → Latency vs Throughput → Load Balancing → CDN → Caching
+Performance vs Scalability → Latency vs Throughput → Load Balancing → CDN → Caching → Browser and CDN Caches
 ```
 
 ### Design asynchronous microservices
@@ -243,6 +231,7 @@ After reading the notes, you should be able to answer these questions:
 - Why might you put an API Gateway in front of microservices?
 - How does a load balancer improve availability?
 - What problems can caching solve, and what problems can it create?
+- How do browser caches and CDN caches differ?
 - When is a CDN useful?
 - When should you use a queue instead of direct service calls?
 - When should you use pub/sub instead of a queue?
