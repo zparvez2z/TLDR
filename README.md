@@ -16,6 +16,8 @@ Use the dashboard below to explore topics by category or open the latest additio
 
 For a guided Machine Learning path, start with [Machine Learning Learning Path](knowledge/Machine-Learning/README.md).
 
+For a guided System Design path, start with [System Design Learning Path](knowledge/System-Design/README.md).
+
 For setup, automation, maintenance, and troubleshooting details, see [OPERATIONS.md](OPERATIONS.md).
 
 <!-- TLDR-AUTO-START -->
@@ -150,7 +152,3 @@ For setup, automation, maintenance, and troubleshooting details, see [OPERATIONS
 </details>
 
 <!-- TLDR-AUTO-END -->
-
-
-
-
